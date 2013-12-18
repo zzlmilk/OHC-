@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+          <script  type="text/javascript" src="{$PUBLIC}/js/effect.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/search.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/page.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/hospital_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/doctor_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <script>
+            $(document).ready(function(){
+                buttomClick(".moreArea div","moreButtomDown","moreButtomNomal");
+                var WebsitePublic = '{$PUBLIC}';    
+                setpublic(WebsitePublic);
+             
+                //执行排序ajax；
+                $("ul>li>div:first-child").click(function(){
+                    $("ul>li>div:first-child").each(function(){
+                        $(this).find("img").attr('src',"{$PUBLIC}/image/Medical/review/button-off_03.png");
+                    });
+                    $(this).find("img").attr('src',"{$PUBLIC}/image/Medical/review/button-on_03.png");
+                    $("#sortType").val($(this).find(":hidden").val());
+                    var img_state = $(this).find('img').attr('src');
+                    var img_url = '{$PUBLIC}/image/Medical/review/button-on_03.png';
+                    if(img_state == img_url){
+                         sortAjax($(this).find(":hidden").val(),'Medical/sort/search','{$PUBLICJSURL}',3);
+                    }
+                });  
+            })
+        </script>
+        <style>
+            #nameStyle:hover{
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <input type="hidden" value="1" id="sortType"/>
+            <!--             医生列表开始-->
+            <div>
+            </div>
+            <div id="doctor_more_list">
+                <div class="left" style="width: 145px;height: 20px;margin-left: 48px;">
+                    <div style="text-align:left">
+                        <p style=" font-weight:bold; font-size: 18px; margin-top: 36px; margin-bottom: 15px;padding-left: 14px;">Sort By</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-on_03.png"/><input type="hidden" value="1"/></div>
+                            <div class="liFloat listText" style="line-height: 20px;">Number of reviews </div>
+                            <div style="float:left;padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-off_03.png"/><input type="hidden" value="2"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; ">O score </div>
+                            <div style="float:left; padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                    </ul>                   
+                </div>
+                <div class="left" id="doctor_detail_list" style=" margin-left: -18px;">
+                      <include file="./Tpl/Medical/sort/ajaxdoctor_list.html" />
+                </div>
+            </div>
+            <div>
+                <include file="./Tpl/Home/NavAndFoot/footer.html" />
+            </div>
+        </div>
+    </body>
+</html>

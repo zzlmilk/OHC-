@@ -1,0 +1,17 @@
+                      <input id="produce_list_count" type="hidden" value="{$hospital_produce_list|count=###}">
+                      <table id="pro">
+                       <foreach name="hospital_produce_list" item="vo" key="key">
+                          
+                               <td style=" border-left: 1px solid #999798;color:#616161;font-weight: bold">{$vo.procedures_name|strDoctorDefined=###,12}</td><td>{$vo.doctors_frist_name}</td><td>{$vo.doctors_last_name}</td><td>More</td>
+                               <td>
+                                   <span class="rate_div_small" id="rate_sdiv_{$key}"><input id="Level_Scorce_{$key}" type="hidden" value="{$vo.review_level}"/>
+                                    <span rate="1" class="start_main_small startSmall" id="rate_s1" >&nbsp;</span>
+                                    <span rate="2" class=" start_main_small startSmall" id="rate_s2">&nbsp;</span>
+                                    <span rate="3" class="start_main_small startSmall" id="rate_s3">&nbsp;</span>
+                                    <span rate="4" class="start_main_small startSmall" id="rate_s4">&nbsp;</span>
+                                    <span rate="5" class="start_main_small startSmall" id="rate_s5">&nbsp;</span>
+                                </span>
+                               </td>
+                           </tr>
+                      </foreach>
+                      </table>

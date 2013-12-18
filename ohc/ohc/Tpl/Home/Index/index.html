@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/checkword.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/effect.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/login.css" media="all" />      
+        <!--[if lt IE 9]> 
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
+        <![endif]--> 
+
+        <script>
+            $(function() {
+                var WebsitePublic = '{$PUBLIC}';
+                setpublic(WebsitePublic);
+            })
+            //搜索下拉框 变线
+            $(function(){
+                $("#search_type li").click(function(){
+                    $("#search_type").css({"border":"none"});
+                })
+                $("#search_background").click(function(){
+                    $("#search_type").css({"border-right":"solid 1px #848484"});
+                    $("#search_type").css({"border-left":"solid 1px #848484"});
+                    $("#search_type").css({"border-bottom":"solid 1px #848484"});             
+                })
+            })
+           
+        </script>
+    </head>
+    <body >
+        <div  id="bodydiv"  class="bodydiv" style="position: relative;">
+            <include file="./Tpl/Home/NavAndFoot/header.html" />
+            <div id="Theme_background"  style="padding-top: 20px;background:url(public/image/Home/Index/{$images})  no-repeat scroll 0 0 transparent;">
+                <form action="{:U('Medical/index/search')}"  method="post" id="formcode" name="formcode">
+                    <div class="body_search"  id="body_search"  style=" position: relative; ">
+                        <span style=" display: block;width: 680px;  margin-left: 12px; padding-top: 12px; position: relative;">
+                            <input type="hidden" name="searching" id="searching"  value="">
+                                <span  style="float: left; display: block; width: 133px; ">
+                                    <span id="search_background" onclick="list()"style="display: block; font-size:12px; text-align: left; font-size:14px; padding-left:22px;background-repeat:no-repeat; height:36px; line-height: 36px;" class="search_background">
+                                        Doctors
+                                    </span>
+                                    <ul id="search_type" class="search_type" style="display: none;border-top:none; margin-left:0px; width:123px;">
+                                        <li id="type_1" onclick="listAction(1, 'Doctors')">Doctors</li>
+                                        <li id="type_2" onclick="listAction(2, 'Institutions')">Institutions</li>
+                                        <li id="type_3" onclick="listAction(3, 'Procedures')">Procedures</li>
+                                    </ul>
+                                </span>  
+                                <input type="hidden" name="location_type" id="location_type" value="{$search_contion.location_type}" />
+                                <input type="hidden" name="location_code" id="location_code" value="{$search_contion.search_text_location_hidden}" />
+                                <span style="position: relative; left:9px; overflow: hidden; width: 205px; height: 36px; display: block; float: left; "   onkeydown="KeyDown(event,'search')" id="search_text_span"><input type="text" name="search_text"  autocomplete="off" id="search_text" class="search_text"  style="position: relative; color: gray; " placeholder="Doctor name, e.g., John Smith" /></span>
+                                <input type="hidden" name="search_text_id" id="search_text_id"/>
+                                <input type="text" name="search_text_location"  autocomplete="off" id="search_text_location" class="search_text"   onkeydown="KeyDown(event,'search')"  style=" margin-left: 10px; width:177px;width:178px \0\9; width:178px \0; float: left;border-top-right-radius:0px;border-bottom-right-radius:0px; " placeholder="location, e.g., a zip code or city"/>
+
+                                <input name="search_text_location_hidden" id="search_text_location_hidden" type="hidden" value="t"/>
+                                <span style=" width: 55px; height: 35px; display: block; position: absolute;left: 535px; top: 12px;cursor: pointer;left: 537px \0\9;" onclick="ajaxSearch('Home/Ajax/locationcode', '{$PUBLICJSURL}')">
+                                    <img id="img_search" src="{$PUBLIC}/image/Home/Index/search_03.png"width="100%" height="100%"/>
+                                </span>
+                                <ul id="autocomplete_city" class="autocomplete"></ul>
+                                <span id="font_advanced"  style="position: absolute; left:612px;top:26px;font-size: 12px;  color:#525353;cursor: pointer;" onclick="formReset('body_search', 'advanced_search')">
+                                    Advanced
+                                </span>
+                                <div style="clear: both; position: absolute; top: 12px; left: 133px;border-left: 2px solid #D3D3D3; height: 36px; width: 1px; position: absolute;">&nbsp;</div>
+                        </span>
+                    </div>
+                    <!--                    <a id="font_WriteAReview" href="{:U('Home/Index/viewbody')}">viewbody</a>-->
+                    <!--                 高级搜索开始-->
+                    <div id="advanced_search" style="position:relative; ">
+                        <input type="hidden" name="search_advanced_type" id="search_advanced_type" value="0"/>
+                        <div style=" height: 20px;"></div>
+                        <div style=" color: #969696; width: 702px; margin-left: 49px;font-size: 18px; ">Please specify a combination of two or more searching criteria from below:</div>
+                        <div id="advanced_search_div" style="position: relative; height:79px; overflow:hidden;">
+                            <div id="advanced_doctorAndhospital" style=" color: #898D90">
+                                <div   class="left">
+                                    <span class="left advanced_frist" >Doctor</span>
+                                    <span  class="left" style=" position: relative;">
+
+                                        <span  class='searchTextStyle advanced_background'>
+                                            <input  id="doctor_search_text"  onkeydown="KeyDown(event,'advancedsearch')" type="text" name="doctor_search_text"value="" autocomplete="off"  placeholder="Doctor name, e.g., John Smith"  />
+                                        </span>
+                                    </span>
+                                </div>
+
+                                <div  class="left" >
+                                    <span  class="left advanced_seconed" style="">At this institution</span>
+                                    <span  class="left" style=" position: relative;">
+                                        <span class='searchTextStyle advanced_background'>
+                                            <input  id="hospital_search_text"  type="text"  onkeydown="KeyDown(event,'advancedsearch')" name="hospital_search_text" value="" autocomplete="off"  placeholder="Institutions eg John Smith"/>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div style="clear: both; height: 1px;"></div>
+                            <div  id="advanced_procedureAndlocation" style=" position: relative;">
+                                <div  class="left">
+                                    <span  class="left advanced_frist" >Procedure’s </span>
+                                    <span  class="left" style=" position: relative;">
+                                        <span  class='searchTextStyle advanced_background'>
+                                            <input  id="procedure_search_text"  type="text" onkeydown="KeyDown(event,'advancedsearch')" name="procedure_search_text" value="" autocomplete="off"  placeholder="Procedures eg John Smith"/>
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="left">
+                                    <span class="left advanced_seconed" >Location:</span>
+                                    <span class="left" style=" position: relative;" >
+                                        <span  class='searchTextStyle advanced_background'>
+                                            <input id="location_search_text"  type="text" onkeydown="KeyDown(event,'advancedsearch')" name="location_search_text"value="" autocomplete="off"  placeholder="location, e.g., zip code or city" />
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div style="clear: both;"></div>
+                        </div>
+                        <div id="advanced_button_div">
+                            <span id="advanced_button" onclick="advancedAjaxSearch()" style=" margin-left:-26px;">&nbsp;</span>
+                            <span id="font_reset" style=" margin-left: 91px; *margin-top:23px; width: 45px;" onclick="formReset('advanced_search_div', '1')">Reset</span>
+                            <!--                                                        竖线下-->
+                            <span id="font_cancel" style=" text-align: center;width: 92px;margin-left:169px;*margin-left:166px; margin-top:-18px; *margin-top:-18px; border-left: solid 2px #ccc; height: 20px;"  onclick="formReset('advanced_search', 'body_search')">
+                                Cancel 
+                            </span>
+                        </div>
+                        <ul id="autocompleteadvanced_city" class="autocomplete" style=" left:485px; top:115px; *left:470px; "></ul>
+                        <!--                        竖线上-->
+                        <div style=" border-left: 2px solid #ccc;height: 75px; left: 339px;*left: 335px;position: absolute;top: 43px; width: 1px; "></div>
+                    </div>
+                </form>
+            </div>
+            <div  class="error_search" id="search_result" style="  display: none;position: absolute;  font-size: 13px; background-color: white;">
+                <div class="user_login_close"></div>
+                <div>
+                    <p id="search">
+                        Sorry! No Search  results !
+                    </p>
+                </div>
+            </div>
+            <include file="./Tpl/Home/Index/personView.html" />
+            <include file="./Tpl/Home/Index/other.html" />
+            <include file="./Tpl/Home/NavAndFoot/footer.html" />
+        </div>
+    </body>
+</html>

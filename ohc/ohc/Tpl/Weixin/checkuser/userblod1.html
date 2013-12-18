@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta content="initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" name="viewport">
+        <script src="http://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
+        <title></title>
+        <script  type="text/javascript" >
+            var checkform = 0;
+            $(function(){
+                $('input').focus(function(){
+                    $('input').css('box-shadow', '0 1px 4px rgba(0, 0, 0, 0.2) inset');
+                    $(this).css('box-shadow','0 0 4px #387BBE');
+                })
+            })
+            function fleshVerify() {
+                //重载验证码
+                var timenow = new Date().getTime();
+                $("#img").attr("src", "__APP__/Weixin/checkuser/code/" + timenow);
+            }
+            function cardSubmit() {
+                checkform = 0;
+                var submit = new Array('card', 'password', 'Verify');
+                var input_count = 0;
+                var checkFormTemp = 0;
+                for (var i = 0; i < submit.length; i++) {
+                    var input_value = $('#' + submit[i]).val();
+                    if (input_value == '' || input_value == 0) {
+                        $('#' + submit[i]).css('box-shadow', '0 0 4px red');
+                    } else{
+                        input_count++;
+                    }
+                }
+                if(input_count == 3){
+                    checkFormTemp = checkcard();
+                    checkFormTemp = checkVerify();
+                    if(checkFormTemp == 0){
+                        $('#formaccount').submit();
+                    }
+                }
+            }
+            function checkcard(){
+                var card = $('#card').val();
+                $.ajax({
+                    type: 'POST',
+                    async:false,
+                    cache:false,
+                    url: 'http://121.199.43.50/Weixin/checkuser/weixinAccountCheck',
+                    data: "card="+card,
+                    success: function(resp){
+                        if(resp != 0){
+                            checkform = 1; 
+                        } else{
+                            checkform = 0; 
+                        }
+                        alert('该帐号已经绑定');
+                    }
+                });
+                return checkform;
+            }
+            function checkVerify(){
+                var verify = $('#Verify').val();
+                $.ajax({
+                    type: 'POST',
+                    async:false,
+                    cache:false,
+                    url: 'http://121.199.43.50/Weixin/checkuser/checkVerify',
+                    data: "verify="+verify,
+                    success: function(resp){
+                        if(resp != 0){
+                            checkform = 1; 
+                        } else{
+                            checkform = 0; 
+                        }
+                        alert('验证码错误');
+                    }
+                });
+                return checkform;
+            }
+        </script>
+        <style>
+            #blndcontent div span{
+                display: block;
+                float: left;
+                width: 70px;
+                height: 34px;
+                 margin-left: 10px;
+                 text-align: right;
+            }
+            #blndcontent div{
+                padding-top: 2px;
+            }
+            input{
+                outline: none;
+                height: 22px;
+                width: 173px;
+            }
+            .spanfont{
+                line-height: 36px;
+            }
+        </style>
+    </head>
+
+    <body style=" margin: 0; padding: 0; " id="filled_single">
+        <form action="{:U('Weixin/checkuser/AccountSubmit')}"  method="post" id="formaccount" name="formaccount">
+            <input type="hidden" name="weixin_id" id="weixin_id" value="{$weixin_id}" />
+            <div id="content" style=" background-color: #e4edf4; ">
+                <div style="padding-top: 28px; padding-left: 37px;position: relative;">
+                    <img src ="{$PUBLIC}/image/Weixin/logo.png"   style=" width: 10%; height: 10%;" />
+                    <span style="top: 32px;position: absolute; font-family: '华康简标题宋'">江西省农村信用社<span style=' font-family: "华康简黑"'>(农商银行)</span></span>
+                </div>
+                <div style="margin: 0 8px;">
+                    <div style=" background-color: rgb(217, 224, 234); text-align: center; height: 46px;">
+                        <p style="text-align: center; font-size: 20px; color: rgb(82, 82, 83); padding: 10px 0px;font-family:'黑体'">持卡人信息提交</p>
+                    </div>
+                    <div style=" background-color: white;height: 150px;">
+                        <div style="">
+                            <span style="font-size: 22px;">关联方式:</span>
+                            <span style=" font-size: 22px; color: #525253">卡号</span>
+                        </div>   
+                        <div style="font-size: 20px; line-height: 33px;" id="blndcontent">
+                            <div>
+                                <span class="spanfont">卡号:</span>
+                                <span>
+                                    <input type="text" id="card" name="card" value=""  onkeyup="value = value.replace(/[\W]/g, '')">
+                                </span>
+                            </div>
+                            <div style=" clear: both;"></div>
+                            <div>
+                                <span class="spanfont">密码:</span>
+                                <span>
+                                    <input type="password" id="password" name="password" value=""   onkeyup="value = value.replace(/[\W]/g, '')">
+                                </span>
+                            </div>
+                            <div style=" clear: both;"></div>
+                            <div >
+                                <span class="spanfont">验证码:</span>
+                                <span>
+                                    <input type="text" id="Verify" name="Verify" value=""   style=" width:102px;"  onkeyup="value = value.replace(/[\W]/g, '')">
+                                </span>
+                                <span style=" position: relative; top: 6px; left: 28px;">
+                                    <img src='__APP__/Weixin/checkuser/code'  onclick="fleshVerify()" id="img"/>
+                                </span>
+                            </div>
+                            <div style=" clear: both;"></div>
+                        </div>
+                    </div>
+                    <div style="  background-color: #D9E0EA;height: 40px;  text-align: center; line-height: 44px; " onclick="cardSubmit()">
+                        提&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;交
+                    </div>
+                    <div style="height: 10px;"></div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<volist  name="result" id="all" >
+
+    <if condition="$i egt $min AND $i elt $max  ">
+
+        <div class="search_medical_background" style=" position: relative; ">
+            <div style="float: left; width: 93px; height: 105px; position: relative; left: 11px; top: 16px; ">
+                <div class="photo_background"  style=" position: relative;  ">
+                    <img src="{$PUBLIC}/image/Medical/search/default.png"  style=" position: absolute;top:1px;left:24px; ">
+                </div>
+            </div>
+            <div  style=" float: left; margin-top: 22px; margin-left: 13px; color: #9b9c9b;">
+                <div>
+                    <if condition="$search_contion.searching eq 1 "> 
+                        {$all.doctors_name}
+                        <elseif condition="$search_contion.searching eq 2"/>
+                        {$all.hospitals_name}
+                        <else />
+                        {$all.procedures_name}
+                    </if>
+                </div>
+                <span style=" width: 406px; height: 68px; display: block; word-break: break-all; font-size: 16px; line-height: 24px;">
+                    <p>{$all.text|strMax}</p>
+                </span>
+            </div>
+            <div style=" clear:both; width: 200px; margin-left: 20px;">
+                <img src="{$PUBLIC}/image/Medical/search/pointer.gif"  style=" position: relative; top: 4px;">
+                <img src="{$PUBLIC}/image/Medical/search/line.png" style=" position: relative; top: 2px;">
+                <span style=" position: relative; left: 12px; top: 4px; color: #9B9C9B; font-size: 16px; ">{$all.$search_if}</span>
+            </div>
+            <div class="more_back">
+                <p style=" margin-left: 10px;">more result</p>
+            </div>
+        </div>
+    </if>
+</volist>
+<div class="list_main_page">{$page}</div>

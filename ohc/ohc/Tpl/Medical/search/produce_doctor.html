@@ -1,0 +1,49 @@
+                <foreach name="doctor_list" item="vo" key="k">
+                    <div class="procedure_doctor" style="  ">
+                        <div style="margin-top: 10px; ">
+                            <div class="left" style=" color: #949292;  font-weight: bold; margin-left: 30px; margin-top: 10px; ">Doctor name:</div>
+                            <div class="left" style=" margin-left: 4px;margin-top: 10px; color: #a3a3a3;">{$vo.doctors_frist_name}&nbsp;&nbsp;{$vo.doctors_last_name} </div>
+                            <div style=" clear: both; "></div>
+                        </div>
+                        <!--                        医生地点和医院-->
+                        <div class="doctor_lh">
+                            <div id="doctor_location" >
+                                <div class="left" style=" color: #949292;  font-weight: bold; margin-left: 30px; ">Location:</div>
+                                <div class="left">{$vo.city_location}</div>
+
+                            </div>
+                            <div id="doctor_hospital" >
+                                <div class="left" style=" color: #949292;  font-weight: bold; margin-left: 30px; ">Institution:</div>
+                                <div class="left">{$vo.hospitals_name}</div>
+                            </div>
+                        </div>
+                        <div style=" clear: both; "></div>
+                        <!--                          医生review 信息 2条-->
+                        <div id="doctor_review">
+                            <div id="doctor_review_word" >
+                                <div style=" color: #949292;  font-weight: bold; margin-left: 30px; ">Reviews:</div>
+                            </div>
+                            <div class="review_doctor_list" >
+                                <if condition="$doctor_text[$k]['review_count'] neq 0  "> 
+                                    <volist name="doctor_text[$k]['review']" id="vo" >
+                                        <div  style="  width: 555px; margin-left: 30px; color: #a3a3a3; line-height: 22px;">
+                                            <span  class="left" style="display: block; width: 10px; ">{$i}</span>
+                                            <span  class="left" style="display: block; width: 495px; margin-left: 20px;  ">{$vo.commect_review}</span>
+                                        </div>
+                                        <div style="clear:both;"></div>
+                                    </volist>
+                                    <else />
+                                    <div  style="  width: 555px; margin-left: 30px; color: #a3a3a3; line-height: 22px;">暂无review评论</div>
+                                </if>
+                            </div>
+                            <if condition="($thisPage neq 1)and($thisUser neq 1)">
+                            <div class="moreFont"><a style="color:#59595a" href="javascript:void(0)" onclick="searchCustom('1','{$vo.doctors_frist_name} {$vo.doctors_last_name}','{$vo.city_location}','no')">More</a></div>
+                            <else />
+                            <div class="moreFont"><a style="color:#59595a" href="javascript:void(0)" onclick="searchCustom('1','{$vo.doctors_frist_name} {$vo.doctors_last_name}','{$vo.city_location}','')">More</a></div>
+                            </if>
+                        </div>
+                    </div>
+                </foreach> 
+                <div style="margin-top: 20px; clear: both;">
+                    {$doctor_page}
+                </div>

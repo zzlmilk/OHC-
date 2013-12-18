@@ -1,0 +1,275 @@
+/* 
+    Document   : setting
+    Created on : 2013-4-15, 14:42:04
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+#setting_li ul li{
+    color: #696969;
+    height: 34px;
+    width: 100px;
+    font-size: 14px;
+}
+#setting_li ul li a:visited{
+    color: #696969;
+}
+#setting_li ul{
+    margin-left: 30px;
+    width: 100px;
+    margin-top: 25px;
+}
+#setting_body{
+    color: black;
+    font-size: 13px;
+}
+.setting_text{
+    width: 240px;height:28px;   *line-height:28px;line-height:28px \0;
+    background-repeat: no-repeat;
+    /*    display: block;*/
+    border: 0;
+    padding-left:5px;
+}
+.listliNomal{
+    /*    border-left: 1px solid #000;
+        border-right: 1px solid #000;
+        *border-right: none;*/
+}
+#setting_body_div{
+    height: 20px;
+    line-height: 22px;
+}
+.setting_span{
+    display: block;
+    width:188px;
+}
+.setting_account{
+    line-height: 30px;
+}
+.setting_body_margin{
+    margin-top: 20px;
+    *margin-top:30px;
+}
+.margin_hack{
+    *margin-top:20px;
+    margin-bottom: 12px;
+}
+.raido_a{
+    background:url(../image/User/info/raido_0.png);
+    background-repeat: no-repeat;
+    display: block;
+    width: 9px;
+    height: 9px;
+    cursor: pointer;
+}
+.gender_dl{
+    margin-top: 20px;
+}
+.gender_dl dt{
+    clear: left;
+    float: left;
+    width: 188px;
+    margin: 5px 10px 5px 15px;
+    padding: 3px 0 0;
+}
+.gender_dl dd {
+    float: left;
+    margin: 5px 0;
+    width: 360px;
+}
+.NomalScoll {background:url(../image/User/info/select_03.png);}
+.selectScoll{background:url(../image/User/info/select_on_03.png);}
+.race_span{
+    background-repeat: no-repeat;
+    display: block;
+    width: 193px;
+    height: 32px;
+    color: black;
+    line-height: 32px;
+    position: relative;
+    cursor: pointer;
+
+}
+#RaceEthnicityUL  li{
+    color: white;
+    width: 188px;
+    height: 27px;
+    *position: relative;
+    *width: 186px;
+    *left: -15px;
+    *height: 33px;
+    line-height: 32px;
+    color: black;
+    cursor: pointer;
+    margin: 0;padding:0;
+    *line-height: 20px;
+    *margin-top: -3px;
+}
+
+#RaceEthnicityUL  li span:hover{
+    margin-left: 10px;
+    color: #fff;
+}
+#RaceEthnicityUL  li span{
+    margin-left: 10px;
+    color: #525353;
+    display: block;
+}
+#RaceEthnicityUL{
+    height: 200px;
+    overflow-x: hidden;
+
+}
+#RaceEthnicityUL .Scroll_y{
+    *position: relative;
+    *left: 180px;
+}
+
+#BirthYearCount  li{
+    width: 188px;
+    height: 27px;
+    *height: 35px;
+    line-height: 32px;
+    color: black;
+    cursor: pointer;
+    margin: 0;padding:0;
+    *position: relative;
+    *left:-14px;
+}
+#BirthYearCount .Scroll_y{
+    *position: relative;
+    *left: 180px;
+}
+#BirthYearCount  li span:hover{
+    color: #fff;
+}
+#BirthYearCount  li span{
+    margin-left: 10px;
+    color: #525353;
+    display: block;
+}
+#BirthYearCount{
+    height: 200px;
+    overflow-x: hidden;
+}
+.saveUp{background: url("../image/User/info/save-button_03.png") no-repeat;}
+.saveDown{background: url("../image/User/info/save-button_on_03.png") no-repeat;}
+.textFoucs{background: url("../image/User/info/inputBox-on_03.png") no-repeat;}
+.textFocusout{background: url("../image/User/info/inputBox-off_03.png") no-repeat;}
+.savechange{
+    color: white;
+    width: 157px;
+    height: 42px;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    font-size: 17px;
+    cursor: pointer;
+}
+.error_message{
+    display:none; 
+    overflow: hidden; 
+    position: absolute; 
+    top:10px; 
+    word-wrap: break-word;  
+    width: 180px; 
+    line-height: 13px; 
+    right: 10px;
+}
+.error_p{
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 52px;
+    overflow: hidden;
+    width: 131px;
+    word-wrap: break-word;
+}
+#CompletedAction{
+    margin-bottom: 15px;
+    background-color: #FCF8E3;
+    border-color: #F4E2BE;
+    height: 43px;
+}
+.circledGreenCheck{
+    background: url("../image/Home/register/ok.png") no-repeat;
+    width: 26px;
+    height: 26px;
+}
+#CompletedAction div{
+    padding: 10px 0 0 10px;
+}
+#CompletedAction div p{
+    display: inline-block;
+    width: 418px;
+    color:#996f49;
+}
+#setting_complete{
+    position: relative;
+    top:3px;
+}
+.titleText{
+    color: #525353;
+    font-weight: bold;
+    font-size: 19px;
+    margin-left: 15px;
+}
+.formText{
+    color: #696969;
+    font-size: 14px;
+    margin-left: 15px;
+    width: 575px;
+}
+.listText{
+    color: #525353;
+    font-size: 12px;
+    margin-left: 15px;
+}
+.textBackground{
+    width:249px;
+    height:35px; 
+    display: block; 
+    margin-left: 214px; 
+    *margin-left:25px;
+}
+.inputStyle{
+    border: medium none;
+    height: 16px;
+    line-height: 16px;
+    margin-left: -372px;
+    margin-top: 5px;
+    position: absolute;
+    width: 234px;
+    *width: 230px;
+    *height: 15px;
+    /**margin-left:-310px;*/
+    *padding-left:5px;
+    *margin-top:4px;
+    line-height:16px; \0;
+    margin-top:5px;\0margin-left:-20px;\0width: 230px; \0
+
+}
+#Gender2{
+    margin-left: 15px;
+}
+.navsAlink:link{
+    color: #525353;
+}
+.navsAlink:hover{
+    color: #525353;
+    text-decoration: underline;
+}
+.navsAlink{
+    color: #525353;
+}
+#cannelLink:hover{
+    text-decoration: underline;
+}

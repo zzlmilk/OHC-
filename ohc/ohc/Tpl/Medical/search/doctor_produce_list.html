@@ -1,0 +1,17 @@
+<div style="margin-left: 20px;margin-top: 10px;color: #acabab; font-size: 12px;">
+    {$vo['commect_review']}
+</div>
+<div style="margin-top: 20px;"></div>
+<div class="doctor_like_produce left"  id="doctor_produce_list_{$k}" >
+    <if condition="$vo.produre_reviewlike eq 1 "> 
+        <span style="line-height: 23px;color: #848484; display: inline-block;width: 70px; margin-left: 2px" class="left">comment</span> 
+        <span style="line-height: 22px;color:#323232;display: inline-block; " class="left">Was this review helpful for you?</span>
+        <span class="left" style=" display: inline-block;width:70px; line-height: 22px;" id="review_like_yn">
+            <span class="review_like" style=" text-align: center; line-height: 22px;" onclick="doctorLike('{$vo.review_id}', 1, 'doctor:produce:{$k}')">Yes</span>
+            <span class="review_like" style=" text-align: center;line-height: 22px;" onclick="doctorLike('{$vo.review_id}', 0, 'doctor:produce:{$k}')">No</span>
+        </span>
+        <else />
+        &nbsp;
+    </if>
+</div>
+{$vo.page}

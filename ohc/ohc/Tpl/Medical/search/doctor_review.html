@@ -1,0 +1,20 @@
+<div style="margin-left: 20px;margin-top: 10px;color: #acabab;word-break:break-all;font-size: 12px;">
+    {$doctor_review.commect_review|strreviewMax}
+</div>
+<div style="margin-left: 20px;margin-top: 10px;height: 40px"></div>
+<div style="font-size: 12px;margin-left: 5px;margin-top: 8px;position: relative; " id="review_list_like">
+    <div id="doctor_like" class="left" style=" width: 370px;">
+
+        <if condition="$doctor_review.produre_reviewlike eq 1 "> 
+            <span style="line-height: 23px;color: #848484; display: inline-block;width: 70px; margin-left: 2px" class="left">comment</span> 
+            <span style="line-height: 22px;color:#323232;display: inline-block; " class="left">Was this review helpful for you? </span>
+            <span class="left" style=" display: inline-block; width:70px; line-height: 22px;" id="review_like_yn">
+                <span class="review_like" style=" text-align: center; line-height: 22px;" onclick="doctorLike('{$doctor_review.review_id}', 1, 'normal')">Yes</span>
+                <span class="review_like" style=" text-align: center;line-height: 22px;" onclick="doctorLike('{$doctor_review.review_id}', 0, 'normal')">No</span>
+            </span>
+            <else />
+            &nbsp;
+        </if>
+    </div>
+    {$doctor_review.review_page}
+</div>

@@ -1,0 +1,329 @@
+/* 
+    Document   : home
+    Created on : 2013-4-11, 14:42:36
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+a {
+    text-decoration: none;
+}
+root { 
+    display: block;
+}
+body{
+    position: relative;
+}
+.wordUL a:link {color: white}
+.wordUL a:visited {color: white}
+.wordUL a:hover {color: white}
+.wordUL a:active {color: white}
+.wordUL_public a:link {color: white}
+.wordUL_public a:visited {color: white}
+.wordUL_public a:hover {color: white}
+.wordUL_public a:active {color: white}
+#homemaindiv{
+    width: 780px; height: 45px; margin: 0 auto;
+}
+.homemaindiv{
+    background: linear-gradient(#1437B7 50%, #3A87E7 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1437B7', endColorstr='#3A87E7',GradientType=0)\9\0;
+    behavior:url(http://192.168.0.107/ohc/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+.homespan{
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    color:#fff;
+    font-size: 18px;
+    text-align: center;
+    height: 48px;
+}
+.font_daohang{
+    padding-top: 11px;
+    font-size: 18px
+}
+
+#homeUL li{
+    color: black;
+    width: 72px;
+    padding-left: 40px;
+    line-height: 33px;
+    text-align: center;
+}
+#homemaindiv li{
+    float: left;
+}
+.wordUL li{
+    width: 59px;
+    line-height: 27px;
+    padding-right: 12px;
+    font-size: 11px;
+}
+#Theme_background{
+    width: 800px;
+    height: 297px;
+}
+.body_search{
+    background:url(../image/Home/register/Theme_background_public.png);
+}
+#body_search{
+    width: 695px;
+    height:57px;
+    margin: 81px  auto;
+}
+.search_background{
+    background:url(../image/Home/Index/doctor-button_03_03.png);
+}
+#search_background{
+    width: 111px;
+    height: 35px;
+    cursor: pointer;
+    text-align:left;
+    padding-left:15px;
+    background-repeat: no-repeat;;
+}
+#search_type li{
+    font-size:14px;
+    width: 108px;
+    height:37px;
+    text-align: center;
+    line-height: 33px;
+    background-color: white;
+    cursor: pointer;
+    text-align: left;
+    padding-left:15px;
+    text-indent: 6px;
+    background-repeat:no-repeat;
+}
+.search_text{
+    /*    background:url(../image/Home/Index/text.gif) bottom right no-repeat;*/
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 1px #AEAEAE inset;
+    -webkit-text-indent: -2px;
+    color: gray;
+    font-size: 12px;
+    height: 31px;
+    overflow: hidden;
+    padding-left: 8px;
+    position: relative;
+    width: 185px;
+    *line-height:28px;
+    line-height:28px \0;
+    behavior:url(http://192.168.0.107/ohc/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+.user_login_close{width:20px;height:20px;background:url(../image/Home/Index/close.png);float:right;margin:5px 7px 0 0;cursor:pointer;}
+.user_login_close:hover{background:url(../image/Home/Index/closeHover.png);}
+.user_login_close:active{margin:6px 7px 0 0;}
+#autocomplete_city li,#autocompleteadvanced_city li{
+    width: 100%;
+    cursor: pointer;
+}
+#autocomplete_city li:hover,#autocompleteadvanced_city li:hover{
+    background-color: #D3D3D3;
+}
+#autocomplete_city,#autocompleteadvanced_city{
+    background-color: white;
+    border: 1px solid #D3D3D3 !important;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    display: none;
+    width: 183px;
+    color: black;
+    z-index: 800;
+    behavior:url(http://192.168.0.107/ohc/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+#autocompleteadvanced_city{
+    width: 170px;
+}
+#body_search .autocomplete{
+    left: 358px;
+    position: absolute;
+    text-indent: 4px;
+    top: 47px;
+    width: 185px;
+}
+.autocomplete_public{
+    position: absolute;
+    top: 50px;
+    left: 325.5px;
+    left:330px \9\0;
+    *left:330px;
+}
+/*高级搜索*/
+#advanced_search{
+    background:url(../image/Home/Index/background_advance.png)  no-repeat;;
+    width: 713px;
+    height: 170px;
+    *height: 180px;
+    margin-left: 40px;
+    margin-top: 36px;
+    display: none;
+}
+
+#advanced_search_public{
+    /*    background:url(../image/Home/Index/background_advance.png)  no-repeat;*/
+    background: none repeat scroll 0 0 #F8F9FD;
+    border: 1px solid #A2A2A2;
+    border-radius: 10px 10px 10px 10px;
+    height: 170px;
+    left: 35px;
+    position: absolute;
+    top: 0;
+    width: 700px;
+}
+#advanced_search_publicdiv{
+    /*    background:url(../image/Home/Index/advanced_div.png)  no-repeat;*/
+    height: 190px;
+    width: 798px;
+    display: none;
+}
+#advanced_search .autocomplete,#advanced_search_public .autocomplete{
+    left: 125px;
+    position: absolute;
+    top: 29px;
+}
+
+.advanced_background{
+    background: url(../image/Home/Index/height_search.png) no-repeat;
+    position: absolute;
+}
+
+#advanced_search input,#advanced_search_publicdiv input {
+    border: medium;
+    font-size: 12px;
+    width: 158px; 
+    height: 20px;
+    margin: 1px 0 0 4px;
+    *border: none;
+}
+#advanced_doctorAndhospital div{
+    width: 315px;
+}
+#advanced_doctorAndhospital{
+    color: #898D90;
+}
+#advanced_procedureAndlocation div{
+    width: 315px;
+}
+.advanced_frist{
+    width:98px;
+    *width:92px;
+    display:block;
+    margin-left: 2px;
+}
+#advanced_search_public .advanced_frist{
+    margin-left: 7px;
+}
+.advanced_seconed{
+    display: block;
+    margin-left: -10px;
+    width: 135px;
+    *width: 111px;
+}
+#advanced_search_div{
+    margin-top: 12px; 
+    margin-left: 48px;
+    *margin-top: 15px; 
+}
+#advanced_button{
+    background:url(../image/Home/Index/search-button_advance.png)  no-repeat;
+    width:91px;
+    height:23px;
+    position: absolute;
+    top:136px;
+    margin-left: -20px;
+    *margin-left:-290px;
+    *margin-top:-22px;
+}
+#advanced_button_div #advanced_button{
+    background:url(../image/Home/Index/search-button_advance.png)  no-repeat;
+    width:91px;
+    height:24px;
+    position: absolute;
+    top:136px;
+    *top:160px;
+    margin-left: -33px;
+    *margin-left:-285px;
+}
+#advanced_button_div span{
+    display: block;
+    float: left;
+    line-height: 17px;
+    color: #525353;
+}
+
+#advanced_button_div{
+    width: 280px;
+    margin-left: 170px;
+    margin-top: 2px;
+    *margin-top: -15px;
+    cursor: pointer;
+}
+#advanced_search_public #advanced_button_div{
+    width: 280px;
+    font-size: 14px;
+    margin-left: 160px;
+    margin-top: 12px;
+    *margin-top: -15px;
+    cursor: pointer;
+}
+#advanced_button_div #font_reset{
+    width: 280px;
+    margin-left: 170px;
+    margin-top: 10px;
+    *margin-top:25px;
+    cursor: pointer;
+}
+
+#advanced_procedureAndlocation{
+    color: #898D90; 
+    margin-top: 17px;
+}
+#search_result{
+    display: none; 
+    position: absolute;
+    color: gray;
+    font-size: 13px;
+    background-color: white;
+}
+.public_search{
+    left: 637px; top: 125px;
+}
+.public_search_0{
+    top: 233px;left: 379px;
+}
+.advanced_search_0{
+    top: 253px;
+    left: 520px;
+}
+.advanced_search{
+    top: 205px;
+    z-index: 10; 
+    left: 758px;
+}
+.headerHover{
+    background:linear-gradient(top, #093979, #0A56C6);   
+    background: -moz-linear-gradient(top, #093979, #0A56C6);
+    background:-webkit-linear-gradient(top, #093979, #0A56C6);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#093979', endColorstr='#0A56C6',GradientType=0)\9\0;
+}
+.searchTextBox{
+    border: 1px solid #F1A739;
+}
+.searchTextStyle{
+    display: block;
+    height: 25px;
+    margin-left: -11px;
+    margin-top: -3px;
+    overflow: hidden;
+    width: 168px;
+}

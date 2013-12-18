@@ -1,0 +1,135 @@
+<script  type="text/javascript" src="{$PUBLIC}/js/checkword.js"></script> 
+<script  type="text/javascript" src="{$PUBLIC}/js/effect.js"></script> 
+<link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+<link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/login.css" media="all" />     
+<script>
+    $(function() {
+        var WebsitePublic = '{$PUBLIC}';
+        setpublic(WebsitePublic);
+    })
+
+    //搜索下拉框 变线
+    $(function() {
+        $("#search_type li").click(function() {
+            $("#search_type").css({"border": "none"});
+        })
+        $("#search_background").click(function() {
+            $("#search_type").css({"border-right": "solid 1px #848484"});
+            $("#search_type").css({"border-left": "solid 1px #848484"});
+            $("#search_type").css({"border-bottom": "solid 1px #848484"});
+        })
+    })
+</script>
+<script  type="text/javascript" src="{$PUBLIC}/js/pub_head.js"></script> 
+<include file="./Tpl/Home/NavAndFoot/header.html" />
+<form action="{:U('Medical/index/search')}"  method="post" id="formcode" name="formcode">
+    <input type="hidden">
+    <div id="Theme_background_public">
+        <div  id="body_search_public">
+            <div style=" width: 680px;  margin-left:63px; padding-top: 15px; position: relative;">
+                <input type="hidden" name="searching" id="searching"  value="{$search_contion.searching}">
+                <div  style="float: left;display: block;width: 133px; margin-left: -25px;">
+                    <span onclick="list()"style="display: block; text-align: left;line-height: 36px;height: 36px; text-indent: 6px; font-size: 14px;" class="search_background" id="search_background">
+                        Doctors
+                    </span>
+                    <ul id="search_type" class="search_type" style="display: none; width: 123px; margin-left: 0px;position: absolute;z-index: 9999;">
+                        <li id="type_1" onclick="listAction(1, 'Doctors')">Doctors</li>
+                        <li id="type_2" onclick="listAction(2, 'Institutions')">Institutions</li>
+                        <li id="type_3" onclick="listAction(3, 'Procedures')">Procedures</li>
+                    </ul>
+                </div>
+                <input type="hidden" name="location_type" id="location_type" value="{$search_contion.location_type}" />
+                <input type="hidden" name="location_code" id="location_code" value="{$search_contion.search_text_location_hidden}" />
+                <span style="position: relative; overflow: hidden; width: 211px; margin-left: 15px; height: 36px; display: block; float: left; " id="search_text_span">
+
+                    <input type="text"  onkeydown="KeyDown(event,'search')" name="search_text"  autocomplete="off" id="search_text" class="search_text" value="{$search_contion.search_text}"  placeholder="Doctor name, e.g., John Smith" />
+                    <!--                    more点击的时候存储搜索对应的ID    -->
+                    <input type="hidden" name="search_text_id" id="search_text_id" value="{$doctor_info.doctor_id}"/>
+
+                </span>
+
+                <span style="position: relative;overflow: hidden; width: 205px; height: 36px; display: block; float: left; " id="search_text_span">
+                    <input type="text" name="search_text_location"   onkeydown="KeyDown(event,'search')" autocomplete="off" id="search_text_location" class="search_text"  value="{$search_contion.search_text_location}"  placeholder="location, e.g., a zip code or city"  style=" width: 189px; width:190px \0\9; width:190px \0; margin-left: 3px;border-top-right-radius:0px;border-bottom-right-radius:0px; "/>
+                    <input name="search_text_location_hidden"   id="search_text_location_hidden" type="hidden" value="t"/>
+                </span>
+
+                <span style=" width: 55px; height: 35px; display: block; position: absolute;left: 536px; top: 15px;cursor: pointer;left: 538px \0\9;" onclick="ajaxSearch('Home/Ajax/locationcode', '{$PUBLICJSURL}')">
+                    <img id="img_search" src="{$PUBLIC}/image/Home/Index/search_03.png"width="100%" height="100%"/>
+                </span>
+                <ul id="autocomplete_city" class="autocomplete_public" style="left: 347px; text-indent: 6px;  width: 197px;"></ul>
+                <span id="font_advanced" style=" margin-left: 90px; font-size: 12px; color: rgb(82, 83, 83); cursor: pointer; text-decoration: none; position: absolute; top: 27px; " onclick="formReset('Theme_background_public', 'advanced_search_publicdiv')">
+                    Advanced
+                </span>
+                <div style="clear: both; position: absolute; top: 15px; left: 111px;border-left: 2px solid #D3D3D3; height: 36px; width: 1px; position: absolute;">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <div class="error_search" id="search_result" >
+        <div class="user_login_close"></div>
+        <div>
+            <p id="search">
+                Sorry! No Search  results !
+            </p>
+        </div>
+    </div>
+    <input type="hidden" name="advanece_page" id="advance_page" value="1" />
+    <div id="advanced_search_publicdiv" style="position:relative;">
+        <input type="hidden" name="search_advanced_type" id="search_advanced_type" value="{$search_contion.search_advanced_type}" />
+        <div id="advanced_search_public" style=" display: block; margin-left: 10px; margin-top: 2px; ">
+            <div style=" height: 20px;"></div>
+            <div style="text-align: center; color:#969696; width: 612px; margin-left: 44px;  font-size: 18px; ">Please specify a combination of two or more searching criteria from below:</div>
+            <div id="advanced_search_div" style="position: relative;">
+
+                <div id="advanced_doctorAndhospital" style=" color: #696969">
+                    <div   class="left">
+                        <span class="left advanced_frist">Doctor</span>
+                        <span  class="left" >
+
+                            <span  class='searchTextStyle advanced_background'>
+                                <input type="text" onkeydown="KeyDown(event,'advancedsearch')" name="doctor_search_text" id="doctor_search_text" value="{$search_contion.doctor_search_text}" autocomplete="off"  placeholder="Name e.g.John Smith"  />
+                            </span>
+                        </span>
+                    </div>
+                    <div   class="left">
+                        <span  class="left advanced_seconed" style="">At this institution</span>
+                        <span  class="left">
+                            <span class='searchTextStyle advanced_background'>
+                                <input type="text" onkeydown="KeyDown(event,'advancedsearch')" name="hospital_search_text" id="hospital_search_text" value="{$search_contion.hospital_search_text}" autocomplete="off" placeholder="Institutions eg John Smith" />
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div style="clear: both; height: 1px;"></div>
+                <div  id="advanced_procedureAndlocation" style=" display: block; *margin-top: 3px;">
+                    <div  class="left">
+                        <span  class="left advanced_frist" >Procedure’s </span>
+                        <span class="left">
+                            <span  class='searchTextStyle advanced_background'>
+                                <input type="text" onkeydown="KeyDown(event,'advancedsearch')" name="procedure_search_text" id="procedure_search_text" value="{$search_contion.procedure_search_text}" autocomplete="off" placeholder="Procedures eg John Smith" /></span>
+                        </span>
+                    </div>
+                    <div  class="left" style=" position: relative; ">
+                        <span class="left advanced_seconed" >Location:</span>
+                        <span class="left" >
+                            <span  class='searchTextStyle advanced_background'>
+                                <input type="text" onkeydown="KeyDown(event,'advancedsearch')" name="location_search_text" id="location_search_text" value="{$search_contion.location_search_text}" autocomplete="off"  placeholder="location, e.g., zip code or city" /></span>
+                        </span>
+                        <ul id="autocompleteadvanced_city" class="autocomplete"></ul>
+                    </div>
+                </div>
+                <div style="clear: both;"></div>
+
+            </div>
+            <div id="advanced_button_div" style=" margin-left: 176px;">
+
+                <span id="advanced_button" style="margin-top: -3px;margin-left: -33px;" onclick="advancedAjaxSearch()">&nbsp;</span>
+                <span id="font_reset" style=" margin-left: 92px; margin-top:22px; *margin-top:43px;font-weight: bold; color:#AAAAAA;;width: 100px;" onclick="formReset('advanced_search_publicdiv', '1')">Reset</span>
+                <!--                        竖线下-->
+                <span id="font_cancel" style=" text-align: center;width: 88px;color: #AAAAAA; margin-left:156px;line-height: 1;  margin-top:-16px;font-weight: bold;height: 20px;" onclick="formReset('advanced_search_publicdiv', 'Theme_background_public')">Cancel</span>
+            </div>
+            <!--                        竖线上-->
+            <!--            <div style=" border-left: 2px solid #ccc;height: 75px; left: 339px;position: absolute;top: 43px; width: 1px; "></div>-->
+        </div>
+    </div>
+</form>
+<div style="clear: both;"></div>

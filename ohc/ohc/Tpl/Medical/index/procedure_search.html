@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/search.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/procedure_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/hospital_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <style>
+           .moreFont{ font-weight: bold; text-align: right; width: 560px;margin-top: -20px; color: #59595a;}
+           .moreFont a:hover{
+               text-decoration: underline;
+           }
+        </style>
+        <script>
+            $(document).ready(function(){
+                $("ul>li>div:first-child").click(function(){
+                $("ul>li>div:first-child").each(function(){
+                    $(this).find("img").attr('src',"{$PUBLIC}/image/Medical/review/button-off_03.png");
+                });
+                $(this).find("img").attr('src',"{$PUBLIC}/image/Medical/review/button-on_03.png");
+                sortAjax($(this).find(":hidden").val(),'Medical/sort/search','{$PUBLICJSURL}',5);
+                $("#sortType").val($(this).find(":hidden").val());
+            });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <!--            处方综合评分开始-->
+            <input type="hidden" value="{$doctor_list[0]['city_zip_code']}" id="hidden_zip_code"/>
+            <input type="hidden" value="" id="sortType"/>
+            <div id="procedure_div"  style="  margin-left: 60px; ">
+                <div style=" clear: both; "></div>
+                <!--                  处方评分-->
+                <div id="procedure_scroce_detail" style="float:right;" class="left">
+                    <span id="procedure_review">&nbsp;{$procedure.review_scorce}</span>
+                    <span id="procedure_line"></span>
+                </div>
+                <div style="width: 170px; float: right;" class="left">
+                    <span class="TitleColor">Colligation score:</span>
+                </div>
+
+            </div>
+            <div style=" clear: both; "></div>
+            
+            <!--                  排序列表                -->
+            <div style="text-align:left;float: left; margin-right: 11px;margin-left: 35px;">
+                <p style=" font-weight:bold; font-size: 18px; margin-bottom: 15px;padding-left: 10px;">Sort By</p>
+            
+                    <ul>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-on_03.png"/><input type="hidden" value="1"/></div>
+                            <div class="liFloat listText" style="line-height: 20px;">Review </div>
+                            <div style="float:left;padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-off_03.png"/><input type="hidden" value="2"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; ">Colligation score </div>
+                            <div style="float:left; padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                    </ul> 
+                </div>
+            <!--    处方综合评分结束        处方基本信息开始-->
+            <div style="text-align:left;float: left;">
+            <div id="procedure_info" style=" margin-top: 12px; " >
+                <div style=" padding-left: 24px; padding-top: 21px; ">{$procedure.procedure_name}</div>
+                <div style="margin: 12px 0 0 32px; color:#a3a3a3; font-size: 13px; width:500px; line-height: 22px;text-align:justify;">&nbsp;&nbsp;&nbsp;{$procedure.procedure_info|strMax}</div>
+            </div>
+            <!--    处方基本信息结束        医生内容开始-->
+            <div style=" clear: both; "></div>
+            <div id="produce_doctor">
+                <foreach name="doctor_list" item="vo" key="k">
+                    <div class="procedure_doctor" style="  ">
+                        <div style="margin-top: 10px; ">
+                            <div class="left" style=" color: #949292;  font-weight: bold; margin-left: 30px; margin-top: 10px; ">Doctor name:</div>
+                            <div class="left" style=" margin-left: 4px;margin-top: 10px; color: #a3a3a3;">{$vo.doctors_frist_name}&nbsp;&nbsp;{$vo.doctors_last_name} </div>
+                            <div style=" clear: both; "></div>
+                        </div>
+                        <!--                        医生地点和医院-->
+                        <div class="doctor_lh">
+                            <div id="doctor_location" >
+                                <div class="left" style=" color: #949292;  font-weight: bold; margin-left: 30px; ">Location:</div>
+                                <div class="left">{$vo.city_location}</div>
+
+                            </div>
+                            <div id="doctor_hospital" >
+                                <div class="left" style=" color: #949292;  font-weight: bold; margin-left: 30px; ">Institution:</div>
+                                <div class="left">{$vo.hospitals_name}</div>
+                            </div>
+                        </div>
+                        <div style=" clear: both; "></div>
+                        <!--                          医生review 信息 2条-->
+                        <div id="doctor_review">
+                            <div id="doctor_review_word" >
+                                <div style=" color: #949292;  font-weight: bold; margin-left: 30px; ">Reviews:</div>
+                            </div>
+                            <div class="review_doctor_list" >
+                                <if condition="$doctor_text[$k]['review_count'] neq 0  "> 
+                                    <volist name="doctor_text[$k]['review']" id="vo" >
+                                        <div  style="  width: 555px; margin-left: 30px; color: #a3a3a3; line-height: 22px;">
+                                            <span  class="left" style="display: block; width: 10px; ">{$i}</span>
+                                            <span  class="left" style="display: block; width: 495px; margin-left: 20px;  ">{$vo.commect_review}</span>
+                                        </div>
+                                        <div style="clear:both;"></div>
+                                    </volist>
+                                    <else />
+                                    <div  style="  width: 555px; margin-left: 30px; color: #a3a3a3; line-height: 22px;">暂无review评论</div>
+                                </if>
+                            </div>
+                            {$vo.doctor_id}
+                            <div class="moreFont"><a style="color:#59595a" href="javascript:void(0)" onclick="searchCustom('1','{$vo.doctors_frist_name} {$vo.doctors_last_name}','{$vo.city_location}','')">More</a></div>
+                        </div>
+                    </div>
+                </foreach> 
+                <div style="margin-top: 20px; clear: both;">
+                    {$doctor_page}
+                </div>
+            </div>
+        </div>
+            <div>
+                <include file="./Tpl/Home/NavAndFoot/footer.html" />
+            </div>
+        </div>
+    </body>
+</html>

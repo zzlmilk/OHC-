@@ -1,0 +1,23 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    </head>
+    <body>
+        <div>
+            <form action="{:U('User/register/registerSubmit')}"  method="post">
+                <input type="hidden" id="user_id" name="user_id" value="{$user_id}" />
+                {$Think.lang.email_register_0001}:<input type="text"  id="username" name="username" /> <p>{$username_error}</p>
+                {$Think.lang.email_register_0002}<input type="radio"  id="email_config" name="email_config"  value="1"  checked="selected"/>{$Think.lang.email_register_0003}
+                <input type="radio"  id="email_config" name="email_config"  value="2"/>{$Think.lang.email_register_0004}
+                <input type="radio"  id="email_config" name="email_config"  value="3"/>{$Think.lang.email_register_0005}
+                <input type="submit" value="123" />
+            </form>
+        </div>
+    </body>
+</html>

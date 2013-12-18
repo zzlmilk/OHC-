@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/register.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/search.js"></script> 
+         <script  type="text/javascript" src="{$PUBLIC}/js/forum.js"></script> 
+        <!--        <script src="{$PUBLIC}/js/forum-jsScroll.js" language="javascript" type="text/javascript"></script>-->
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/review.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/forum.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <link href="{$PUBLIC}/css/WuBin-jsScroll.css" rel="stylesheet" type="text/css" />
+        <style>
+            #forum:hover{ text-decoration: underline;}
+        </style>
+        <script>
+            $(document).ready(function() {
+                buttomClick("#sub", "postanswerDown", "postanswerUp");
+//                 $("#t1").WBjsScroll();
+//                 $("#visit_year_list").WBjsScroll();
+                var checkA = document.getElementById('checkA');
+                var isAnonymous = document.getElementById("isAnonymous");
+                checkA.onclick = function() {
+                    if (isAnonymous.value == 0) {
+                        isAnonymous.value = "1";
+                        checkA.src = "{$PUBLIC}/image/forum/check-on_03.png";
+                    }
+                    else {
+                        isAnonymous.value = "0";
+                        checkA.src = "{$PUBLIC}/image/forum/check-off_03.png";
+                    }
+                }
+            });
+
+            $(function() {
+                $('#sub').click(function() {
+                    forum_topic_submit();
+                })
+            })
+            function forum_topic_submit() {
+                var followText = document.getElementById('txt1');
+                if (followText.value == '') {
+                    helpMessage.style.display = "block";
+                    helpMessage.innerHTML = 'Pleace input something';
+                    helpMessage.style.color = 'red';
+                    numSpan.style.display = 'none';
+                    return false;
+                }
+                else if (followText.value.length > 1400 || num.style.color == 'red') {
+                    return false;
+                }
+                else {
+                    $("#topic").submit();
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <div id="mainTopicDiv" style=" border-bottom: 1px solid #BEBEBE; width: 740px; margin-left: 30px;">
+                <input type="hidden" id="islog" value="{$islog}">
+                <if condition="$thisPage eq 1">
+                    <div id="forum_title">
+                        <div style="background-color: #FDFDFD;padding-top: 10px;height: 55px; width: 740px;">
+                            <div style="overflow: hidden; margin-left: 5px; text-align: justify;  font-size:25px; height: 30px; width: 710px; line-height: 30px; color: #59595a; border-bottom: 1px solid  #848484;">
+                                <h4 style="margin-left: 10px;">{$topicList.0.forum_title}</h4>
+                            </div>
+                        </div>  
+                        <div style="color: #848484;word-break:break-all;line-height: 32px; text-indent: 18px; margin-bottom: 30px; margin-top: 20px; text-align: justify; font-size: 15px" >
+                            {$topicList.0.topic_content}
+                        </div>
+                    </div>
+                    <table style=" width: 750px;">
+                        <else />
+                        <table style=" width: 750px;">
+                            <tr  class="topicTitle">
+                                <!--                            <td class="span1"></td>-->
+                                <!--                            <td class="span2">{$k+1}</td>-->
+
+                                <td class="spanName">
+                            <if condition="$vo.topic_anonymous eq 0">
+                                Author:{$topicList.0.user_name}<else/>
+                                anonymous
+                            </if>
+                            </td>
+                            <td class="span4">Time:{$vo.topic_time|date="Y-m-d H:i:s",###}</td>
+                            <!--                        <td class="span1"></td>-->
+                            </tr>
+                            <tr>
+                                <td colspan="5">
+                                    <div style="word-break:break-all; padding:20px 0  15px 45px;margin-left: -16px; color: #696969; word-break:break-all ">
+                                        {$topicList.0.topic_content|strDoctorDefined=###,550}
+                                        <?php 
+                                        $len= strlen($vo["topic_content"]);
+                                        if($len>=550){
+                                        ?>
+                                        <div style=" text-align: right; cursor: pointer;">(More)</div>
+                                        <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <input type="hidden" value="{$vo.topic_content}">
+                                </td>
+                            </tr>
+                            </if>
+
+
+                            <foreach name="topicList" item="vo" key="k">
+                                <if condition="$k neq 0">
+                                    <tr  class="topicTitle">
+                                        <!--                            <td class="span1"></td>-->
+                                        <!--                            <td class="span2">{$k+1}</td>-->
+
+                                        <td class="spanName">
+                                    <if condition="$vo.topic_anonymous eq 0">
+                                        Author:{$vo.user_name}<else/>
+                                        anonymous
+                                    </if>
+                                    </td>
+                                    <td class="span4" style="margin-left: 50px;">Time:{$vo.topic_time|date="Y-m-d H:i:s",###}</td>
+                                    <!--                        <td class="span1"></td>-->
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5">
+                                            <div style=" padding:20px 0  15px 45px;margin-left: -22px;margin-right: 70px; color: #696969; word-break:break-all ">
+                                                {$vo.topic_content|strDoctorDefined=###,550}
+                                                <?php 
+                                                $len= strlen($vo["topic_content"]);
+                                                if($len>=550){
+                                                ?>
+                                                <div style=" text-align: right; cursor: pointer;">(More)</div>
+                                                <?php
+                                                }
+                                                ?>
+                                            </div>
+                                            <input type="hidden" value="{$vo.topic_content}">
+                                        </td>
+                                    </tr>
+                                </if>
+                            </foreach>
+                        </table>
+                        </div>
+                        <div id="minTopicDiv"></div>
+                        <div id="pagingSpan" style=" margin-top: 15px; padding-left: 75px;">
+                            <if condition="($pageCount lt 10)or($pageCount eq 10)">
+                                <else/>
+                                <div>{$Paging}</div>
+                            </if>
+                        </div>
+                        <form id="topic" action="{:U('forum/forum/followTopic',array('id'=>$tid))}" method="post" onkeydown="KeyDown(event, 'forumtopic')">
+                            <div id="inputDiv">
+                                <input type="hidden" name="forum_id" value="{$topicList[0].forum_id}">
+                                <div style="margin-left:270px;">
+                                    <div style="height: 55px;"></div>
+                                    <div  style=" border: solid 1px #525353; height:420px;width:698px;margin-left: -215px;">
+                                        <div style=" line-height: 35px; height: 35px;width:100%; border-bottom:  1px solid #B3AFB0">
+                                            <div style="padding-left: 20px; width: 200px;" id="helpMessage"></div><div id="numSpan" style=" text-align: right; margin-right: 15px; margin-left: 250px;">还可以输入<span id="num"></span>字</div>
+                                        </div>
+                                        <!--                        <div contentEditable="true" style=" width: 496px; margin-left:2px; margin-top: -1px;  height:161px;"></div>-->
+                                        <textarea  id="txt1"  name="topic_content" style="font-size: 12px;resize:none; overflow-y:auto; width: 692px; margin-top: 1px;  height:370px;font-size: 15px; text-indent: 15px;line-height: 20px;padding-top: 10px; color: #696969;border: none"></textarea>
+                                    </div>
+
+                                    <div style="text-align: right; width: 505px;  
+                                         margin-top: 20px; ">
+                                        <div style=" margin-left: 279px;" >
+                                            <div class="floatBot" style="margin-top:2px;">
+                                                <div id="sub" class="postanswer postanswerUp"> </div>
+                                            </div>
+                                            <div class="floatBot" style="margin-top:5px; margin-left: 10px;">
+                                                <img id="checkA" src="{$PUBLIC}/image/forum/check_03.png">
+                                                <input type="hidden" id="isAnonymous" name="isAnonymous" value="0">
+                                            </div>
+                                            <div class="floatBot" style="color:#b3b3b3;margin-top:5px; margin-left:5px">匿名评价
+
+                                            </div>
+                                            <div class="clearBot"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <include file="./Tpl/Home/NavAndFoot/footer.html" />
+                        </div>
+
+                        </body>
+                        </html>

@@ -1,0 +1,164 @@
+/* 
+    Document   : register
+    Created on : 2013-4-12, 16:36:40
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#Theme_background_public{
+    height: 74px;
+    border-top: 2px solid #ccc;
+    width: 798px;
+}
+#body_search_public{
+    margin-left: 48px;
+    width: 800px;
+    height:75px;
+    margin-top: 7px;
+    margin: 0 auto;
+    background:url(../image/Home/register/long_Theme_background_public.png);
+    background-repeat: no-repeat;
+}
+.regiser_body{
+    background:url(../image/Home/register/regiser_body.png);
+    width: 724px;
+    height: 399px;
+    margin-left: 1px;
+}
+
+.regiserOff{background:url(../image/Home/register/regiser-off.png);}
+.regiserON{background:url(../image/Home/register/regiser-on.png);}
+.bgDiv{width: 251px;height: 37px;line-height: 37px;}
+.regiser_text{
+    font-size: 14px;
+    border-left:0px;border-top:0px;border-right:0px;border-bottom:1px;
+    margin-left:8px; margin-top: 4px; width: 230px; height: 24px;
+    line-height: 24px;
+    /*    background-repeat: no-repeat;*/
+    padding-left: 10px;
+    overflow: hidden;
+}
+.regiser_color{
+    color: #bdbdbd;
+    width: 137px;
+    height: 27px;
+    line-height: 34px;
+    float: left;
+    font-weight: bold;
+}
+.info_div div{
+    float: left;
+}
+.info_div{
+    margin-top: 10px;
+    margin-top: 4px\0;
+    margin-top: 10px \9\0;
+}
+#homemaindiv_register{
+    width: 800px; height: 49px; margin: 0 auto;
+}
+.homemaindiv_register{
+    background:url(../image/Home/register/banner.png);
+    background-repeat: no-repeat;
+}
+#homeULpublic li{
+    color: red;
+/*    width: 72px;
+    padding-left: 43px;*/
+height: 30px;
+    line-height: 33px;
+    text-align: center;
+    float:left;
+}
+.wordUL_public{
+    margin-left: 270px;
+}
+.wordUL_public li{
+    /*    width: 71px;
+    */   line-height: 27px;
+    float: left;
+    font-size: 12px;
+}
+
+
+.registerUp {background:url(../image/Home/register/sign-up-off_03.png);}
+.registerDown {background:url(../image/Home/register/sign-up-on_03.png);}
+.register_submit{
+    background-repeat: no-repeat;
+    display: block;
+    width: 156px;
+    height:44px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 30px;
+    color: #bdbdbd;
+
+    /*    float:left;*/
+    margin-left: 140px;
+    /*  margin-right: 78px;*/
+    margin-top: 00px;
+    /*
+    
+    */    *margin-top: 10px;
+    /* *margin-top: -30px;*/
+    /*    margin-top: -55px \9\0;*/
+}
+#regiser_body_span img {
+    margin-left: 30px;
+    margin-top: 12px;
+}
+#regiser_body_span span{
+    font-size: 33px;
+    position: absolute;
+    top: 16px;
+    left: 328px;
+    color: #a8a4a4;
+}
+#register_word{
+    left: 342px;
+    position: absolute;
+    top: 15px; 
+}
+.helpStyle{
+    color: #BDBDBD;
+    font-weight: bold;
+    left: 405px;
+    position: relative;
+    left:-5px;
+    top:10px;
+    float: right;
+    width: 265px;
+    font-size: 14px;
+
+    /*cursor: pointer;*/
+}
+.helpText{
+    color: #BBBBBB;
+    font-size: 13px;
+    margin-left: 415px;
+    position: absolute;
+    width: 250px;
+    display: none;
+}
+#password_state{
+    font-size: 12px; 
+    color: rgb(189, 189, 189);
+    line-height: 21px;
+    height: 31px; 
+    font-weight: bold;
+    width: 224px; 
+    margin-left: 420px; 
+    position: relative;
+    *left:4px;
+    width:320px \0\9;
+}

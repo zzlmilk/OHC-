@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/search.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/forum.css" media="all" />
+        <style>            
+            #top{
+                padding-bottom: 30px;
+            }
+            #txt_title{ 
+                float: left; 
+                font-weight: bold; 
+                font-size: 20px;
+                color: #696969; 
+                margin-top: 15px
+            }
+            #inp_title{ 
+                margin-left: 136px;
+            }
+            #txt_content{ 
+                float: left;
+                font-weight: bold;
+                font-size: 20px;
+                color: #696969;
+            }
+            #inp_content{
+                margin-left: 136px;
+            }
+            #forum_title{ 
+                width: 467px;
+                height: 40px;
+                font-size:20px;
+                border: 1px solid #535353;
+                border-right: 2px solid #9F9F9F;
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                text-indent: 15px;
+            }
+            #forum_content{
+                width: 467px;
+                height: 250px;
+                resize: none;
+                overflow:hidden;
+                color: #848484;
+                font-size: 15px;
+                border: 1px solid #535353;
+                border-right: 2px solid #9F9F9F;
+                border-radius: 3px;
+                -webkit-border-radius: 3px;
+                -moz-border-radius: 3px;
+                text-indent: 18px;
+                padding-top: 10px;
+            }
+            #btn_postContent{ 
+                width: 120px;
+                height: 32px; 
+                margin-left: 482px;
+                margin-top: 18px;
+            }
+            #contentAlert{
+                float: left;
+                margin-left: 485px;
+                margin-top: 25px;
+                color: #848484;
+                font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <input type="hidden" id="islog" value="0" />
+            <div style="width: 600px; margin-left:50px; margin-right: auto;"> 
+                <form id="topic" action="{:U('forum/forum/topicPost')}" method="post" onkeydown="KeyDown(event, 'forumpost')" >
+                    <div id="top"><div id="txt_title">Title:</div><div id="inp_title"><input type="text"  id="forum_title" name="forum_title" ></div></div>
+                    <div id="bottom"><div id="txt_content">Content:</div><div id="inp_content"><textarea id="forum_content" name="forum_content"></textarea></div></div>
+                    <div><div id="contentAlert" > </div><div id="btn_postContent" class="postContentOff" style="cursor: pointer"></div></div>
+                </form>
+            </div>
+            <include file="./Tpl/Home/NavAndFoot/footer.html" />
+        </div>
+    </body>
+    <script>
+                    $(document).ready(function() {
+                        buttomClick("#btn_postContent", "postContentOn", "postContentOff");
+                        $("#btn_postContent").click(function() {
+                            forumPost();
+
+                        });
+                    });
+                    function forumPost() {
+                        var forum_url = getUrl('forum/forum/getUserId', '{$PUBLICJSURL}');
+                        $.ajax({
+                            url: forum_url,
+                            type: 'post',
+                            success: function(rData) {
+                                if (rData >= 0 && rData != "") {
+
+                                    if ($("#forum_title").val() == "") {
+                                        var forumRurl = getUrl('forum/forum/PleaseRegister&test=1', url);
+                                        PleaseRegister(forumRurl);
+                                        return false;
+                                    }
+                                    else if ($("#forum_title").val().length > 50) {
+                                        var forumRurl = getUrl('forum/forum/PleaseRegister&test=2', url);
+                                        PleaseRegister(forumRurl);
+                                        return false;
+                                    }
+                                    else if ($("#forum_content").val() == '') {
+                                        var forumRurl = getUrl('forum/forum/PleaseRegister&test=3', url);
+                                        PleaseRegister(forumRurl);
+                                        return false;
+                                    }
+                                    else if ($("#forum_content").val().length > 800) {
+                                        var forumRurl = getUrl('forum/forum/PleaseRegister&test=4', url);
+                                        PleaseRegister(forumRurl);
+                                        return false;
+                                    } else {
+                                        $("#topic").submit();
+                                    }
+                                }
+                                else {
+                                    var forumRurl = getUrl('Medical/index/PleaseRegister', url);
+                                    PleaseRegister(forumRurl);
+                                    return false;
+                                }
+                            }
+                        });
+                    }
+    </script>
+</html>

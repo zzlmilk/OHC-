@@ -1,0 +1,29 @@
+/* 
+    Document   : iphone
+    Created on : 2013-6-13, 13:30:22
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+@media only screen and (max-width:320px) {
+    #imgpo{
+        padding-left: 8px;
+        margin-top: 0px;
+    }
+    #title_content{
+        margin-top: 1px;
+        margin-left: 4px;
+    }
+
+}
+@media only screen and (min-width:321px) and (max-width:480px) {
+    #imgpo{
+        padding-left: 8px;
+        margin-top: 0px;
+    }
+    #title_content{
+        margin-top: 2px;
+        margin-left: 4px;
+    }
+}

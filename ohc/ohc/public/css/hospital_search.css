@@ -1,0 +1,37 @@
+root { 
+    display: block;
+}
+.moreButtomNomal{
+    background: url('../image/Medical/review/more-off_03.png')   
+}
+.moreButtomDown{
+    background: url('../image/Medical/review/more-on_03.png')   
+}
+.moreButtom{
+    width: 57px;
+    height: 21px;
+    cursor: pointer;
+}
+.listBody{
+    background:url('../image/Medical/review/listBox_03.png') 
+        no-repeat;
+    width: 540px;
+    height: 359px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+.textview{
+    text-align: left;
+   color: #969696;
+}
+.scoreColor{
+    color: #969696;
+
+}
+.TitleColor{color:#59595a; font-size: 20px;font-weight: bold;}
+.liFloat{float: left;}
+.listText{height: 20px;width: 110px;font-size: 13px;font-weight:bold; padding-left: 10px; }
+.moreArea{vertical-align:bottom}
+li>div{ margin-bottom: 15px;}
+div>p{margin-top: 25px;}
+td>ul>li{height: 38px;}

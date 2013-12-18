@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/register.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/review.css" media="all" />
+        <script>
+            $(function() {
+                $('#searching').val(1);
+            })
+        </script>
+    </head>
+    <body>
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <div id="review_success" class="" style="  height: 200px;  margin-top: 110px; text-align: center; position: relative;">
+                Thank you very much  for posting your review ! please continue your browsing and searching
+            </div>
+              <include file="./Tpl/Home/NavAndFoot/footer.html" />
+        </div>
+    </body>
+</html>
+<script type="text/javascript">
+    var redirectUrl = '{$redirectUrl}';
+    if (redirectUrl == 1) {
+        redirectUrl = url;
+    }
+    (function() {
+        var wait = 3;
+        var interval = setInterval(function() {
+            var time = --wait;
+            if (time == 0) {
+                location.href = redirectUrl;
+                clearInterval(interval);
+            }
+            ;
+        }, 1000);
+    })();
+</script>

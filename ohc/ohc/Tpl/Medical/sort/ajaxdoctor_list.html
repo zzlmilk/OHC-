@@ -1,0 +1,75 @@
+<script>
+    var doctorList = '{$doctor_json_list}';
+    //数据库查询结果 用json编码
+    currentPageData = eval("(" +(doctorList) + ")");  //当前
+    //数据总数
+    finaCount = '{$doctor_list_count}';
+    //当前区域
+    currentArea = '{$current}';
+    $(function(){
+        doctorListHeight();
+    })
+</script>
+<foreach name="doctor_list" item="vo" key="k">
+    <if condition="$k lt 3">
+        <div class="doctor_more_list"  style="margin-top: 10px;">
+            <!--                            <div style="height: 105px;">
+                                                                        医生的基本信息
+                                                                        医生简介
+                                            <div style="color: #acabab; height: 120px; margin-left: 50px;margin-top: 10px;padding-bottom: 20px; font-weight: bold;font-size: 13px; width: 435px; line-height: 21px;" class="left">{$vo.doctor_info|strMax}</div>
+                                        </div>-->
+
+            <!--                         Name-->
+            <div class="left rowStyle" >
+                <span class="promptStyle">Name:</span>
+                <div class="doctorinfofont"><div id="nameStyle" onclick="searchCustom('1','{$vo.doctor_id}','{$vo.doctor_frist_name|urldecode} {$vo.doctor_middle_name|urldecode} {$vo.doctor_last_name|urldecode}','{$vo.street_city} {$vo.street_state}','')">{$vo.doctor_frist_name|urldecode}&nbsp;{$vo.doctor_middle_name|urldecode}&nbsp;{$vo.doctor_last_name|urldecode}</div></div>
+            </div>                                 
+            <!--                         Location   -->
+
+            <div class="left rowStyle" >
+                <span class="promptStyle">Location:</span>
+                <div class="doctorinfofont" >{$vo.street_city}&nbsp;{$vo.street_state}</div>
+            </div>
+
+
+            <!--                            医生专业技能-->
+            <if condition="$vo.title neq ''">
+                <div class="left rowStyle"  id="professionalHeight">
+                    <span class="promptStyle">title:</span>
+                    <div class="doctorinfofont">{$vo.title}</div>
+                </div>
+            </if>
+            <!--                            医生所属科-->
+            <div class="left rowStyle" >
+                <span class="promptStyle">specialty：</span>
+                <div class="doctorinfofont">{$vo.specialty}
+                    <if condition="($vo.specialty neq '')and($vo.specialty2 neq '')">
+                        ,
+                    </if>
+                    {$vo.specialty2}
+                </div>
+            </div>
+
+            <!--                            Reviews-->
+            <div class="left rowStyle" >
+                <span class="promptStyle">Reviews:</span>
+                <div class="doctorinfofont">{$vo.review_number}</div>
+            </div>
+            <!--                            Colligation-->
+            <div class="left rowStyle" >
+                <span class="promptStyle">O score:</span>
+                <div class="doctorinfofont">
+                    {$vo.review_scorce}
+                </div>
+            </div>
+
+            <!--                            more 按钮-->
+            <div class="moreArea" style="width: 538px;">
+                <div class="moreButtom moreButtomNomal"  style="margin-left: 475px; float: right;cursor: pointer;" onclick="searchCustom('1','{$vo.doctor_id}','{$vo.doctor_frist_name} {$vo.doctor_middle_name} {$vo.doctor_last_name}','{$vo.street_city} {$vo.street_state}','')">
+                </div>
+            </div>
+        </div>
+    </if>
+</foreach>
+<!--                    分页-->
+<div style=" width: 514px; margin-top: 12px;">{$doctor_page}</div>

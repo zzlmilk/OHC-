@@ -1,0 +1,390 @@
+/* 
+    Document   : search]
+    Created on : 2013-4-18, 14:26:15
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+label{
+    margin-left: 3px;
+}
+#search ul li {
+    width: 149px;
+    float: left;
+    font-size: 14px;
+    height: 31px;
+    overflow: hidden;
+}
+.more_back{
+    background:url(../image/Medical/search/more.png);
+    width:160px;
+    height: 45px;
+    position: absolute; left: 401px; top: 117px;
+    color: white;
+}
+.list_main_page{
+    font-size: 14px;
+    height: 24px;
+    width: 680px;
+    margin-top: 20px;
+}
+
+.page_class{
+    color: #000000;
+    background:url(../image/Medical/search/page/normal/off.png);
+}
+.list_main_page a{
+    width: 41px;
+    height: 29px;
+    *height: 133px;
+    margin-left: -4px;
+}
+.page:hover
+{
+    color: #000000;
+    background:url(../image/Medical/search/page/normal/fly.png);
+    background-repeat: no-repeat;
+}
+.page{
+    *height: 133px;
+    text-align: center;
+}
+.button{
+    margin-left: 0px;
+}
+.page_active {
+    color: #000000;
+    background:url(../image/Medical/search/page/normal/on.png);
+
+}
+.page1{
+    margin-left: 100px;
+}
+.page1 span{
+    background-repeat: no-repeat;
+    color: #000000;
+    width: 41px;
+    height:29px;
+    vertical-align:baseline;
+    display:inline-block;
+    float: left;
+    line-height: 31px;
+    cursor: pointer;
+}
+.next{
+    background:url(../image/Medical/search/page/normal/next.png);
+    width: 41px;
+    height: 29px;
+    
+}
+.next:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/normal/next_hover.png) no-repeat;
+    width: 41px;
+    height: 29px;
+   
+}
+.last{
+    background:url(../image/Medical/search/page/normal/last.png) ;
+    width: 41px; 
+    height: 29px;
+    
+
+}
+.last:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/normal/last_hover.png)  no-repeat;
+    width: 41px; 
+    height: 29px;
+}
+.shouye{
+    background:url(../image/Medical/search/page/normal/shouye.png);
+    width: 41px;
+    height: 29px;
+    
+
+}
+.shouye:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/normal/shouye_hover.png)  no-repeat;
+    width: 41px;
+    height: 29px;
+
+
+}
+.shangyiye{
+    background:url(../image/Medical/search/page/normal/shangyiye.png);
+    width: 41px;
+    height: 29px;
+   
+
+}
+.shangyiye:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/normal/shangyiye_hover.png)  no-repeat;
+    width: 41px;
+    height: 29px;
+
+}
+
+/*搜索页面使用到的大型页面无图片ver*/
+.page1seachBig{
+    margin-left: 100px;
+}
+.page1seachBig span{
+    background-repeat: no-repeat;
+    width: 41px;
+    height:29px;
+    vertical-align:baseline;
+    display:inline-block;
+    float: left;
+    line-height: 31px;
+    cursor: pointer;
+}
+.page_classseachBig{
+    color: #848484;
+   
+}
+.page_classseachBig:hover{
+    font-weight: bold;
+}
+.page_activeseachBig {
+    color: #848484;
+    font-weight: bolder;
+}
+.page_activeseachBig:hover{
+    font-weight: bolder;
+}
+.nextseachBig{
+    width: 41px;
+    height: 29px;
+}
+.nextseachBig:hover{
+    background-repeat: no-repeat;
+    width: 41px;
+    height: 29px;
+    font-weight: bold;
+}
+.lastseachBig{
+    width: 41px; 
+    height: 29px;
+
+}
+.lastseachBig:hover{
+    background-repeat: no-repeat;
+    width: 41px; 
+    height: 29px;
+    font-weight: bold;
+}
+.shouyeseachBig{
+    width: 41px;
+    height: 29px;
+
+}
+.shouyeseachBig:hover{
+    background-repeat: no-repeat;
+    width: 41px;
+    height: 29px;
+    font-weight: bold;
+}
+.shangyiyeseachBig{
+    width: 41px;
+    height: 29px;
+
+}
+.shangyiyeseachBig:hover{
+    background-repeat: no-repeat;
+    width: 41px;
+    height: 29px;
+    font-weight: bold;
+}
+/*搜索页面使用到的小型页面图片*/
+.page1small{
+    float: left;
+   margin-top: 10px;
+   *width:175px;
+}
+.page1small span{
+    background-repeat: no-repeat;
+    color: #000000;
+    width: 19px;
+    height:13px;
+    vertical-align:baseline;
+    display:inline-block;
+    float: left;
+     cursor: pointer;
+}
+.page_classsmall{
+    color: #000000;
+    background:url(../image/Medical/search/page/small/off.png);
+   
+}
+.page_activesmall {
+    color: #000000;
+    background:url(../image/Medical/search/page/small/on.png);
+}
+.nextsmall{
+    background:url(../image/Medical/search/page/small/next.png);
+    width: 20px;
+    height: 13px;
+}
+.nextsmall:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/small/next_hover.png);
+    width: 20px;
+    height: 13px;
+}
+.lastsmall{
+    background:url(../image/Medical/search/page/small/last.png);
+    width: 20px; 
+    height: 13px;
+
+}
+.lastsmall:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/small/last_hover.png);
+    width: 20px; 
+    height: 13px;
+
+}
+.shouyesmall{
+    background:url(../image/Medical/search/page/small/shouye.png);
+    width: 19px;
+    height: 13px;
+
+}
+.shouyesmall:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/small/shouye_hover.png);
+    width: 20px;
+    height: 13px;
+}
+.shangyiyesmall{
+    background:url(../image/Medical/search/page/small/shangyiye.png);
+    width: 20px;
+    height: 13px;
+
+}
+.shangyiyesmall:hover{
+    background-repeat: no-repeat;
+    background:url(../image/Medical/search/page/small/shangyiye_hover.png);
+    width: 20px;
+    height: 13px;
+
+}
+/*搜索页面使用到的小型页面无图片ver*/
+.page1seachSmall{
+   float: left;
+   margin-top: 10px;
+   *width:175px;
+}
+.page1seachSmall span{
+    background-repeat: no-repeat;
+      color: #848484;
+    width: 19px;
+    height:13px;
+    font-size: 12px;
+    vertical-align:baseline;
+    display:inline-block;
+    float: left;
+     cursor: pointer;
+}
+.page_classseachSmall{
+    color: #848484;
+   
+}
+.page_classseachSmall:hover{
+    font-weight: bolder;
+}
+.page_activeseachSmall {
+    color: #848484;
+    font-weight: bolder;
+}
+.page_activeseachSmall:hover{
+    font-weight: bolder;
+}
+.nextseachSmall{
+    width: 19px;
+    height: 13px;
+}
+.nextseachSmall:hover{
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 13px;
+    font-weight: bold;
+}
+.lastseachSmall{
+    width: 19px; 
+    height: 13px;
+
+}
+.lastseachSmall:hover{
+    background-repeat: no-repeat;
+    width: 19px; 
+    height: 13px;
+    font-weight: bold;
+}
+.shouyeseachSmall{
+    width: 19px;
+    height: 13px;
+
+}
+.shouyeseachSmall:hover{
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 13px;
+    font-weight: bold;
+}
+.shangyiyeseachSmall{
+    width: 19px;
+    height: 13px;
+
+}
+.shangyiyeseachSmall:hover{
+    background-repeat: no-repeat;
+    width: 19px;
+    height: 13px;
+    font-weight: bold;
+}
+/*post分页将A连接块级显示*/
+span>a{display: block}
+span>a:link{text-decoration: none;color: #59595a}
+span>a:visited{text-decoration: none;color: #59595a}
+span>a:hover{text-decoration: none;color:#59595a}
+
+#seachNav{
+    position: relative;
+    margin: 275px auto;
+    background-color: #f1f2f4; 
+    border-left: 1px solid #C8C8CA;
+    border-right: 1px solid #C8C8CA;
+    width:422px;
+    height:78px;
+
+}
+.loginBut{
+    cursor: pointer;
+    text-align: right;
+    margin-left: 225px; 
+    width: 92px; 
+    height: 25px;
+    line-height: 25px;
+    margin-top: 10px;
+}
+
+.registerBut{
+    cursor: pointer;
+    text-align: right;
+    width: 92px; 
+    height: 25px;
+    line-height: 25px;
+}

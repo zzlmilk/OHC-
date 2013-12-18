@@ -1,0 +1,137 @@
+/* 
+    Document   : forumList
+    Created on : 2013-6-28, 9:41:57
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+span>a{display: block}
+
+table{width: 88%;
+      background-color: #F2F2F2;
+      margin-left: 56px;
+}
+.paging{margin: 0 auto; width:50%; margin-top:15px;}
+table a:link{
+    color: #59595a;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+table a:visited{
+    color: #59595a;
+}
+table a:hover{
+    text-decoration: underline;
+    color: #59595a;
+}
+table tr{
+    margin-top:20px; 
+    line-height: 40px;
+    height: 45px;
+    border: solid 1px #AEAEAE;
+}
+
+table tr:link{
+    color: #696969;
+}
+
+table tr:visited{
+    background-color: #696969;
+}
+table tr:hover{
+    color:#fff;
+}
+
+.trline td{
+    color:#949293;
+    padding-left:17px;
+}
+#fourm_title{
+    background-color: #0369E7;
+    border: 1px solid #0369E7;
+    color: #FFFFFF;
+    height: 55px;
+    margin-left: 56px;
+    margin-top: 50px;
+    width: 702px;
+}
+.tablediv{
+
+}
+#font_title{
+    float: left;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin-left: 30px;
+    margin-top: 15px;
+}
+#font_reply{
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-top: 18px;
+    margin-left: 465px;
+    font-weight: bold;
+}
+#font_auth_date{
+    float: right;
+    font-size: 12px;
+    margin-top: 11px;
+    font-weight: bold;
+    font-size: 12px;
+}
+#p_author{
+    margin-right: 75px;
+    margin-top: -7px;
+    letter-spacing: 3px;
+}
+#date{
+    margin-top: 6px;
+    letter-spacing: 1px;
+}
+.dateP{
+    margin-left: 27px;
+}
+.td_title{
+    width:430px;
+}
+.td_name{
+    text-align: center;
+    margin-right: -20px;
+    font-weight: bold;
+    font-size: 12px;
+}
+.td_auth_date{
+    font-size: 12px;
+    font-weight: bold;
+    text-align: left;
+    width: 90px;
+}
+#font_post{
+    display: block;
+    margin-left: 23px;
+    position:relative;
+    height: 24px;
+    width: 67px;
+    color: #000;
+    margin-top: -92px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+    cursor: pointer;
+}
+#post{
+    display: block;
+    color: #fff;
+    height: 24px;
+    width: 67px;
+
+}
+.postOff{
+    background-image: url('../image/forum/post-button-off_03.png');
+}
+.postOn{
+    background-image: url('../image/forum/post-button-on_03.png');
+}

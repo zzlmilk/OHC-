@@ -1,0 +1,32 @@
+/* 
+    Document   : public_search
+    Created on : 2013-6-1, 14:25:20
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.public_line{
+    border-top:2px solid #535353;
+    width: 90px;
+    height: 3px;
+    display: block;
+}
+.public_review{
+    width: 119px;
+    display: block;
+    text-align: left;
+    text-indent: 40px
+}
+ul>li>div:first-child{
+    cursor: pointer;
+}

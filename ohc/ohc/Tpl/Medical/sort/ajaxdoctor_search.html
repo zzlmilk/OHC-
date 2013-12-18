@@ -1,0 +1,36 @@
+<!--            医疗项目开始-->
+<div class="left" style="  color: #acabab; margin-left: 20px; width: 137px; "></div>
+<div style="width: 535px;" class="left">
+    <foreach name="doctor_procedure" item="vo" key="k">
+        <div id="doctor_produce_{$k}">
+            
+            <div class=" produce_doctor" style=" margin-top: 10px;" id="produce_doctor_{$k}">
+                <div class="doctor_produce_title">
+                    <if condition="$vo.procedure_other_name eq '' ">
+                        {$vo.produre_name|strDoctorDefined=###,50}
+                        <input type="hidden" name="doctor_procedure_{$k}" id="doctor_procedure_{$k}" value="{$vo.produre_name}" />
+                        <else />
+                        {$vo.procedure_other_name|strDoctorDefined=###,50}
+                        <input type="hidden" name="doctor_procedure_{$k}" id="doctor_procedure_{$k}" value="{$vo.procedure_other_name}" />
+                    </if>
+                    <!--                                        {$vo.procedure_other_name}-->
+                </div>
+                <!--                                <div class="doctor_produce_info">
+                                                    {$vo.produre_info|strreviewMax}
+                                                </div>-->
+                <div style="margin-bottom: 10px;font-size: 14px; margin-top: 20px;"><span class="doctor_produce_title" style="font-size: 16px; display: block;width: 100px; margin-top: 0px; float: left;">Reviews:</span><span class=" doctor_produce_info" style="margin-left: 5px; font-size: 15px;"> {$vo['review_content_number']}</span></div>
+                <div style="float:left;font-size: 14px;"><span class="doctor_produce_title" style="font-size: 16px; width: 100px; display: block; float: left; position: absolute; margin-left: 10px; margin-top: 0px;">Score:</span><span class=" doctor_produce_info" style="margin-left: 115px; font-size: 15px"> {$vo['produre_scores']|round=###}</span></div>
+                <div class="doctor_produce_image" style="margin-top: 0" onclick="reviewproduceDisplay('{$k}')" ><div class="doctor_butSty doctor_produceButOff"></div></div>
+            </div>
+            <div class="doctor_review_list_like" style="font-size: 12px;margin-top: 8px; width: 555px; margin-left: -53px;position: relative; display: none; border: 1px solid #5b5b5b;border-radius: 5px; " id="produce_doctor_review_list_like_{$k}">
+                <if condition="$vo.commect_review eq '' ">
+                    <div style="text-align: center; margin-top: 75px; font-size: 20px;">
+                        No review now
+                    </div>
+                    <else/>
+                     <include file="./Tpl/Medical/search/doctor_produce_list.html" />
+                </if>
+            </div>
+        </div>
+    </foreach>
+</div>

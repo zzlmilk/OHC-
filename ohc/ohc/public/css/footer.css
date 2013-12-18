@@ -1,0 +1,31 @@
+/* 
+    Document   : footer
+    Created on : 2013-4-12, 13:39:07
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.footer{
+    /*background:url(../image/Home/Index/footer.png);*/
+    background-color: #A4ADB7;
+    width: 800px;
+    height:68px;
+    /*color: white;*/
+    color: gray;
+}
+
+
+
+#termUser:hover{
+    text-decoration:underline; 
+}

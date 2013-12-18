@@ -1,0 +1,94 @@
+/* 
+    Document   : public
+    Created on : 2013-4-9, 10:03:27
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+*{
+    font-family: 'Helvetica Neue',HelveticaNeue,Helvetica,Arial,sans;
+}
+.bodydiv{
+    width: 800px;margin: 0 auto;
+}
+.left{
+    border-radius: 5px 5px 5px 5px;
+    color: #969696;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding-top: 2px;
+}
+.rowStyle{
+    width: 340px;
+    margin-left:10px;
+    line-height: 30px;
+    margin-top: 3px;
+}
+.promptView{
+    color:#59595a; display: inline-block; width: 135px; float: left;
+}
+
+.clear{
+    clear: both;
+}
+.bold{
+    font-weight: bold;
+    color: #a3eb3d;
+}
+.right{
+    float: right;
+}
+/*搜索结果 为空*/
+#search_result .user_login_close{
+    margin-top: 12px;
+}
+.error_search{
+    background:url(../image/Home/Index/no_search.png);
+    background-repeat: no-repeat;
+    width: 262px;
+    height: 44px;
+}
+#search{
+    margin-top: 15px;
+    margin-left: 10px;
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+span>a{display: block}
+span>a:link{text-decoration: none;color: #848484}
+span>a:visited{text-decoration: none;color: #848484}
+span>a:hover{text-decoration: none;color: #848484}
+
+/*singUpNav 图标*/
+.signoff{
+    background-image: url('../image/Medical/search/sign-up-off_03.png');
+}
+.signon{
+    background-image: url('../image/Medical/search/sign-up-on_03.png');
+}
+
+
+/* userlogin  */
+#ForgotPassword:hover{
+    cursor: pointer;
+}
+font:hover{
+    text-decoration: underline;
+    color: #737375;
+}
+
+
+.loginoff{
+    background-image: url('../image/Medical/search/sign-in-off_03.png');
+}
+.loginon{
+    background-image: url('../image/Medical/search/sign-in-on_03.png');
+}

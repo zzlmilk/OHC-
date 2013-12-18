@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/review.js"></script> 
+        <script src="{$PUBLIC}/js/review-jsScroll.js" language="javascript" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/review.css" media="all" />
+        <link href="{$PUBLIC}/css/WuBin-jsScroll.css" rel="stylesheet" type="text/css" />
+        <style>
+            p{margin-bottom: 10px;}
+        </style>
+    </head>
+    <body>
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <if condition="$search_contion.search_advanced_type eq 1">
+                <div style=" width: 90%; margin: 0 auto; background-color: #d8e7fc; font-size:20px; line-height: 40px;padding-left: 25px;">Your search 
+                    <!--                        <switch name="search_contion.searching"> 
+                                            <case value="1">doctor</case>
+                                            <case value="2">Institutions</case>
+                                            <case value="3">Procedures</case>
+                                            </switch>
+                                            for
+                                            <switch name="search_contion.searching"> 
+                                            <case value="1">{$search_contion.doctor_search_text} </case>
+                                            <case value="2">{$search_contion.hospital_search_text} </case>
+                                            <case value="3">{$search_contion.procedure_search_text} </case>
+                                            </switch>
+                                            did not match any 
+                                            <switch name="search_contion.searching"> 
+                                            <case value="1">doctor</case>
+                                            <case value="2">Institutions</case>
+                                            <case value="3">Procedures</case>
+                                            </switch>-->
+                    did not retrieve any results. 
+                </div>
+                <else/>
+                <div style=" width: 90%; margin: 0 auto; background-color: #d8e7fc; font-size:20px; line-height: 40px;padding-left: 25px;">Your search 
+                    <!--                    <switch name="search_contion.searching"> 
+                                        <case value="1">doctor</case>
+                                        <case value="2">Institutions</case>
+                                        <case value="3">Procedures</case>
+                                        </switch>
+                                    for {$search_contion.search_text} did not match any 
+                                        <switch name="search_contion.searching"> 
+                                        <case value="1">doctor</case>
+                                        <case value="2">Institutions</case>
+                                        <case value="3">Procedures</case>
+                                        </switch>-->
+                   did not retrieve any results.
+                </div>
+            </if>
+            <div style="font-size:17px; margin-top: 50px; margin-left: 100px;"><div><h3>Suggestions：</h2></div>
+
+                <div style="  margin-left: 120px; margin-top: 15px">
+                    <p>Make sure all words are spelled correctly</p>
+                    <!--                    <p>Try changing filters on the left</p>-->
+                    <p>Use more general keywords</p>
+                    <p>Replace abbreviations with the entire word</p></div></div>
+            <include file="./Tpl/Home/NavAndFoot/footer.html" />
+        </div>
+    </body>
+</html>

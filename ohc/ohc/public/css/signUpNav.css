@@ -1,0 +1,13 @@
+/* 
+    Document   : signUpNav
+    Created on : 2013-7-9, 13:54:56
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.signoff{
+    background-image: url('../image/Medical/search/sign-up-off_03.png');
+}
+.signon{
+    background-image: url('../image/Medical/search/sign-up-on_03.png');
+}

@@ -1,0 +1,122 @@
+/* 
+    Document   : forum
+    Created on : 2013-6-9, 9:05:48
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.floatBot{
+    float: left;
+}
+.clearBot{
+    clear: both;
+}
+.topicTitle{
+        background-image: url('../image/forum/title_03.png');
+        height:39px;
+        width:779px;
+        line-height: 39px;
+}
+.span12 {
+  width: 100%;
+  *width: 99.94680851063829%;
+}
+
+.span11 {
+  width: 91.48936170212765%;
+  *width: 91.43617021276594%;
+}
+
+.span10 {
+  width: 82.97872340425532%;
+  *width: 82.92553191489361%;
+}
+
+.span9 {
+  width: 74.46808510638297%;
+  *width: 74.41489361702126%;
+}
+
+.span8 {
+  width: 65.95744680851064%;
+  *width: 65.90425531914893%;
+}
+
+.span7 {
+  width: 57.44680851063829%;
+  *width: 57.39361702127659%;
+}
+
+.span6 {
+  width: 48.93617021276595%;
+  *width: 48.88297872340425%;
+}
+
+.span5 {
+  width: 40.42553191489362%;
+  *width: 40.37234042553192%;
+}
+
+.span4 {
+  width: 4%;
+  *width: 4%;
+  color: #696969;
+  font-weight: bold;
+  margin-left: -10px;
+  text-align: left;
+}
+.spanName{
+    width: 14%;
+   color:#696969;
+  font-weight: bold;
+  margin-left: -10px;
+  text-indent: 24px;
+   *width: 14%;
+}
+
+.span3 {
+  width: 23.404255319148934%;
+  *width: 23.351063829787233%;
+}
+
+.span2 {
+  width: 14.893617021276595%;
+  *width: 14.840425531914894%;
+}
+
+/*.span1{
+  width: 0%;
+  *width: 0%;
+}*/
+.downPic{
+    background-image: url('../image/forum/downList_03.png');
+    background: no-repeat;
+}
+.postanswer{
+    cursor: pointer; 
+    border: none;
+    width: 128px;
+    height: 22px;
+    background-position:0 0 ;
+}
+.postanswerDown{
+    background-image: url('../image/forum/button-on_03.png');
+    background-repeat:  no-repeat;
+}
+.postanswerUp{
+    background-image: url('../image/forum/button-off_03.png');
+     background-repeat: no-repeat;
+}
+.postContentOff{
+    background-image: url('../image/forum/content-off_03.png');
+    background-repeat: no-repeat;
+}
+.postContentOn{
+    background-image: url('../image/forum/content-button_03.png');
+    background-repeat: no-repeat;
+}
+

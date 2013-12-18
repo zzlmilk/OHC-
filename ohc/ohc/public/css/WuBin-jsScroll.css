@@ -1,0 +1,36 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+请注意：除 Scroll 样式名外其它的样式名称与JS绑定，修改时请谨慎，保持与JS中调用同步。
+*/
+
+body{ font-size:12px; text-align:left; position:0px; margin:0px;}
+
+.Scroll3 { height:100px;  line-height:20px;}
+    
+.Scroll3 .Scroll_y { width:15px; line-height:0px; font-size:0px;}
+.Scroll3 .Scroll_y_Up,.Scroll3 .Scroll_y_Down{width:15px; height:10px;}
+.Scroll3 .Scroll_y_Up { background:url(../image/User/info/y_up.png) no-repeat center center; margin-left: -1px;}
+.Scroll3 .Scroll_y_Drag { background:#EEEEEB; width: 6px; margin: 0 auto; height: 78px;}
+.Scroll3 .Scroll_y_Drag_Bar { width:15px; cursor:default; background:#9bd0f9; height: 120px; }
+.Scroll3 .Scroll_y_DBT { }
+.Scroll3 .Scroll_y_DBM { }
+.Scroll3 .Scroll_y_DBMB { }
+.Scroll3 .Scroll_y_DBB { }
+.Scroll3 .Scroll_y_Down { background:url(../image/User/info/y_down.png) no-repeat center center; margin-left: -1px;}
+
+.Scroll3 .Scroll_y_Up_D { background:url(../image/User/info/y_up_D.png) no-repeat center center}
+.Scroll3 .Scroll_y_Down_D { background:url(../image/User/info/y_down_D.png) no-repeat center center}
+.Scroll3 .Scroll_y_Drag_Bar_D  { background:#4aa1fa}
+.Scroll3 .Scroll_y_Drag_Bar_D .Scroll_y_DBT { }
+.Scroll3 .Scroll_y_Drag_Bar_D .Scroll_y_DBM {}
+.Scroll3 .Scroll_y_Drag_Bar_D .Scroll_y_DBMB { height: 115px;}
+.Scroll3 .Scroll_y_Drag_Bar_D .Scroll_y_DBB { }
+
+
+#dome_0_3 { float:left; width:250px; height:250px;}
+#dome_1_3 { float:left; width:250px; height:250px;}
+#dome_2_3 { float:left; width:250px; height:250px;}
+#dome_3_3 { float:left; width:250px; height:250px;}
+

@@ -1,0 +1,101 @@
+<div id="homemaindiv_register" class="homemaindiv_register">
+    <div style=" width: 809px; position: relative;margin: 0px auto 0px 91px;  padding-top: 12px;">
+        <!--         导航栏-->
+        <span  style=" display: block; width: 44px; position: absolute; top: 10px;left: 10px;">
+            <img src="{$PUBLIC}/image/Home/Index/logo_03.png" width="100%" id="logo" style=" margin-left: -40px; margin-top: -12px;"/>
+            <a href="{$PUBLICJSURL}">
+                <img src="{$PUBLIC}/image/Home/Index/home.png" id="img_home" style=" margin-top:-1px; margin-left: 9px; position: absolute; top:-2px;" />
+            </a>
+        </span> 
+       <ul id="homeULpublic" style="position: absolute; top: 0; left: 82px;">
+            <li style=" width: 80px;">
+                <span class="homespan" onclick="listAction(1, 'Doctors')"><p class="font_daohang">Doctors</p></span>
+            </li>
+            <li style=" width: 120px;">
+                <span style='' class="homespan" onclick="listAction(2, 'Institutions')"><p class="font_daohang">Institutions</p></span>
+            </li>
+            <li style=" width: 120px;">
+                <span class="homespan"  onclick="listAction(3, 'Procedures')"><p class="font_daohang">Procedures</p></span> 
+            </li>
+            <li style=" width: 84px;">
+                <span  class="homespan">
+                    <a href="{:U('forum/forum/forumList')}" style='color: #fff;'>
+                        <p class="font_daohang">Forum</p>
+                    </a>
+                </span>
+            </li>
+        </ul>
+        <!--        注册等按钮开始-->
+        <?php
+        if($_SESSION['user_id']>0){
+        ?>
+        <ul class="wordUL_public" style=" position: relative; left: 213px; top: 4px;">
+
+            <?php
+            } else{
+            ?>
+            <ul class="wordUL_public" style=" position: relative; left: 213px; top: 4px;">
+
+                <?php
+                }
+                ?>
+                <!--            登录后-->
+                <?php
+                if($_SESSION['user_id']>0){
+                ?>
+                <li>
+                    <a href="{:U('User/info/setting')}" id="font_MyAccount" >My Account</a>&nbsp;&nbsp; 
+                    <a style="border-left: 1px solid #535353;clear: both; height: 15px;left:63px; position: absolute;top: 6px;width: 1px;"></a>
+                </li>
+                <?php
+                } else{
+                ?>
+                <!--            未登录后-->            
+                <li style="width: 55px;">
+                    <a href="javascript:void(0)" onclick="isRepeatClick()" id="signup" style="clear: both;height: 15px;text-decoration: none;">Sign In</a>
+                    <input type="hidden" onclick="LoginPage('Home/Index/userLogin', '{$PUBLICJSURL}')" id="hiddenSign"/>
+                    <a style="    border-left: 1px solid #535353;clear: both; height: 15px;left: 46px; position: absolute;top: 8px;width: 1px;"></a>
+                </li>
+                <?php
+                }
+                ?>
+                <!--            登录后-->       
+                <?php
+                if($_SESSION['user_id']>0){
+                ?>
+                <li>
+                    <a href="javascript:void(0)" onclick="userlogout()" id="signout">Sign Out</a>&nbsp;&nbsp;&nbsp;
+                    <a style="border-left: 1px solid #535353;clear: both; height: 15px;left:118px; position: absolute;top: 6px;width: 1px;"></a>
+                </li> 
+                <?php
+                } else{
+                ?>
+                <!--            未登录后-->                   
+                <li style="width: 55px;"> 
+                    <a href="{:U('User/register/index')}" id="signin" style="">Sign Up</a>&nbsp;&nbsp;
+                    <a style="border-left: 1px solid #535353;clear: both; height: 15px;left:104px; position: absolute;top: 8px;width: 1px;"></a>
+                </li>
+                <?php
+                }
+                ?>
+                <!--            登录后-->       
+                <?php
+                if($_SESSION['user_id']>0){
+                ?>
+                <li>
+                    <a  href="{:U('Medical/review/reviewAgree')}" id="font_WriteAReview">Write a Review</a>
+                </li>
+                <?php
+                } else{
+                ?>
+                <!--            未登录后-->      
+                <li>
+                    <a  href="javascript:void(0)" onclick="nologin()" id="font_WriteAReview" style="">Write a Review</a>
+                </li>
+                <?php
+                }
+                ?>
+            </ul>
+    </div>
+    <div  style="clear: both;"></div>
+</div>

@@ -1,0 +1,42 @@
+            <!--此处循环所有医院 -->
+            <foreach item="voList" name="hospitals" key="listKey">
+            <div class="listBody">
+                <table style="width:95%">
+                <tr><td class="TitleColor">Introduction:</td></tr>
+                <tr><td class="textview">{$hospital_introduction[$listKey].hospital_introduction|strDoctorDefined=###,450}</td></tr>
+                <tr><td><input id="produce_list_count_{$listKey}" type="hidden" value="{$voList|count=###}">
+                <table>
+                    <tr>
+                        <td style="vertical-align:middle;width: 170px;" class="scoreColor">Project(Review Score)</td>
+                        <td>
+                            <table>
+                            <!--此处填充循环 -->
+                                <foreach item="ProjectList" name="voList" key="ProjectKey">
+                                    <tr>
+                                        <td class="scoreColor">{$ProjectList.procedures_name|strDoctorDefined=###,12}</td>
+                                        <td>
+                                    <span class="rate_div_small" id="rate_sdiv_{$ProjectKey}_{$listKey}"><input id="Level_Scorce_{$ProjectKey}_{$listKey}" type="hidden" value="{$ProjectList.review_level}"/>
+                                    <span rate="1" class="start_main_small startSmall" id="rate_s1" >&nbsp;</span>
+                                    <span rate="2" class=" start_main_small startSmall" id="rate_s2">&nbsp;</span>
+                                    <span rate="3" class="start_main_small startSmall" id="rate_s3">&nbsp;</span>
+                                    <span rate="4" class="start_main_small startSmall" id="rate_s4">&nbsp;</span>
+                                    <span rate="5" class="start_main_small startSmall" id="rate_s5">&nbsp;</span>
+                                    </span>
+                                    </td>
+
+                                    </tr>
+                                    
+                                </foreach >
+                                
+                            </table>
+                        </td>
+                        <td id="moreArea" class="moreArea">
+                            <div class="moreButtom moreButtomNomal" onclick="searchCustom('2','{$hospital_introduction[$listKey].hospital_name}','{$hospital_list[$listKey].city_location}','');"></div>
+                        </td>
+                    </tr>
+                </table>
+                    </td></tr>
+                </table>
+            </div>
+            </foreach>
+<div>{$paging}</div> 

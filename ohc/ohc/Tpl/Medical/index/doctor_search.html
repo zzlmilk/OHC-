@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/search.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/hospital_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/doctor_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <script>
+            $(document).ready(function() {
+                buttomClick(".doctor_butSty", "doctor_produceButOn", "doctor_produceButOff");
+                $("ul>li>div:first-child").click(function() {
+                    $("ul>li>div:first-child").each(function() {
+                        $(this).find("img").attr('src', "{$PUBLIC}/image/Medical/review/button-off_03.png");
+                    });
+                    $(this).find("img").attr('src', "{$PUBLIC}/image/Medical/review/button-on_03.png");
+                    $("#sortType").val($(this).find(":hidden").val());
+                    sortAjax($(this).find(":hidden").val(), 'Medical/sort/search', '{$PUBLICJSURL}', 4);
+                })
+                var arr = new Array();
+                $(".scoreArr").each(function() {
+                    arr.push($(this).val());
+                });
+                getDoctorscores(arr);
+            });
+            function getDoctorscores(scoreVal) {
+                var endNum = scoreVal.length;
+                for (var i = 0; i < endNum; i++) {
+                    var score = 0;
+                    if (scoreVal[i] > 5) {
+                        score = 5;
+                    } else {
+                        score = scoreVal[i];
+                    }
+                    var scores = (score / 5) * 81;
+                    $(".selectA").eq(i).find(".doctorLeavelDown").css("width", scores + "px");
+                }
+            }
+        </script>
+        <style>
+            #writeReview:hover{
+                text-decoration: underline;
+            }
+            #reviews:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <!--             医生基本信息 and 综合评价 开始-->
+            <div style="width: 770px; height: 46px; text-align: right; margin-top: 10px;">
+                <input type="hidden" value="1" id="sortType"/>
+                <!--                  处方评分-->
+                <div class="right">
+                    <div style=" width: 170px; " class="left">
+                        <span class="TitleColor">O score:</span>
+                    </div>
+                    <div id="doctor_scroce_detail" class="left">
+                        <span class="public_review">
+                            <if condition="$doctorReviewScore.review_scroce eq ''">
+                                0
+                                <else/>
+                                {$doctorReviewScore.review_scroce|round=###}
+                            </if>
+
+                        </span>
+                        <span class="public_line"></span>
+                    </div>
+                </div>
+            </div>
+            <div style=" margin-left: 40px; " id="doctor_list">
+                <div class="left" style=" width:145px;"> 
+                    <div style="text-align:left">
+                        <p style=" font-weight:bold; font-size: 18px; margin-top:15px; margin-bottom: 15px;padding-left: 24px;">Sort By</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-on_03.png"/><input type="hidden" value="1"/></div>
+                            <div class="liFloat listText" style="line-height: 20px;">Number of reviews </div>
+                            <div style="float:left;padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-off_03.png"/><input type="hidden" value="2"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; ">O score </div>
+                            <div style="float:left; padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                    </ul>   
+                </div>
+
+                <div class="left doctor_list">
+                    <!--                 医生介绍-->
+                    <div class="left " style="clear: both; margin-left: 20px; width: 170px;margin-top: 10px; margin-bottom: 10px;">
+                        <span class="doctorinfobold">Name:</span>
+                        <span class="doctorinfofont">{$doctor_info.doctor_frist_name}&nbsp;{$doctor_info.doctor_middle_name}&nbsp;{$doctor_info.doctor_last_name}</span>
+                    </div>
+                    <!--                医生性别 科目 专业技能  工作经验 电话 邮箱 -->
+                    <div  style="clear: both; margin-top: 4px;">
+                        <div class="left" style=" margin-left: 20px;width: 170px; margin-bottom: 10px;">
+                            <span class="doctorinfobold">Gender:</span>
+                            <span class="doctorinfofont">
+                                <if condition="$doctor_info.doctor_gender eq M">
+                                    Male
+                                    <else/>
+                                    Female
+                                </if>
+                            </span>
+                        </div>
+                        <!--                        Location-->
+                        <div class="left " style="clear: both; margin-left: 20px; width: 170px; margin-bottom: 10px;">
+                            <span class="doctorinfobold">Location:</span>
+                            <span class="doctorinfofont">{$doctor_info.street_city}&nbsp;{$doctor_info.street_state}</span>
+                        </div>
+                        <!--                                        Medical_school-->
+                        <if condition="$doctor_info.medical_school neq ''">
+                            <div class="left " style="clear: both; margin-left: 20px; width: 170px;margin-bottom: 10px;">
+                                <span class="doctorinfobold">Medical_school:</span>
+                                <span class="doctorinfofont">{$doctor_info.medical_school}</span>
+                            </div>
+                        </if>
+                        <!--                                            Graduation_year-->
+                        <if condition="$doctor_info.graduation_year neq ''">
+                            <div class="left " style="clear: both; margin-left: 20px;  width: 170px;margin-bottom: 10px;">
+                                <span class="doctorinfobold">Graduation_year:</span>
+                                <span class="doctorinfofont">{$doctor_info.graduation_year}</span>
+                            </div>
+                        </if>
+                        <!--                                              Object-->
+                        <if condition="($doctor_info.specialty neq '')and($doctor_info.specialty2 neq '')">
+                            <div class="left " style="clear: both; margin-left: 20px; width: 170px; margin-bottom: 10px;">
+                                <span class="doctorinfobold">speciality:</span>
+                                <span class="doctorinfofont">{$doctor_info.specialty}
+                                    <if condition="($doctor_info.specialty neq '')and($doctor_info.specialty2 neq '')">,</if>
+                                    {$doctor_info.specialty2}</span>
+                            </div>
+                        </if>
+                        <!--                                              Telephone-->
+                        <if condition="$doctor_info.doctor_telephone neq ''">
+                            <div class="left " style="clear: both; margin-left: 20px; width: 170px;margin-bottom: 10px;">
+                                <span class="doctorinfobold">Telephone:</span>
+                                <span class="doctorinfofont">{$doctor_info.doctor_telephone}</span>
+                            </div>
+                        </if>
+                    </div>
+                    <div style="font-size: 12px; margin-left:20px;clear: both; ">
+                        <div class="selectA"><div class="left scoreTitle">Knowledge and skills:</div><div class="left" style="position: relative;"><div class="doctorLeavelDown" style="width:9px;"></div><div class=" doctorLeavelTop" >&nbsp;</div></div><div style="clear: both"></div></div>
+                        <div class="selectA"> <div class="left scoreTitle">Satisfaction of the outcome:</div><div class="left"  style="position: relative;"><div class="doctorLeavelDown" style="width:45px;"></div><div class=" doctorLeavelTop" >&nbsp;</div></div><div style="clear: both"></div></div>
+                        <div class="selectA"> <div class="left scoreTitle">Easiness of appointment & waiting time: </div><div class="left"  style="position: relative;"><div class="doctorLeavelDown" style="width:45px;"></div><div class=" doctorLeavelTop" >&nbsp;</div></div><div style="clear: both"></div></div>
+                        <div class="selectA"> <div class="left scoreTitle">Bedside manner:</div><div class="left"  style="position: relative;"><div class="doctorLeavelDown" style="width:45px;"></div><div class=" doctorLeavelTop" >&nbsp;</div></div><div style="clear: both"></div></div>
+                        <input class="scoreArr" type="hidden" value="{$reviewScore[0]}"/>
+                        <input class="scoreArr" type="hidden" value="{$reviewScore[1]}"/>
+                        <input class="scoreArr" type="hidden" value="{$reviewScore[2]}"/>
+                        <input class="scoreArr" type="hidden" value="{$reviewScore[3]}"/>
+                    </div>
+                    <!--                    review评论-->
+                    <div style="  height: 26px; width: 520px;margin-top: 9px;" id="doctor_review" >
+                        <div  class="right" style="margin-right: 22px;">
+                            <span id="reviews" style="width: 85px; height: 26px; font-size: 16px; color:#959595; cursor: pointer;" class="" onclick="buttonchange(this)" >Reviews</span>
+                            <if condition="$userable eq 1 "> 
+                                <if condition="$doctor_info.doctor_middle_name neq '' ">
+                                    <span><a id="writeReview" href="{:U('Medical/review/review/')}&firstName={$doctor_info.doctor_frist_name}&middleName={$doctor_info.doctor_middle_name}&lastName={$doctor_info.doctor_last_name}&zipCode={$doctor_info.street_zip|substr=###,0,5}&back=yes" style="color: #959595; font-size: 16px; margin-left: 21px;">Write&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;review</a></span>
+                                    <else />
+                                    <span><a id="writeReview" href="{:U('Medical/review/review/')}&firstName={$doctor_info.doctor_frist_name}&lastName={$doctor_info.doctor_last_name}&zipCode={$doctor_info.street_zip|substr=###,0,5}&back=yes" style="color: #959595; font-size: 16px; margin-left: 21px;">Write&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;review</a></span>
+                                </if>
+                                <else />
+                                 <span><a id="writeReview" href="javascript:void(0)" onclick="nologin()" style="color: #959595; font-size: 16px;">Write&nbsp;&nbsp;a&nbsp;&nbsp;&nbsp;review</a></span>
+                            </if>
+                        </div>
+                    </div>
+                    <!--                    review 内容-->
+                    <div class="doctor_review_list" id="doctor_review_list" style="display: none; height: 107px;">
+                        <if condition="$doctor_review.commect_review eq null ">
+                            <div style="text-align: center; margin-top: 75px; font-size: 20px;height: 75px;">
+                                No review now
+                            </div>
+                            <else/>
+                            <include file="./Tpl/Medical/search/doctor_review.html" />
+                        </if>
+                    </div>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+            <div id="ajaxfield" style=" margin-left: 85px; margin-top: 10px; overflow: hidden;">
+              <include file="./Tpl/Medical/sort/ajaxdoctor_search.html" />
+              </div>
+            <div>
+                <include file="./Tpl/Home/NavAndFoot/footer.html" />
+            </div>
+        </div>
+    </body>
+</html>

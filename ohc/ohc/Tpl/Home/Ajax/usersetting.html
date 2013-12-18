@@ -1,0 +1,167 @@
+<form action="{:U('User/info/settingupdate')}"  method="post" id="formsetting" name="formsetting">
+    <div >
+        <p class="bold">Account</p>
+    </div>
+    <div style=" margin-top: 20px;position: relative;" id="setting_body_div">
+        <span class="left setting_span setting_account">Email Address</span>
+        <input type="text" id="newemail" name="newemail" class="setting_text "  value="{$user.user_email}"  onblur="userSettingCheck('email',1)" />
+        <div style="" class="error_message" id="error_1">
+            <p  id="error_div_1"  class="error_p"></p>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="setting_body_margin margin_hack">
+        <p class="bold">Change Password</p>
+    </div>
+    <div id="setting_body_div">
+        <div style=" margin-bottom: 10px; position: relative;">
+            <span class="left setting_span setting_margin_span  setting_account">Current Password</span>
+            <input type="password" id="current_password" name="current_password" class="setting_text setting_margin_span_text"  onblur="userSettingCheck('currentpassword',2)" />
+            <div style="" class="error_message" id="error_2">
+                <p  id="error_div_2"  class="error_p"></p>
+            </div>
+            <div class="clear "></div>
+        </div>
+        <div style=" margin-bottom: 10px;position: relative;">
+            <span class="left setting_span setting_account">New Password</span>
+            <input type="password" id="settingpassword" name="settingpassword" class="setting_text setting_margin_span_text"   onblur="userSettingCheck('password',3)"  />
+            <div style="" class="error_message" id="error_3">
+                <p style="  "  class="error_p" id="error_div_3"></p>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div style=" margin-bottom: 10px;position: relative;">
+            <span class="left setting_span setting_account">Confim New  Password</span>
+            <input type="password" id="settingrepassword" name="settingrepassword" class="setting_text  setting_margin_span_text"   onblur="userSettingCheck('repassword',4)"   />
+            <div style="" class="error_message" id="error_4">
+                <p style="  "  class="error_p" id="error_div_4"></p>
+            </div>
+        </div>
+        <div>
+        </div>
+        <div class="clear "></div>
+        <div class="setting_body_margin">
+            <h class="bold">Email Preferences</h>  
+            <p>Manage which emails you recevie from Transparentmedicalbill </p>
+        </div>
+        <div style=" margin-top: 20px;*margin-top: 25px;" id="setting_body_div" class="notify_emial">
+            <span class="left setting_span"  style="  width: 232px;">Send me personalized update emails from Transparentmedicalbill</span>
+            <input  type="radio"  class="myClass notify " value="1"   id="notifyemial1" style="display: none;"   name="notify_emial" />
+            <input  type="radio"  class="myClass notify" value="2"    id="notifyemial2"style="display: none;"name="notify_emial" />
+            <input  type="radio"  class="myClass notify" value="3" id="notifyemial3" style="display: none;"  name="notify_emial" />
+            <if condition="$userconfig.notify_emial eq 1 "> 
+                <span class="zogo-form-radio zogo-form-radio-checked" checkbox_value="1" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial1">Weekly</span>
+                <span class="zogo-form-radio" checkbox_value="2" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial2">monthly</span>
+                <span class="zogo-form-radio" checkbox_value="3" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial3">Never</span>
+                <!--                                        默认input 选中-->
+
+                <elseif condition="$userconfig.notify_emial eq 2"/>
+                <span class="zogo-form-radio " checkbox_value="1" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial1">Weekly</span>
+                <span class="zogo-form-radio zogo-form-radio-checked" checkbox_value="2" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial2">monthly</span>
+                <span class="zogo-form-radio" checkbox_value="3" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial3">Never</span>
+                <elseif condition="$userconfig.notify_emial eq 3"/>
+                <span class="zogo-form-radio " checkbox_value="1" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial1">Weekly</span>
+                <span class="zogo-form-radio" checkbox_value="2" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial2">monthly</span>
+                <span class="zogo-form-radio zogo-form-radio-checked" checkbox_value="3" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial3">Never</span>
+                <else />
+                <span class="zogo-form-radio" checkbox_value="1" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial1">Weekly</span>
+                <span class="zogo-form-radio" checkbox_value="2" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial2">monthly</span>
+                <span class="zogo-form-radio" checkbox_value="3" onclick="checkbox(this,'notify_emial','notifyemial')" id="notify_emial3">Never</span>
+            </if>
+        </div>
+        <div class="clear "></div> 
+        <div class="setting_body_margin">
+            <h2 class="bold">Profile Information</h2>  
+            <p>To help us better understand our community and offer more interesting data insights, please complete the optional information below. As with all your user name and account information, this information will not be displayed to any other users.  </p>
+        </div>
+        <dl class="gender_dl" >
+            <dt>Gender</dt>
+            <dd>
+                <div class="Gender">
+                    <if condition="$userconfig.Gender eq 1 "> 
+                        <span class="zogo-form-radio zogo-form-radio-checked" checkbox_value="1" onclick="checkbox(this,'Gender','gder')" id="Gender1">Male</span>
+                        <span class="zogo-form-radio" checkbox_value="2" onclick="checkbox(this,'Gender','gder')" id="Gender2">Female</span>
+                        <span class="zogo-form-radio " checkbox_value="3" onclick="checkbox(this,'Gender','gder')" id="Gender3">Prefer not to state</span>
+                        <elseif condition="$userconfig.Gender eq 2"/>
+                        <span class="zogo-form-radio" checkbox_value="1" onclick="checkbox(this,'Gender','gder')" id="Gender1">Male</span>
+                        <span class="zogo-form-radio zogo-form-radio-checked" checkbox_value="2" onclick="checkbox(this,'Gender','gder')" id="Gender2">Female</span>
+                        <span class="zogo-form-radio " checkbox_value="3" onclick="checkbox(this,'Gender','gder')" id="Gender3">Prefer not to state</span>
+                        <elseif condition="$userconfig.Gender eq 3"/>
+                        <span class="zogo-form-radio" checkbox_value="1" onclick="checkbox(this,'Gender','gder')" id="Gender1">Male</span>
+                        <span class="zogo-form-radio" checkbox_value="2" onclick="checkbox(this,'Gender','gder')" id="Gender2">Female</span>
+                        <span class="zogo-form-radio zogo-form-radio-checked" checkbox_value="3" onclick="checkbox(this,'Gender','gder')" id="Gender3">Prefer not to state</span>
+                        <else />
+                        <span class="zogo-form-radio" checkbox_value="1" onclick="checkbox(this,'Gender','gder')" id="Gender1">Male</span>
+                        <span class="zogo-form-radio" checkbox_value="2" onclick="checkbox(this,'Gender','gder')" id="Gender2">Female</span>
+                        <span class="zogo-form-radio" checkbox_value="3" onclick="checkbox(this,'Gender','gder')" id="Gender3">Prefer not to state</span>
+                    </if>
+                    <!--                                                                        默认input 选中-->
+                    <input  type="radio"   class="myClass sendemial " value="1"   id="gder1" style="display: none;"   name="Gender" />
+                    <input  type="radio"  class="myClass sendemial" value="2"    id="gder2"style="display: none;"name="Gender" />
+                    <input  type="radio"  class="myClass sendemial" value="3"    id="gder3"style="display: none;"name="Gender" />
+                </div>
+            </dd>
+            <dt>Race/Ethnicity </dt>
+            <dd >
+                <span id="race_span" class="race_span" onclick="settingdisplay('RaceEthnicityUL')">
+                    <if condition="$userconfig.race neq '' "> 
+                        <p  style="margin-left: 10px;" id="RaceEthnicitydiv">{$userconfig.race}</p>
+                        <else />
+                        <p  style="margin-left: 10px;" id="RaceEthnicitydiv">Please Select</p>
+                    </if>
+                    <img src="{$PUBLIC}/image/User/info/pointer.png" width="9" height="9"  style=" position: absolute; left: 169px; top: 15px;">
+                </span>
+                <ul id="RaceEthnicityUL" style="width:177px;*width:198px; height: 200px;position: absolute; z-index: 999;" class="Scroll3">
+                    <li onclick="setting('Please Select','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>Please Select</span></li>
+                    <li onclick="setting('Asian','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>Asian</span></li>
+                    <li onclick="setting('Black','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>Black</span></li>
+                    <li onclick="setting('East Indian','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>East Indian</span></li>
+                    <li onclick="setting('Latino / Hispanic','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>Latino / Hispanic</span></li>
+                    <li onclick="setting('Middle Eastern','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>Middle Eastern</span></li>
+                    <li onclick="setting('Pacific Islander','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>Pacific Islander</span></li>
+                    <li onclick="setting('White / Caucasian','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>White / Caucasian</span></li>
+                    <li onclick="setting('Other','RaceEthnicitydiv','RaceEthnicity','RaceEthnicityUL')"><span>Other</span></li>
+                </ul>
+            </dd>
+            <dt>Birth Year</dt>
+            <dd>
+                <span id="race_span" class="race_span" onclick="settingdisplay('BirthYearCount')">
+                    <if condition="$userconfig.birthyear neq 0 "> 
+                        <p  style="margin-left: 10px;" id="BirthYear">{$userconfig.birthyear}</p>
+                        <else />
+                        <p  style="margin-left: 10px;" id="BirthYear">Please Select</p>
+                    </if>
+                    <img src="{$PUBLIC}/image/User/info/pointer.png" width="9" height="9"  style=" position: absolute; left: 169px; top: 15px;">
+                </span>
+                <ul id="BirthYearCount" style=" width:177px;*width:300px; height: 200px;position: absolute;z-index: 998; " class="Scroll3">
+                    <li onclick="setting('Please Select','BirthYear','RaceEthnicity1','BirthYearCount')">
+                        <span>  Please Select</span>
+                    </li>
+                    <?php 
+                    $year = date("Y") + 2;
+                    $oldyear = '1955';
+                    $count = $year - $oldyear;
+                    for($i = $year;$i >= '1955'; $i--){
+                    ?>
+                    <li onclick="setting('<?php  echo $i  ?>','BirthYear','RaceEthnicity1','BirthYearCount')">
+                        <span>
+                            <?php  echo $i  ?>
+                        </span>
+                    </li>
+                    <?php  }  ?>
+                </ul>
+            </dd>
+        </dl>
+        <div class="clear"></div>
+        <div style=" position: relative;">
+            <span class="savechange"  style=" float: left;" onclick="ajaxSettingUpdate()">
+                Save Changes
+            </span>  
+            <span   style=" float: left; line-height: 53px; color: #51B0C2; font-size: 17px; padding-left: 60px;">
+                <a  href="javascript:void(0)" onclick="location.reload();">Cannel</a>
+            </span>                 
+        </div>
+        <input type="hidden" id="RaceEthnicity"  name="race" value="" />
+        <input type="hidden" id="RaceEthnicity1"   name="birthyear" value="" />
+        <input type="hidden" id="email_path"   name="email_path" value="{$email_path}" />
+</form>

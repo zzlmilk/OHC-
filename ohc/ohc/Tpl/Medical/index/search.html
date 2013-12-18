@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placeholder.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <link type="text/css" rel="stylesheet" href="{$PUBLIC}/css/checkbox.css"></link>
+        <!--[if lt IE 9]> 
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
+        <![endif]--> 
+        <script>
+            $(function() {
+                var path = '/Home/Ajax/searchAjax';
+                var url = '{$PUBLICJSURL}';
+                var search_type_name = new Array();
+                search_type_name[1] = 'Doctors';
+                search_type_name[2] = 'Institutions';
+                search_type_name[3] = 'Procedures';
+                var search_type = '{$search_contion.searching}';
+                $('#searching').val(search_type);
+                listAction(search_type, search_type_name[search_type]);
+                $('#search ul li span').click(function() {
+                    var item = $('#soft_name').val();
+                    searchCount('name', item, path, url);
+                })
+            })
+        </script>
+        <style>
+        </style>
+    </head>
+    <body>
+            <input type="hidden" name="soft_name" id="soft_name" value="">
+            <div class="bodydiv">
+                <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+                
+                <div style=" margin-top: 20px;">
+                    <div style=" width: 449px; margin-left: 36px;" id="search">
+                        <ul  style=" width: 449px;" class="soft">
+                            <li>
+                                <if condition="$search_contion.searching eq 1 "> 
+
+                                    <span class="zogo-form-radio" checkbox_value="1" onclick="checkbox(this, 'soft', '1')" id="soft1" >doctor review</span>
+                                    <elseif condition="$search_contion.searching eq 2"/>
+                                    <span class="zogo-form-radio" checkbox_value="2" onclick="checkbox(this, 'soft', '1')" id="soft1">hospitals review</span>
+                                    <else />
+                                    <span class="zogo-form-radio" checkbox_value="3" onclick="checkbox(this, 'soft', '1')" id="soft1">procedures review</span>
+                                </if>
+                            </li>
+                            <li>
+                                <span class="zogo-form-radio" checkbox_value="cost" onclick="checkbox(this, 'soft', '2')" id="soft2">cost</span>
+                            </li>
+                            <volist name="search_if" id="vo" >
+                                <li>
+                                    <span class="zogo-form-radio" checkbox_value="{$key}" onclick="checkbox(this, 'soft', '{$i+2}')" id="soft{$i+2}">{$vo}</span>
+                                </li>
+                            </volist>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear" ></div>
+                <div  style=" margin-top: 20px;margin-left: 36px;" id="rsult_body">
+                    <volist  name="result" id="all" >
+                        <if condition="$i egt $min AND $i elt $max  ">
+                            <div class="search_medical_background" style=" position: relative; ">
+                                <div style="float: left; width: 93px; height: 105px; position: relative; left: 11px; top: 16px; ">
+                                    <div class="photo_background"  style=" position: relative;  ">
+                                        <img src="{$PUBLIC}/image/Medical/search/default.png"  style=" position: absolute;top:1px;left:24px; ">
+                                    </div>
+                                </div>
+                                <div  style=" float: left; margin-top: 22px; margin-left: 13px; color: #9b9c9b;">
+                                    <div>
+                                        <if condition="$search_contion.searching eq 1 "> 
+                                            {$all.doctors_name}
+                                            <elseif condition="$search_contion.searching eq 2"/>
+                                            {$all.hospitals_name}
+                                            <else />
+                                            {$all.procedures_name}
+                                        </if>
+                                    </div>
+                                    <span style=" width: 406px; height: 68px; display: block; word-break: break-all; font-size: 16px; line-height: 24px;">
+                                        <p>{$all.text|strMax}</p>
+                                    </span>
+                                </div>
+                                <div style=" clear:both; width: 200px; margin-left: 20px;">
+                                    <img src="{$PUBLIC}/image/Medical/search/pointer.gif"  style=" position: relative; top: 4px;">
+                                        <img src="{$PUBLIC}/image/Medical/search/line.png" style=" position: relative; top: 2px;">
+                                            <span style=" position: relative; left: 12px; top: 4px; color: #9B9C9B; font-size: 16px; ">{$all.review_number}</span>
+                                            </div>
+                                            <div class="more_back">
+                                                <p  style=" margin-left: 10px; ">more result</p>
+                                            </div>
+                                            </div>
+                                            </if>
+                                            </volist>
+                                            <div class="list_main_page">{$page}</div>
+                                            </div>
+                                            <div  style="margin-top: 20px;">
+                                                <include file="./Tpl/Home/NavAndFoot/footer.html" />
+                                            </div>
+
+                                            </div>
+                                            </body>
+                                            </html>

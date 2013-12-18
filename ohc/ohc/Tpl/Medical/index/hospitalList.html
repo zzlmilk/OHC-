@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/search.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/review.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/doctor_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/hospital_search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/review.css" media="all" />
+        <style>
+        </style>
+        <script>
+            function getscore(){
+                var allCount=$(".listBody").length;
+                for(var q=0;q<allCount;q++){
+                    var count=$('#produce_list_count_'+q).val(); 
+                   //alert(count);
+                    for(var j=0;j<count;j++){
+                        var num= $("#Level_Scorce_"+j+"_"+q).val();
+                        
+                        for(var i=1;i<=num;i++){
+                            $("#rate_sdiv_"+j+"_"+q).find("#rate_s"+i).removeClass("startSmall");
+                            $("#rate_sdiv_"+j+"_"+q).find("#rate_s"+i).addClass("checkstartSmall");
+                        }
+                    }
+                }
+            }
+//            function successfunction(){
+//                    getscore();
+//                    buttomClick(".moreArea div","moreButtomDown","moreButtomNomal");
+//            }
+            $(document).ready(function(){
+                getscore();
+                buttomClick(".moreArea div","moreButtomDown","moreButtomNomal");
+                //var soo="{$search_contion}";
+                $("ul>li>div:first-child").click(function(){
+                    
+                    $("ul>li>div:first-child").each(function(){
+                        $(this).find("img").attr('src',"{$PUBLIC}/image/Medical/review/button-off_03.png");
+                    });
+                    $(this).find("img").attr('src',"{$PUBLIC}/image/Medical/review/button-on_03.png");
+                    sortAjax($(this).find(":hidden").val(),'Medical/sort/search','{$PUBLICJSURL}',1);
+                });
+            
+            });
+            //                    $("#ajaxview").html();
+//                    $.ajax({
+//                        url:"__GROUP__/sort/search",
+//                        type:'post',
+//                        data:{
+//                            searching:$("#searching").val(),
+//                            location_type:$("#location_type").val(),
+//                            search_text:$("#search_text").val(),
+//                            search_text_location:$("#search_text_location").val(),
+//                            search_text_location_hidden:$("#search_text_location_hidden").val(),
+//                            search_advanced_type:$("#search_advanced_type").val(),
+//                            doctor_search_text:$("#doctor_search_text").val(),
+//                            hospital_search_text:$("#hospital_search_text").val(),
+//                            procedure_search_text:$("#procedure_search_text").val(),
+//                            location_search_text:$("#location_search_text").val(),
+//                            sort_type:$(this).find(":hidden").val()
+//                        },
+//                        success:function(rdate){
+//                            $("#ajaxview").html(rdate);
+//                            getscore();
+//                            buttomClick(".moreArea div","moreButtomDown","moreButtomNomal");
+//                        }
+//                    });
+        </script>
+    </head>
+    <body>
+        <div class="bodydiv"  style="position: relative;" >
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <div style="margin-left: 10px;">
+                <div style=" float: left;">
+                    <div style="text-align: right">
+                        <p style=" font-weight:bold; padding-right: 38px;">Sort By</p>
+                        <p style=" font-size: 12px">(13 of 20 reviews)</p>
+                    </div>
+                    <ul>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-on_03.png"/><input type="hidden" value="1"/></div>
+                            <div class="liFloat listText" style="line-height: 20px;">Review </div>
+                            <div style="float:left;padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                        <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="{$PUBLIC}/image/Medical/review/button-off_03.png"/><input type="hidden" value="2"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; ">Colligation score </div>
+                            <div style="float:left; padding-top: 5px"><img src="{$PUBLIC}/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+                    </ul>
+
+                </div>
+                <div id="hospitalList" style="margin-left: 20px; float: left;">
+                    <!--此处循环所有医院 -->
+                    <foreach item="voList" name="hospitals" key="listKey">
+                        <div class="listBody">
+                            <table style="width:95%">
+                                <tr><td class="TitleColor">Introduction:</td></tr>
+                                <tr><td class="textview">{$hospital_introduction[$listKey].hospital_introduction|strDoctorDefined=###,450}</td></tr>
+                                <tr><td><input id="produce_list_count_{$listKey}" type="hidden" value="{$voList|count=###}">
+                                        <table>
+                                            <tr>
+                                                <td style="vertical-align:middle;width: 170px;" class="scoreColor">Project(Review Score)</td>
+                                                <td >
+                                                    <table>
+                                                        <!--此处填充循环 -->
+                                                        <foreach item="ProjectList" name="voList" key="ProjectKey">
+                                                            <tr>
+                                                                <td class="scoreColor">{$ProjectList.procedures_name|strDoctorDefined=###,12}</td>
+                                                                <td>
+                                                                    <span class="rate_div_small" id="rate_sdiv_{$ProjectKey}_{$listKey}"><input id="Level_Scorce_{$ProjectKey}_{$listKey}" type="hidden" value="{$ProjectList.review_level}"/>
+                                                                        <span rate="1" class="start_main_small startSmall" id="rate_s1" >&nbsp;</span>
+                                                                        <span rate="2" class=" start_main_small startSmall" id="rate_s2">&nbsp;</span>
+                                                                        <span rate="3" class="start_main_small startSmall" id="rate_s3">&nbsp;</span>
+                                                                        <span rate="4" class="start_main_small startSmall" id="rate_s4">&nbsp;</span>
+                                                                        <span rate="5" class="start_main_small startSmall" id="rate_s5">&nbsp;</span>
+                                                                    </span>
+                                                                </td>
+
+                                                            </tr>
+
+                                                        </foreach >
+
+                                                    </table>
+                                                </td>
+                                                <td id="moreArea" class="moreArea">
+                                                    <div class="moreButtom moreButtomNomal" onclick="searchCustom('2','{$hospital_introduction[$listKey].hospital_name}','{$hospital_list[$listKey].city_location}','');"></div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td></tr>
+                            </table>
+                        </div>
+                    </foreach>
+                   <div>{$paging}</div> 
+                </div>
+                
+            </div>
+            <include file="./Tpl/Home/NavAndFoot/footer.html" />
+        </div>
+    </body>
+</html>

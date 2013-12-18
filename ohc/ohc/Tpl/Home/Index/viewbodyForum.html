@@ -1,0 +1,26 @@
+<script>
+    $(function() {
+        var re = $('#right_action').html();
+        $('#right_action').html(re.replace(/<br(\s+)?\/?>(\s+)?/gi, ''));
+    })
+</script>
+<div  style='height: 70px; margin-left: 20px;'>
+    <foreach  name="forum_data" item="forum_result" key="forum_k" >
+        <div id="txar_review_con1">
+            <a href="{:U('forum/forum/forumTopic',array('id'=>$forum_result['forum_id']))}" style="color: #696969">
+                {$forum_k+1}:
+                {$forum_result.title}<br />
+                {$forum_result.forum_id}
+            </a>
+        </div>
+        <div id="reply_question">
+            <if condition="($forum_result.able eq 1)">
+                post...
+                <else />
+                reply...
+            </if>
+        </div>
+        <div id="txar_review_con2">{$forum_result.forum_content}</div>
+    </foreach>   
+</div>
+<div id="fenye_w"> <div id="page2">{$forum_page}</div></div>

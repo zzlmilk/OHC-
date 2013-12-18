@@ -1,0 +1,21 @@
+<script>
+    $(function() {
+        var re = $('#right_action').html();
+        $('#right_action').html(re.replace(/<br(\s+)?\/?>(\s+)?/gi, ''));
+    })
+</script>
+<div id='doctor_name_ex'  style='   height: 84px;margin-left: 20px;'>
+    <foreach  name="doctor_review" item="doctor_review_data" >
+        <a href="javascript:void(0)" onclick="searchCustom('1', '{$doctor_review_data.doctor_info.doctors_id}', '{$doctor_review_data.doctor_info.doctors_frist_name} {$doctor_review_data.doctor_info.doctor_middle_name} {$doctor_review_data.doctor_info.doctors_last_name}', '{$doctor_review_data.doctor_info.city_location} {$doctor_review_data.doctor_info.state}', '')" style="color: #696969; cursor: pointer;">
+            doctor_name: &nbsp;{$doctor_review_data.doctor_info.doctors_frist_name} {$doctor_review_data.doctor_info.doctor_middle_name} {$doctor_review_data.doctor_info.doctors_last_name} 
+        </a>
+    </foreach>   
+    <foreach  name="doctor_review" item="doctor_review_data" key="k" >
+        <foreach name="doctor_review_data.doctor_info.review" item="review_data" key="data_k">
+            <div id="doctor_name_con" >
+                {$data_k+1}:{$review_data}
+            </div>
+        </foreach>
+    </foreach> 
+</div>      
+<div id="page1">{$review_page}</div>

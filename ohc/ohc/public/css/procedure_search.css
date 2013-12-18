@@ -1,0 +1,67 @@
+/* 
+    Document   : procedure_search
+    Created on : 2013-5-29, 10:10:04
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+#procedure_div{
+    width: 710px;
+    margin: 0 auto;
+}
+#procedure_line{
+    width: 119px;
+    display: block;
+    border:0.5px solid #848484;
+}
+#procedure_review{
+    width: 119px;
+    display: block;
+    text-align: center;
+    color: #000
+}
+#procedure_info{
+    background:url(../image/Medical/search/procedures_back.png); 
+    display: block;
+    width: 586px;
+    height:322px;
+    margin-top: 10px;
+}
+.procedure_doctor{
+    background:url(../image/Medical/search/doctor_list.png); 
+    width: 585px;
+    height: 255px;
+    margin-top: 20px;
+
+}
+#doctor_location{
+    width: 210px;
+    color: #a3a3a3;
+    overflow: hidden;
+    float: left;
+}
+#doctor_hospital{
+    width: 420px;
+    color: #a3a3a3;
+    line-height: 17px;
+    overflow: hidden;
+    float: left;
+}
+.doctor_lh{
+    margin-top: 20px;
+}
+#doctor_review{
+    margin-top: 10px;
+}
+.review_doctor_list{
+    margin: 20px 0 0 0; width:524px;height: 118px;
+}

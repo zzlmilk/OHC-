@@ -1,0 +1,367 @@
+/* 
+    Document   : review
+    Created on : 2013-5-10, 10:54:11
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block; 
+}
+
+.start_main{
+    background-repeat: no-repeat;
+    height: 34px;
+    cursor: pointer;
+    width: 35px;
+    display: inline-block;
+    margin-right: 5px;
+}
+.start_main_small{
+    background-repeat: no-repeat;
+    height: 15px;
+    cursor: pointer;
+    width: 16px;
+    display: inline-block;
+}
+.start{
+    background:url(../image/Medical/review/star.png);
+    background-repeat: no-repeat;
+}
+.checkstart{
+    background:url(../image/Medical/review/checkstar.png) ;
+    background-repeat: no-repeat;
+}   
+.startSmall{
+    background:url('../image/Medical/review/starSmall.png');
+}
+.checkstartSmall{
+    background:url(../image/Medical/review/checkStarSmall.png);
+} 
+.rate_div{
+/*    display: inline-block;*/
+    float: left;
+    height: 42px;
+    left: 415px;
+    overflow: hidden;
+    position: absolute;
+    width: 215px;
+    top: -3px;
+}
+.rate_div_small{
+/*    display: inline-block;*/
+/*   float: left;*/
+/*    height: 42px;
+    left: 322px;*/
+    overflow: hidden;
+/*    position: absolute;*/
+    width: 193px;
+    top: -3px;
+}
+.pointer{
+    background:url(../image/Medical/review/pointer.png);
+    background-repeat: no-repeat;
+    width: 16px;
+    height:16px;
+    overflow: hidden;
+    display: inline-block;
+}
+.title{
+letter-spacing: 0.7px;
+    color: #828384; 
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: -5px;
+}
+.title1{
+    color: #AEB0B3; 
+    font-weight: bold;
+    font-size: 12px;
+}
+.procedure_back{
+    background-repeat: no-repeat;
+    width: 310px;
+    height: 36px;
+    display: inline-block;
+}
+.commect_back{
+/*    background:url(../image/Medical/review/commect_list.png);*/
+    border: solid 2px #ccc;
+    background-repeat: no-repeat;
+    width: 577px;
+    height: 143px;
+    display: inline-block;
+}
+.commect_text{
+/*    background:url(../image/Medical/review/commect_text.png);*/
+    width: 573px;
+    height: 130px;
+}
+.div_arrive{
+    margin-left: 20px; 
+}
+.title_div{
+    width: 449px;
+    display: inline-block;
+}
+.input_text{
+    background-repeat: no-repeat;
+    width: 268px;
+    height: 20px;
+    display: inline-block; 
+    overflow: hidden;
+    border: 1px solid #787878;
+/*    padding-left: 5px;*/
+}
+.SmallTriangle{
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 11px;
+    display: inline-block; 
+    overflow: hidden;  
+    position: absolute;
+    padding: 6px;
+    border: 1px solid #787878;
+    border-left:2px solid #B4B4B4;
+    cursor: pointer;
+}
+.Triangle{
+/*    background:url(../image/Medical/review/triangle.png);*/
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 11px;
+    display: inline-block; 
+    overflow: hidden;  
+    position: absolute;
+    top: 4px;
+    left: 273px;
+    padding: 4.5px;
+    border: 1px solid #787878;
+    border-left:2px solid #B4B4B4;
+    cursor: pointer;
+    *padding:4.5px;
+    *padding-bottom:5px;
+}
+#procedure_list{
+/*    *top: 25px;*/
+    *padding-left:0px;
+    *left: 0px;
+    margin-left:40px;
+    *margin-left:24px;
+    width: 300px;
+    top: 25px;
+    *width: 300px;
+    height: 130px;
+    overflow:hidden;
+    position: absolute;
+    z-index: 999;
+}
+ .listliNomal
+ {
+    background:#fff;
+    *position: relative;
+    *z-index: 99;
+}
+ .listliOn{background:#0578E3;color:#fff}
+#procedure_list li {
+    width: 295px;
+    height: 20px;
+    overflow: hidden;
+    border-left: 1px solid black;
+    cursor: pointer;
+    *width:277px;
+}
+#visit_year_list{
+     height: 130px;
+     position: absolute;
+     z-index: 998;
+     overflow: hidden;  
+     border-left:1px solid black;
+     padding-left: -50px; 
+     left: 338px; 
+     top: 21px;
+     width: 93px;
+     padding-right: 7px;
+     *padding-right:15px;
+     *left:267px;
+      margin-left:3px \0;
+}
+#visit_month_list{
+    height: 130px;
+    position: absolute;
+    z-index: 998; 
+    overflow: hidden;
+    left:473px; 
+    top: 20px;
+    border-left:1px solid black; 
+    width: 93px;
+    padding-right:7px;
+    *left:375px; 
+    *padding-right:15px;
+    *margin-left:16px;
+    margin-left:3px \0;
+}
+#visit_year_list li{
+    width: 86px;
+    height: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    text-indent: -4px;
+    *margin-left:-16px;
+}
+
+/*#doctor_name_con{
+
+}*/
+#visit_month_list li{
+    width: 86px;
+    height: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    text-indent: -8px;
+    *margin-left:-16px;
+}
+.small_text{
+    background-repeat: no-repeat;
+    width: 179px;
+    height:20px;
+    display: inline-block;
+    overflow: hidden;
+    border:1px #787878 solid;
+    margin: 6px 0 0 28px;
+/*    padding-left: 5px;*/
+}
+.small_background{
+    border: 1px 
+    background-repeat: no-repeat;
+    width: 185px;
+    *width: 170px;
+    height:36px;
+    display: inline-block;
+
+    margin-left: 49px;
+}
+.selectreview{
+    background:url(../image/Medical/review/select.png);
+    background-repeat: no-repeat;  
+    width: 13px;
+    height: 13px;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+.checkedselectreview{
+    background:url(../image/Medical/review/checkselect.png);
+    background-repeat: no-repeat;  
+    width: 13px;
+    height: 13px;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+.read{
+    background:url(../image/Medical/review/read.png);
+    background-repeat: no-repeat;  
+    width: 21px;
+    margin-top: 18px;
+    height: 20px;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+.checkread{
+    background:url(../image/Medical/review/checkread.png);
+    background-repeat: no-repeat;  
+    width: 21px;
+    height: 20px;
+    margin-top: 18px;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+.submit_off{background:url(../image/Medical/review/submit.png);}
+.submit_on{background:url(../image/Medical/review/submit-on.png);}
+.review_submit{
+    background-repeat: no-repeat;  
+    width: 179px;
+    height: 42px;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+}
+.small_visting_text{
+    background-repeat: no-repeat;
+    width: 61px;
+    height:23px;
+    display: inline-block;
+    overflow: hidden;
+    border: 1px solid #787878;
+    margin: 7px 0 0 28px;
+}
+.small_visting_background{
+    background-repeat: no-repeat;
+    width: 125px;
+    height:36px;
+    display: inline-block;
+    overflow: hidden;
+
+}
+
+
+/*review 确认页面*/
+#review_confim{
+/*    background:url(../image/Medical/review/review_confim_back.png);*/
+    background-repeat: no-repeat;
+    width: 705px;
+    height:657px;
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 39px;
+    border-top: solid 1px #525353;
+    border-left: solid 1px #525353;
+    border-bottom: solid 1px #525353;
+    border-right: solid 2px #ccc;
+/*    box-shadow: 1px 1px 1px #CCCCCC;*/
+    border-radius:10px;
+    border-bottom: solid 2px #525353 \0;
+    border-right: solid 3px #ccc \0;
+    behavior:url(http://localhost/ohc/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+
+.review_last{
+    background:url(../image/Medical/review/line.png);
+    width: 796px;
+    height:1px;
+    display: inline-block;
+    overflow: hidden;
+    top: 39px;
+}
+#agreeService{
+   color:  #aeb0b3
+}
+#agreeService:hover{
+    text-decoration: underline;
+}
+/* review 页面中的 同意条款css */
+.agreeserviice{
+    text-shadow: 0px 1px 0px rgb(255, 255, 255); margin-top: 32px; position: relative; font-size: 13px; text-align: justify; border-radius: 8px 8px 8px 8px; border: 2px solid rgb(204, 204, 204); padding: 10px 7px 0px 6px;
+    behavior:url(http://192.168.0.107/ohc/branches/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+.agreeP{float: left;
+       width: 464px;
+       margin-left: 30px;
+       line-height: 21px;
+       color: #a7a9a8;
+       font-size: 14px;
+       text-align:justify;
+       cursor: pointer;
+}
+.agreeP:hover{
+    font-size: 16px;
+}

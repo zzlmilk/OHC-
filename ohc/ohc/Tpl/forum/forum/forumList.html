@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+        </script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/register.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/search.js"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/review.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/search.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/forumList.css" media="all" />
+        <script>
+            var user = '{$user}';
+            window.onload = function() {
+
+                buttomClick("#font_post", "postOn", "postOff");
+            }
+            function forumPost() {
+                var forumurl = getUrl('forum/forum/forumPost', url);
+                if(user == 0){
+                      var forumRurl = getUrl('Medical/index/PleaseRegister',url);
+                            PleaseRegister(forumRurl);
+                            return false;
+                } else{
+                    window.location.href = forumurl;
+                }
+            }
+            $(function() {
+                $("table").ready(function() {
+                    var TableHeight = $('table').height();
+                    if (TableHeight < 100) {
+                        $('#Aid').css('height', 280);
+                    } else if (TableHeight > 100 && TableHeight < 200) {
+                        $('#Aid').css('height', 130);
+                    } else if (TableHeight > 200 && TableHeight < 300) {
+                        $('#Aid').css('height', 50);
+                    } else if (TableHeight > 300) {
+                        $('#Aid').remove();
+                    }
+                })
+            })
+        </script>
+    </head>
+    <body>
+
+        <div class="bodydiv">
+
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <div id="fourm_title">
+                <div id="font_title">Title</div>
+                <div id="font_reply"><span class="dateP" style="margin-left: -25px; font-size: 20px;color: #F7F7F7; font-family: Candara;">Reply</span><span style="margin-left: 20px;color: #F7F7F7;" class="dateP">Author</span><span style="color: #F7F7F7;" class="dateP">Post date</span></div>
+                <div id="font_auth_date">
+                    <div id="font_post" class="postOff"><a id="post"  href="javascript:void(0)" onclick='forumPost()'></a></div>
+                    <!--            -->
+                </div>
+            </div>
+
+            <div class="tablediv">
+                <table>
+                    <foreach name="forumList" item="vo" key="k">
+                        <tr class="lineOdd trline">
+                            <td class="td_title"><a href="{:U('forum/forum/forumTopic', array('id'=>$vo['forum_id']))}">{$vo.forum_title|strDoctorDefined=###,48}</a></td>
+                            <td style="font-size: 12px;">{$reply[$k]-1}</td>
+                            <td class="td_name">{$vo.user_name}</td>
+                            <td class="td_auth_date">{$vo.forum_time|date="Y-m-d",###}</td>
+                        </tr>
+                    </foreach>
+                </table>
+
+                <div class="paging">
+                    <if condition="($pageCount lt 15)or($pageCount eq 15)">
+                        <else/>
+                        <div>{$Paging}</div>
+                    </if>
+                </div>
+            </div>
+            <div id="Aid" style="width: 100%;"></div>
+            <include file="./Tpl/Home/NavAndFoot/footer.html" />
+        </div>
+    </body>
+</html>

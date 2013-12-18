@@ -1,0 +1,109 @@
+/* 
+    Document   : login
+    Created on : 2013-4-8, 17:19:04
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+#user_email{ 
+    width: 235px;
+    margin-left: -22px;
+    padding-left: 15px;
+    border: medium none;
+    font-size: 18px;
+    margin-top: 20px;
+}
+#user_email_bg{
+    width: 246px;
+    height: 67px;
+    margin-left: -30px;
+    padding-left: 72px;
+    background: url(../image/Home/Login/email.gif);
+    border-right: solid 1px #848484;
+    margin-top: -6px;
+}
+.user_password{ 
+    width: 235px;
+    margin-left: -22px;
+    padding-left: 15px;
+    border: medium none;
+    font-size: 18px;
+    margin-top: 7px;
+}
+#user_password_bg{
+    width: 246px;
+    height: 67px;
+    margin-left: -30px;
+    padding-left: 72px;
+    margin-top: 12px;
+    background: url(../image/Home/Login/password.gif);
+    border-right: solid 1px #848484;
+}
+
+#login{
+    position: relative;
+    margin: 83px auto;
+    background-color: #f1f2f4; 
+    border-left: 1px solid #C8C8CA;
+    border-right: 1px solid #C8C8CA;
+    width:422px;
+    height:450px;
+
+}
+.loginBoxShdow{
+    border-radius:3px 3px 3px 3px; 
+    -moz-box-shadow:0px 3px 0px #C8C8CA;
+    -webkit-box-shadow: 0px 3px 0px #C8C8CA;
+    box-shadow:0px 3px 0px #C8C8CA;
+    behavior:url(http://192.168.0.107/ohc/branches/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+.EmailAndPasswordBoxShaow{
+    /*    box-shadow: -2px 0 0px #D5D5D8,0 -2px 0px #D5D5D8,2px 0 0px #D5D5D8;*/
+    /*    box-shadow:0px 1px 5px #C8C8CA;*/
+    behavior:url(http://192.168.0.107/ohc/branches/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+#EmailAndPassword{
+    background-color: #E6E7EB;
+    width:342px;
+    height: 170px;
+    margin: 0 auto; 
+    position: relative;
+    border:solid 1px #ccc;
+    box-shadow: 0 1px 1px #AEAEAE inset;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    behavior:url(http://192.168.0.107/ohc/branches/Tpl/Home/Index/PIE.htc); /* IE游览器 支持CSS3属性 */
+}
+.loginText:focus{
+    /*    border:1px solid #CA6723;*/
+    /*    box-shadow:0 0 2px #BABABA inset, 0 0 2px #CA6723;*/
+    /*    behavior:url(http://192.168.0.107/ohc/branches/Tpl/Home/Index/PIE.htc);*/
+}
+#button{
+    border: 1px solid #2d3f7c;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+#button:hover{
+    background: linear-gradient(#2d3f7c 30%, #4f6db2 100%);
+    -pie-background: linear-gradient(#2d3f7c 30%, #4f6db2 100%); 
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2d3f7c', endColorstr='#4f6db2',GradientType=0)\9\0;
+    behavior:url(http://192.168.0.107/ohc/branches/Tpl/Home/Index/PIE.htc);
+    cursor: pointer;
+}
+.buttonImage{
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4f6db2', endColorstr='#2d3f7c',GradientType=0)\9\0;
+    background: linear-gradient(#4f6db2 51%, #2d3f7c 100%);
+    background-color: #4f6db2;
+    behavior:url(http://192.168.0.107/ohc/branches/Tpl/Home/Index/PIE.htc);
+}
+.main_mask{width:100%;top:0;bottom:0;left:0;position:fixed;z-index:999999;background:url(../image/Home/Login/black_background.png);}

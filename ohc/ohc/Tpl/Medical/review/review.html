@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <script  type="text/javascript" src="{$PUBLIC}/js/jquery-1.3.2.min.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/url.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/home.js"></script>
+        <script  type="text/javascript" src="{$PUBLIC}/js/login.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/review.js"></script> 
+        <script  type="text/javascript" src="{$PUBLIC}/js/placetest.js"></script> 
+        <script src="{$PUBLIC}/js/review-jsScroll.js" language="javascript" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/css_clear.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/home.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/register.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/footer.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/public.css" media="all" />
+        <link rel="stylesheet" type="text/css" href="{$PUBLIC}/css/review.css" media="all" />
+        <link href="{$PUBLIC}/css/WuBin-jsScroll.css" rel="stylesheet" type="text/css" />
+        <!--[if lt IE 9]> 
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> 
+        <![endif]--> 
+        <script>
+            $(function() {
+                $('#searching').val(1);
+                $('.rate_value').val(0);
+                $('#agree').val(0);
+                $("#review_submit").mousedown(function() {
+                    $("#review_submit").removeClass("submit_off");
+                    $("#review_submit").addClass("submit_on");
+                });
+                $("#review_submit").mouseup(function() {
+                    // alert('b');
+                    $("#review_submit").addClass("submit_off");
+                    $("#review_submit").removeClass("submit_on");
+                });
+                $("#review_submit").hover(function() {
+                }, function() {
+                    $("#review_submit").addClass("submit_off");
+                    $("#review_submit").removeClass("submit_on");
+                });
+                $("#checkAgree").click(function() {
+                    $(".commect_back").toggle(200);
+                });
+            })
+        </script>
+    </head>
+    <body> 
+        <div class="bodydiv">
+            <include file="./Tpl/Home/NavAndFoot/publicheader.html" />
+            <!--            review 内容开始-->
+            <div id="review_body_div" style=" margin-left: 36px;  margin-top: 10px; ">
+                <input type="hidden" value="{$back}" id="IsBack"/>
+                <div style=" clear: both; position: relative; margin-left: 25px; margin-bottom: 10px;" id="reviewerror">
+                    <div style="clear: both;  position: absolute; width: 270px; left: -28px; top: 3px;">
+                        <span style="position: relative; display: none;" id="review_error_div">
+                            <img src="{$PUBLIC}/image/Home/register/error.png" width="15" height="15" id="error_image">
+                            <span id="review_error_list"  style="font-size: 12px; color: #BDBDBD; font-weight: bold;line-height: 21px; width: 433px; display: inline-block; position: absolute  ; left: 33px; top: -3px;"></span>
+                        </span>   
+                    </div>
+                </div>
+                <form action="{:U('Medical/review/addReview')}"  method="post" id="reviewfrom" name="reviewfrom">
+                    <input type="hidden" name="back" id="back" value='{$nameAry[3]}'>
+                        <input type="hidden" name="procedures_val" id="procedures_val" value=''>
+                            <input type="hidden" name="register_review" id="register_review" value="{$register_review}">
+                                <!--             医疗项目开始-->
+                                <div>
+                                    <span class="pointer"></span>
+                                    <span class="title div_arrive" style="">Please enter the name of medical procedure below<span style="color: red;">*</span>:</span>
+                                </div>
+                                <!--                医疗项目下拉框开始-->
+                                <div style=" margin-top: 10px; position:relative;  z-index: 998; ">
+                                    <span class="procedure_back " style=" margin-left: 40px; position: relative;">
+                                        <span class="input_text" style=" text-indent: 16px;height: 20px; margin-top: 4px; cursor: pointer;line-height:20px;"  id="procedure_name"onclick="listscroll('procedure_list');"></span>
+                                        <span id="toptag" class="Triangle" onclick="listscroll('procedure_list');"><img src="{$PUBLIC}/image/Medical/review/triangle.png"></img></span>
+                                    
+                                        <span style="margin-top: -3px; position: absolute; width: 364px; margin-left: 32px; display: none;" id='othersTextDiv'><span>please specify:</span><span><input type="text" id="othersText" name="procedure_name_other"  onkeydown="KeyDown(event,'review')"  class="small_text" style="width: 250px; margin: 6px 0px 0px 6px;"></span></span>
+                                    
+                                    </span>
+                                    <div  id="rightLine"style=" width: 1px; height: 130px; border-right: 1px solid #000; z-index:1000; position: absolute; top: 25px; left: 335px; display: none;"></div>
+                                    <div id="procedure_list_background" style="  ">
+                                        <ul style="  padding-right: 9px;*padding-right:12px;" id="procedure_list" class="Scroll3">
+                                            <volist  name="procedure" id="all" >
+                                                <li id="procedure_id" class="listliNomal" onclick="reviewprocedures('{$all.procedure_name}', 'procedure_name')"><span style=" cursor: pointer;margin-left: 22px; display: inline-block; " title="{$all.procedure_name}">{$all.procedure_name|strreviewMax}</span></li>
+<!--                                                            Others--> 
+                                            </volist>    
+                                            <li id="others" class="listliNomal" style="text-indent: 21px;" onclick="reviewprocedures('other', 'procedure_name');$('#othersTextDiv').show();">other</li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <!--                医疗项目下拉框结束  邮编号码开始-->
+                                <div style=" margin-top: 20px; ">
+                                    <span class="pointer"></span>
+                                    <span class="title div_arrive" style=" text-align: justify; width: 503px;height: 30px; position: absolute; margin-top: 0px; ">Please enter the address that you had the medical procedure<span style="color: red;">&nbsp;*</span>&nbsp;:</span>
+                                </div>
+                                <!--             邮政号码 开始-->
+                                <div style=" margin-top: 20px; ">
+                                    <span  style=" margin-left: 40px; position: relative; display: inline-block; width: 450px; *width: 370px;width:400px\0; z-index:10px; ">
+                                        <span style=" color: #aeb0b3; font-size: 13px; font-weight: bold; position: relative;  float: left;margin-top: 11px; ">Zip code:</span>
+                                        <span class="small_background" style=" float: left; margin-left: 25px; " id="zip_code_div">
+                                            <input type="text" name="zip_code" id="zip_code" onkeydown="KeyDown(event,'review')"  class="small_text" value="{$nameAry[2]}"/>
+                                            <input type="hidden" name="zip_code_back" value="{$nameAry[2]}" id="zip_code_back"/>
+                                        </span>
+                                    </span>
+                                </div>
+                                <!--             邮政号码 结束  州 城市 开始-->
+                                <div style=" margin-top: 20px; position: relative; ">
+<!--                                    <span class="pointer"></span>-->
+                                    <span class="title div_arrive title_div" style=" margin-left: 37px; text-align: justify;text-justify:inter-ideograph; width: 497px;height: 30px;  line-height: 22px;position: absolute;top: 2px; ">If you do not remember the zip code, please specify the name of state and city from below:</span>
+                                </div>
+                                <!--             州 与 城市  开始-->
+                                <div style=" margin-top: 42px; ">
+                                    <span  style=" margin-left: 28px; position: relative; display: inline-block;width: 650px;margin-top: 12px;">
+
+                                        <span style=" margin-left:8px; color: #aeb0b3; font-size: 13px; font-weight: bold; position: relative;  float: left;margin-top: 11px; ">State:</span>
+                                        <span class="small_background" style=" float: left; margin-left: 50px;">
+                                             <if condition="$reviewFrom eq 0 "> 
+                                                 <select id="state" style=" margin-top: 8px;">
+                                                       <option value='' selected='selected'>---please select state ------</option>
+                                                     <foreach name="state_all" item="state_all_data" >
+                                                         <option value='{$state_all_data}'>{$state_all_data}</option>
+                                                     </foreach>
+                                                 </select>
+                                             <else />
+                                               <input type="text" name="state" id="state"  onkeydown="KeyDown(event,'review')"  class="small_text" style=" line-height: 22px;"  />
+                                             </if>
+                                          
+                                        </span>
+
+                                        <span style=" margin-left: 33px;color: #aeb0b3; font-size: 13px; font-weight: bold; float: left;margin-top: 11px; ">City:</span>
+                                        <span class="small_background" style=" float: left; margin-left: 36px; ">
+                                            <input type="text" name="city" id="city"   onkeydown="KeyDown(event,'review')" class="small_text"  style=" line-height: 22px;" />
+                                        </span>
+
+                                    </span>
+                                </div>
+                                <!--             州 与 城市  结束 医生名称开始-->
+                                <div style=" margin-top: 20px; position: relative; ">
+                                    <span class="pointer"></span>
+                                    <span class="title div_arrive" style=" ">Please enter the name of the doctor:</span>
+                                </div>
+                                <div style=" margin-top: 20px; ">
+                                    <span  style=" margin-left: 40px; position: relative; display: inline-block; width: 650px;">
+                                        <!--                                     Frist Name-->
+                                        <span style=" color: #aeb0b3; font-size: 13px; font-weight: bold; position: relative;  float: left;margin-top: 10px; ">First name<span style="color: red;">*</span>:</span>
+                                        <span class="small_background" style=" float: left;margin-left:7px; ">
+                                            <input type="text" name="doctors_frist_name" onkeydown="KeyDown(event,'review')" id="doctors_frist_name" value="{$nameAry[0]}"  class="small_text" style=" line-height: 22px;"  />
+                                            <input type="hidden" name="doctors_frist_name_back" value="{$nameAry[0]}" id=doctors_frist_name_back"/>
+                                        </span>
+                                        <!--                                                Middle Name-->
+                                        <span style=" margin-left: 10px;color: #aeb0b3; font-size: 13px; font-weight: bold;  float: left;margin-left: 33px;margin-top: 11px; ">Middle name:</span>
+                                         <input type="text" name="doctors_middle_name"  onkeydown="KeyDown(event,'review')" id="doctors_middle_name"value="{$nameAry[4]}"  class="small_text" style=" line-height: 22px; margin-top: 6px; margin-left: -158px;"  />
+                                        <input type="hidden" name="doctors_middle_name_back" value="{$nameAry[4]}" id="doctors_middle_name_back"/>
+                                        <!--                                               Last Name-->
+                                        <span style=" margin-left: 10px;color: #aeb0b3; font-size: 13px; font-weight: bold;  float: left;margin-left: -388px;margin-top: 49px; ">Last name<span style="color: red; ">*</span>:</span>
+                                        <span class="small_background" style=" float: left;margin-left: -22px; *margin-left:0px; ">
+                                            <input type="text" name="doctors_last_name" onkeydown="KeyDown(event,'review')" id="doctors_last_name"value="{$nameAry[1]}"  class="small_text" style=" line-height: 22px; margin-top: 45px; margin-left: -255px;margin-left: -252px \0\9;margin-left: -255px \0;"  />
+                                            <input type="hidden" name="doctors_last_name_back" value="{$nameAry[1]}" id="doctors_last_name_back"/>
+                                        </span>
+
+                                    </span>
+                                </div>
+                                <!--   医生名称结束  医院开始 -->
+                                <div style=" margin-top: 20px; position: relative; ">
+                                    <span class="pointer"></span>
+                                    <span class="title div_arrive title_div" style="text-align: justify; height: 30px; position: absolute;top: 2px; width: 503px; line-height: 22px; ">Please enter the name of the service providing organization,can it be a clinic,a hospital or some other:</span>
+                                </div>
+                                <!--             医院  开始-->
+                                <div style=" margin-top: 20px; ">
+                                    <span  style=" margin-left: 35px; position: relative; display: inline-block;margin-top: 15px; width: 510px;">
+                                        <span style=" color: #aeb0b3; font-size: 13px; font-weight: bold; position: relative;  float: left;margin-top: 11px; ">organization:</span>
+                                        <span class="procedure_back " style="margin-left: 4px; ">
+                                            <input class="input_text"   onkeydown="KeyDown(event,'review')" id="hospitals_name" name='hospitals_name' style="margin: 5px 0 0 28px;line-height: 22px; width: 403px;"   />
+                                        </span>
+                                    </span>
+                                </div>
+                                <!--             医院  结束 访问时间开始-->
+                                <div style=" margin-top: 20px; position: relative;  z-index: 998;">
+                                    <span class="pointer"></span>
+                                    <span class="title div_arrive title_div" style="position: absolute; width: 465px; top: 3px; ">Please enter the visiting date<span style="color: red;">*</span>:</span>
+                                    <span class="small_visting_background" style=" margin-left: 294px; position: absolute; top: -10px;">
+                                        <span class="SmallTriangle"  style=" top: 7px; left: 90px;" onclick="listscroll('visit_year_list');"><img src="{$PUBLIC}/image/Medical/review/triangle.png" ></span>
+                                        <span  name="visit_year" id="visit_year"  class="small_visting_text" style=" text-align: center; cursor: pointer; line-height: 21px;" onclick="listscroll('visit_year_list');"> </span>
+                                    </span>
+                                    <span class="small_visting_background" style=" margin-left: 433px; position: absolute; top: -10px;">
+                                        <span class="SmallTriangle"  style=" top: 7px; left: 85px;" onclick="listscroll('visit_month_list');"><img src="{$PUBLIC}/image/Medical/review/triangle.png" ></span>
+                                        <span  name="visit_month" id="visit_month"  class="small_visting_text" style="text-align: center; cursor: pointer;margin-left: 24px; line-height: 21px;" onclick="listscroll('visit_month_list');"> </span>
+                                    </span>
+                                    <input  type="hidden" name="year_val" id="year_val" value="0"/>
+                                    <input  type="hidden" name="month_val" id="month_val" value="0"/>
+                                    <ul id="visit_year_list"   class="Scroll3" style=" margin-left: 0px;">
+                                        <?php 
+                                        $year = date("Y");
+                                        $oldyear = '1955';
+                                        $count = $year - $oldyear;
+                                        for($i = $year;$i >= $oldyear; $i--){
+                                        ?>
+                                        <li id="visit_year_id" class="listliNomal"  onclick="reviewyear(<?php  echo $i  ?> , 'visit_year')">
+                                            <span style="margin-left: 25px; display: inline-block; cursor: pointer;" onclick="reviewyear(<?php  echo $i  ?> , 'visit_year')">
+                                                <?php  echo $i  ?>
+                                            </span>
+                                        </li>
+                                        <?php  }  ?>
+                                    </ul>
+                                    <ul id="visit_month_list" style=" margin-left: 0px; "  class="Scroll3">
+                                        <?php 
+                                        $monthArray = array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
+                                        $month = date('m');
+                                        for($i = 1;$i <= 12; $i++){
+                                        ?>
+                                        <li id="visit_month_id" class="listliNomal" onclick="reviewmonth( <?php  echo $i  ?> , 'visit_month')">
+                                            <span style="margin-left: 43px; display: inline-block; cursor: pointer;" onclick="reviewmonth(<?php  echo $i  ?> , 'visit_month')">
+                                                <?php  echo $monthArray[$i-1]  ?>
+                                            </span>
+                                        </li>
+                                        <?php  }  ?>
+                                    </ul>
+                                </div>
+                                <!--              访问时间 结束  星级评分开始-->
+                                <volist  name="rate" id="rate"  >
+                                    <div style="width: 720px; margin-top: 35px; position: relative;  line-height: 22px;">
+                                        <input type="hidden" name="{$key}" id="{$key}" rate="{$rate}" class="rate_value" value="0"></input>                        
+                                        <span class="pointer"></span>
+                                        <span class="title div_arrive title_div" style="position: absolute;top: 2px;  width: 302px; text-align: justify; text-justify:inter-ideograph;"> {$rate}<span style="color: red;">*</span>:</span>
+                                        <span class="rate_div" id="rate_div_{$key}">
+                                            <span rate="1" class="start_main start" id="rate_1_{$key}" field="{$key}"  onclick="checkedrate('{$key}', 1)">&nbsp;</span>
+                                            <span rate="2" class=" start_main start" id="rate_2_{$key}" field="{$key}" onclick="checkedrate('{$key}', 2)">&nbsp;</span>
+                                            <span rate="3" class="start_main start" id="rate_3_{$key}" field="{$key}" onclick="checkedrate('{$key}', 3)">&nbsp;</span>
+                                            <span rate="4" class="start_main start" id="rate_4_{$key}" field="{$key}"  onclick="checkedrate('{$key}', 4)">&nbsp;</span>
+                                            <span rate="5" class="start_main start" id="rate_5_{$key}" field="{$key}"  onclick="checkedrate('{$key}', 5)">&nbsp;</span>
+                                        </span>
+                                    </div> 
+                                </volist>
+                                <!--   星级评分结束  付钱统计开始-->
+                                <div class="both"></div>
+                                <div style=" margin-top: 48px; position: relative; ">
+                                    <span class="pointer"></span>
+                                    <span class="title div_arrive title_div" style="position: absolute;top: 2px; width: 465px; ">Were you covered by any insurance<span style="color: red;">*</span>:</span>
+                                </div>
+                                <div style=" margin-top: 10px; ">
+                                    <input type="hidden" name="costselect" id="costselect"  value="1"/>
+                                    <span  style=" margin-left: 40px; position: relative; display: inline-block; width: 510px; height: 51px;" class="title1">
+                                        <span class="checkedselectreview" onclick="costselectclass(1)" id="costcheckyes"></span> Yes
+                                        <div  style=" position: absolute;left:60px; top:-2px; display: block; " id="costyes" class="costdiv">
+                                            <volist  name="cost" id="cost"  >
+                                                <span  style=" display: inline-block; width: 500px; ">
+                                                    <span>{$cost}<span style="color: red;">*</span>:<input type="text"  cost="{$cost}" style="border:0;border-bottom:1px solid black;width: 100px; overflow: hidden; margin-left: 4px;" id="{$key}" name="{$key}" class="cost_data"  onkeyup="checkNum(this)"  onkeydown="KeyDown(event,'review')" />  
+                                                    </span>
+                                                </span>
+                                            </volist>
+                                        </div>
+                                    </span>
+                                    <span  style="margin-left: 40px;margin-top: -14px;position: relative; display: inline-block; width: 510px; " class="title1 both">
+                                        <span class="selectreview" onclick="costselectclass(0)" id="costcheckno"></span> No
+                                        <div  style=" position: absolute;left:57px; top: -13px;display: none; " id="costno" class="costdiv">
+                                            <span  style=" display: inline-block; width: 500px; margin-top: 10px; ">
+                                                <span>pease enter the amount you end up paying in total<span style="color: red;">*</span>:<input style="border:0;border-bottom:1px solid black;overflow: hidden;width: 100px; margin-left: 4px;" id="fina_cost" name="fina_cost"  onkeyup="checkNum(this)"  onkeydown="KeyDown(event,'review')" />  
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </span>
+                                </div>
+                                <div  style=" clear: both; "></div>
+                                <div style="  height: 300px;"> 
+                                    <!--                    付钱统计结束  评论开始-->
+                                    <div style="  position: relative; margin-top: 20px;*margin-top: 20px; ">
+                                        <span class="pointer"></span>
+                                        <span class="title div_arrive title_div" style="position: absolute;top: 2px; width: 465px; ">Additional comments you want to make:</span>
+<!--                                        <span id="checkAgree" style="position: absolute; padding-left: 12px; top:3px; left: 593px; cursor:pointer;"><img src="{$PUBLIC}/image/Medical/review/triangle.png" ></img></span>-->
+                                    </div>
+                                    <div id="agreeDiv" style="">
+                                        <div style=" margin-top: 20px; ">
+
+                                            <span  style=" margin-left: 43px; *margin-left: 0px;position: relative; display: inline-block; width: 510px;">
+                                                <div style="   border: 1px solid #fff;height: 148px; width: 472px;">
+                                                    <span class="commect_back " style="margin-left: -7px; ">
+                                                        <textarea class="commect_text" onkeydown="KeyDown(event,'review')"  style="font-size: 12px; border: 0px none; text-indent: 15px; padding-top: 10px; overflow: hidden; resize : none; " id="commect_review" name="commect_review"></textarea>
+                                                    </span>
+                                                </div>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!--                   评论  结束   阅读条款 开始-->
+                                    <div style="  margin-top: 10px; margin-left: 38px;position: relative; ">
+                                        <input type="hidden" id="agree" name="agree" value="0" />
+                                        <span class="read" onclick="checkagree($('#agree').val(), this)"></span>
+                                        <span   style="padding-left: 25px;color: #aeb0b3; font-size: 14px;font-weight: bold; margin-left: 10px; position:absolute;left:10px;top:20px ">
+                                            <p>I agree to <a id="agreeService" target="_blank" href="{:U('Medical/review/agreeService')}">the terms of service</a></p>
+                                        </span>
+                                    </div>
+                                    <!--   阅读条款 结束 提交按钮-->
+                                    <div style=" margin-left: 584px; margin-top: 25px; ">
+                                        <input type="button" name="review_submit" id="review_submit" class="review_submit submit_off"  onclick="reviewsubmit()"  style=" border: 0; "/>
+                                    </div>
+                                </div>
+
+
+                                </div>
+                                </form>
+                                <include file="./Tpl/Home/NavAndFoot/footer.html" />
+                                </div>
+
+                                </div>    
+                                </body>
+                                </html>
+                                <script>
+                                    $(function() {
+                                        $('#procedure_list').WBjsScroll();
+                                        $('#procedure_list').hide();
+                                        $('#visit_year_list').WBjsScroll();
+                                        $('#visit_year_list').hide();
+                                        $('#visit_month_list').WBjsScroll();
+                                        $('#visit_month_list').hide();
+
+                                    });
+
+                                </script>
