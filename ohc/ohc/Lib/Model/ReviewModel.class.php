@@ -339,7 +339,7 @@ class ReviewModel extends Model {
            
         } else {
             $review_scroce = 1;
-
+            $this->Reviewdata['review_time_insert'] = date('Y-m-d H:i:s');
             $review_id = $this->add($this->Reviewdata);
             $user['user_path'] = 1;
             $userInfo = D('User')->updateUserState($user);

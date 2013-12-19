@@ -343,8 +343,9 @@ class revisingController extends BaseController {
 //            $reviewList=$review->vars;
 //            $reviewSignId=$reviewList['review_id'];
 //        }
+        $reviewSign['review_time_insert'] = date('Y-m-d H:i:s');
         $reviewSignId = $review->insert($reviewSign);
-$doctor = new ohc_doctor();
+        $doctor = new ohc_doctor();
 
          $doctor->secIncReviewNumber($reviewSign['doctors_id']);
         //如果插入成功则寻找是否有 相同类型数据 一并插入
@@ -368,6 +369,7 @@ $doctor = new ohc_doctor();
                     $thisId = $singleReviewContent['id'];
                     unset($singleReviewContent['id']);
                     unset($singleReviewContent['review_state']);
+                    unset($singleReviewContent['review_time_insert']);
 
                     if ($singleReviewContent['hospital_id'] == "") {
                         unset($singleReviewContent['hospital_id']);
