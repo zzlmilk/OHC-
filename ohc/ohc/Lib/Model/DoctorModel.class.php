@@ -192,7 +192,7 @@ class DoctorModel extends Model {
      * 医生列表 查询
      */
     public function doctorListSearch($review, $max, $min) {
-        $SearchIndex = D('SearchIndex');
+        $SearchIndex = D('Review');
         /**
          * 获取医生全部得分 
          */

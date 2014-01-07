@@ -1,9 +1,9 @@
 <?php
 class DB_Mysql_search  extends DB_Mysql {
-    protected $user   = "zzlmilk";
-    protected $pass   = "zaq1XSW@";
-    protected $dbhost = "50.63.239.90";
-    protected $dbname = "zzlmilk";
+    protected $user   = "root";
+    protected $pass   = "";
+    protected $dbhost = "127.0.0.1";
+    protected $dbname = "ohc";
     public function __construct($DB=NULL) {
     }
 }

@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 //var url = 'http://localhost/ohc';  //设定网址这边的全局变量
-var url = 'http://transparentmedicalcare.com';  //设定网址这边的全局变量
+var url = 'http://localhost/OHC-/ohc/ohc/';  //设定网址这边的全局变量
 function getUrl(path, url) {
 	path = path.split('/');
 	if (!path[1])

@@ -89,6 +89,8 @@ class infoAction extends Action {
         if (!empty($email) && !empty($password)) {
              if (preg_match("/^(\w+([+!~=^#-<>.]\w+)*@\w+([.-]\w+)*[.][a-zA-Z]{2,9})?$/", $email)) {
                 $state =  D('User')->updatePasswordByEmail($email, $password);
+
+  
                 if($state){
                     $this->assign('state',1);
                     $this->display('LostPassword');

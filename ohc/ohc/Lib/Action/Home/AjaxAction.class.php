@@ -192,7 +192,10 @@ class AjaxAction extends Action {
                     $data['ohc_review_like'] = $review_ablelike;
                     $data['user_id'] = $_SESSION['user_id'];
                     $data['ohc_review_time'] = time();
-                    $review_like = M('ohc_review_like')->add($data);
+
+
+                    $data['review_like_format'] = date('Y-m-d H:i:s');
+                     $review_like = M('ohc_review_like')->add($data);
                     if ($review_like > 0) {
                         $review_like_array = array('review_nolike', 'review_like');
                         $review_inc = M('ohc_review')->where('review_id = ' . $review_id)->setInc($review_like_array[$review_ablelike]);

@@ -112,7 +112,7 @@
             </tr>
             <tr>
                 <td class="rightText">zip_code:</td>
-                <td>{$updateValue.zip_code}</td>
+                <td>{$updateValue.zip_code|writecode}</td>
                 {foreach from=$revisingState item=vo}
                     {if $vo=='3'}
                       <td style="color:red;">*</td>

@@ -9,7 +9,7 @@ return array(
     'loginStatus_0006' => 'Forget your password or registered email',
     'loginStatus_0007' => 'Please active your account with the link sent to your email address.',
     //注册页面
-    'register_0001' => 'Please enter a valid email address.',
+    'register_0001' => 'Your email address is not recognized',
     'register_0002' => 'User\'s email has already been registered.',
     'register_0003' => 'We are activating your account…',
     'register_0004' => 'Your password must be at least 6 characters in length.',

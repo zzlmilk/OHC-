@@ -24,6 +24,8 @@ class reviewAction extends Action {
             $codeAll = array('AK','AR','CA','CT','FL','HI','ID','IN','KY','MA','ME','MN','MO','NC','ND','NJ','NV','OH','OR'
                 ,'RI','SD','TX','VA','WA','WV','AL','AZ','CO','DE','GA','IA','IL','KS','LA','MD','MI','MS','MT','NE','NH'
                 ,'NM','NY','OK','PA','SC','TN','UT','VT','WI','WY');
+
+            sort($codeAll);
             $this->assign('state_all',$codeAll);
             $this->assign('reviewFrom',0);
         }
@@ -179,6 +181,13 @@ class reviewAction extends Action {
                  * 该医生的review_number  +1
                  */
                 $doctor_review_number = D('Doctor')->updateReviewNuberByDoctorId($reviewModel->Reviewdata['doctors_id']);
+
+
+                // 判断用户是否已经写过1条review如写过 则修改数据
+
+                D('User')->updateUserPathByUserId();
+
+
             }
             /**
              *   判断是否为注册页面跳过来。。 如是的话 则跳入到注册成功地方 

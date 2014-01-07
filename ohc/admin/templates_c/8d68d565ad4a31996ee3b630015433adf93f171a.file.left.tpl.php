@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2013-12-16 16:09:42
-         compiled from "/var/chroot/home/content/94/11570594/html/admin//templates/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:7873694252aeb5466bd712-91404499%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-01-07 14:54:48
+         compiled from "/web/www/OHC-/ohc/admin//templates/left.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:176908203752cba4b8787887-63904263%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '06b59bf57c94de3c7ab30b5a26f0eb463841b696' => 
+    '8d68d565ad4a31996ee3b630015433adf93f171a' => 
     array (
-      0 => '/var/chroot/home/content/94/11570594/html/admin//templates/left.tpl',
-      1 => 1377082721,
+      0 => '/web/www/OHC-/ohc/admin//templates/left.tpl',
+      1 => 1388978694,
     ),
   ),
-  'nocache_hash' => '7873694252aeb5466bd712-91404499',
+  'nocache_hash' => '176908203752cba4b8787887-63904263',
   'function' => 
   array (
   ),

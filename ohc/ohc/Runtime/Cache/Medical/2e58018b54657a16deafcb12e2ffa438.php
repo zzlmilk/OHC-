@@ -1,0 +1,25 @@
+<?php if (!defined('THINK_PATH')) exit();?><!--<link rel="stylesheet" type="text/css" href="<?php echo ($PUBLIC); ?>/css/signUpNav.css" media="all" /> -->
+<script>
+    $(document).ready(function() {
+        buttomClick("#loginBut", "signon", "signoff");
+         buttomClick("#registerBut", "loginon", "loginoff");
+    });
+    function loginDisplay() {
+        $('#main_mask').remove();
+        $("#signup").trigger("click");
+    }
+    function registerDisplay() {
+        var registerUrl = getUrl('User/register/index', url);
+        $('#main_mask').remove();
+        window.location.href = registerUrl;
+    }
+</script>
+</head>
+<div class="main_mask" id="main_mask">
+    <div id ="seachNav"  class="loginBoxShdow " style="*position: absolute;*top:30px; *left:450px;">
+        <a class="user_login_close" href="javascript:void(0)" onclick="$('#main_mask').remove();"></a>
+        <div style="font-size: 15px; width: 373px;"> <?php echo ($message); ?></div>
+        <?php if($state == 0 ): ?><div id="loginBut" class="loginBut signoff" onclick="loginDisplay()"  style=""></div>
+            <div id="registerBut" class="loginoff registerBut" onclick="registerDisplay()"  style="left: 323px;position: relative;top: -25px;"></div><?php endif; ?>
+    </div>
+</div>

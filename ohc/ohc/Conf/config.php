@@ -33,6 +33,6 @@ return array(
     'SMTP_TIME_OUT' => 30, //超时时间
     'SMTP_AUTH' => true,
     //'adminUrl'=>'http://transparentmedicalcare.com/admin',
-   'adminUrl'=>'http://localhost/admin'
+   'adminUrl'=>'http://localhost/OHC-/ohc/ohc//admin'
 );
 ?>

@@ -1,22 +1,23 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2013-12-16 16:09:47
-         compiled from "/var/chroot/home/content/94/11570594/html/admin//templates/addToMainTable.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:96998501952aeb54b80b237-31211819%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-01-07 15:27:46
+         compiled from "/web/www/OHC-/ohc/admin//templates/addToMainTable.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:129016362852cbac722a94e4-50277019%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '11fdc1d3d46f8ea4920a6d8411fecb0dc5b6817a' => 
+    'f654684922740e37f4adbc0b27c62cdfb79037f0' => 
     array (
-      0 => '/var/chroot/home/content/94/11570594/html/admin//templates/addToMainTable.tpl',
-      1 => 1377741454,
+      0 => '/web/www/OHC-/ohc/admin//templates/addToMainTable.tpl',
+      1 => 1389077919,
     ),
   ),
-  'nocache_hash' => '96998501952aeb54b80b237-31211819',
+  'nocache_hash' => '129016362852cbac722a94e4-50277019',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<!DOCTYPE html>
+<?php if (!is_callable('smarty_modifier_writecode')) include '/web/www/OHC-/ohc/admin/Smarty/libs/plugins/modifier.writecode.php';
+?><!DOCTYPE html>
 <html>
     <head>
         <title></title>
@@ -71,7 +72,7 @@ redirst.php?action=revising&function=addToMainTable" method="post">
             </tr>
             <tr>
                 <td class="rightText">zip_code:</td>
-                <td><?php echo $_smarty_tpl->getVariable('updateValue')->value['zip_code'];?>
+                <td><?php echo smarty_modifier_writecode($_smarty_tpl->getVariable('updateValue')->value['zip_code']);?>
 </td>
             </tr>
             <tr>

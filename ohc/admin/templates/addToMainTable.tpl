@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td class="rightText">zip_code:</td>
-                <td>{$updateValue.zip_code}</td>
+                <td>{$updateValue.zip_code|writecode}</td>
             </tr>
             <tr>
                 <td class="rightText">commect review:</td>

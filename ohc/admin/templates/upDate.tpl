@@ -12,7 +12,8 @@
     <body>
         <div>
             {if $isrevising=='1'}
-            <form action="{$URLController}redirst.php?action=revising&function=upDateReviewRevising" method="post">    
+            <form action="{$URLController}redirst.php?action=revising&function=upDateReviewRevising" method="post">   
+
                 {else}
             <form action="{$URLController}redirst.php?action=review&function=upDateReview" method="post">
                 {/if}
@@ -57,9 +58,16 @@
                 <td class="rightText">city location:</td>
                 <td><input type="text" name="city_location" id="city_location" value="{$updateValue.city_location}"/></td>
             </tr>
+
+              <tr>
+                <td class="rightText">state:</td>
+                <td><input type="text" name="state" id="state" value="{$updateValue.state}"/></td>
+            </tr>
+
+
             <tr>
                 <td class="rightText">zip_code:</td>
-                <td><input type="text" name="zip_code" id="zip_code" value="{$updateValue.zip_code}"/></td>
+                <td><input type="text" name="zip_code" id="zip_code" value="{$updateValue.zip_code|writecode}"/></td>
             </tr>
             <tr>
                 <td class="rightText">commect review:</td>

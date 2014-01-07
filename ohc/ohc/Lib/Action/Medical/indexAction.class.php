@@ -115,11 +115,11 @@ class indexAction extends Action {
         $hospitals = $hospital_introduction = array();
         foreach ($hospital_list as $kHospital => $iHospital) {
             $hospital_name = $iHospital['hospital_name'];
-            D('SearchIndex')->getHospitalListDetail($hospital_name, (int) $kHospital);
+            D('Review')->getHospitalListDetail($hospital_name, (int) $kHospital);
         }
         $thisPage = $this->getPage(1, count($hospital_list), $this->pagesize, "hospitalList:nomral", "");
         $this->assign("paging", $thisPage);
-        $this->assign('hospital_list', D('SearchIndex')->hospital_array);
+        $this->assign('hospital_list', D('Review')->hospital_array);
         $this->displaypage = 'hospitalList';
     }
 

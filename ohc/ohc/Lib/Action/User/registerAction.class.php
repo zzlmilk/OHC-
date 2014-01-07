@@ -130,6 +130,10 @@ class registerAction extends Action {
             $registerInfo['user_name'] = $_REQUEST['username'];
             $registerInfo['user_pass'] = $_REQUEST['password'];
             $registerInfo['register_time'] = time();
+
+            $registerInfo['register_format_time'] = date('Y-m-d H:i:s');
+
+
             $user_check = M('ohc_user');
             $userid = $user_check->add($registerInfo);
             $registerInfo['user_id'] = $userid;

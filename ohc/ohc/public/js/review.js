@@ -6,7 +6,7 @@ var review_error = new Array('Please enter a valid name of a procedure', 'Please
         , 'Please enter a valid city name', 'Please enter a city', 'Please enter the firstname of the doctor', 'Please enter the lastname of the doctor ', 'Please enter the name of an institution'
         , 'Please enter the visit date', 'Please fill in either the zip code or the city', 'Please enter a number for the cost', 'Please read the terms of service'
         , 'Zip code must be a  number', 'Zip code must be a 5-digit number', 'The review must be 10000 characters at maxinum', 'Please enter the year of the visit', 'Please enter the month of the visit'
-        , 'commect is not null', 'The current month not to');
+        , 'commect is not null', 'The visiting year and month you entered are not valid');
 var error_state = '';
 var checkreiewvalue = 0;
 var review_month = new Array('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');
@@ -252,7 +252,7 @@ function  reviewsubmit() {
     else {
         var myDate = new Date();
         checkreiewvalue = 0;
-        if (visit_year >= myDate.getFullYear()) {
+        if (visit_year > myDate.getFullYear()) {
             if (visit_month > myDate.getMonth()) {
                 error_state += '<p>' + review_error[20] + '</p>';
                 checkreiewvalue = 1;

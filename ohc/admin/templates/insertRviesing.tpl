@@ -24,7 +24,7 @@
 
 
 
-            alert(result);
+          
 
             if(result == 1){
 

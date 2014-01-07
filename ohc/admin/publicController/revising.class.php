@@ -48,7 +48,9 @@ class revisingController extends BaseController {
             $procedures_name = $_POST['procedures_name'];
             $hospitals_name = $_POST['hospitals_name'];
             $city_location = $_POST['city_location'];
-            $zip_code = $_POST['zip_code'];
+            $zip_code = (int)$_POST['zip_code'];
+            $city_zip_code = (int) substr($_POST['zip_code'], 0, 3);;
+            $state = $_POST['state'];
             $commect_review = $_POST['commect_review'];
             $join_str = array(array("ohc_user", "ohc_user.user_id", "ohc_revising_review.user_id"));
             $revising->addJoin($join_str);
@@ -61,11 +63,13 @@ class revisingController extends BaseController {
             ,ohc_revising_review.procedures_name= '$procedures_name' 
             ,ohc_revising_review.hospitals_name= '$hospitals_name' 
             ,city_location= '$city_location' 
-            ,zip_code= '$zip_code' 
+            ,zip_code= '$zip_code'
+            ,state= '$state'
+            ,city_zip_code='$city_zip_code'
             ,commect_review= '$commect_review'
         ";
             $revising->update($updateStr, 1);
-            $this->index();
+            $this->RevisingReview($reviewId);
         } else {
             $reviewId = $_GET["reviewId"];
             $join_str = array(array("ohc_user", "ohc_user.user_id", "ohc_revising_review.user_id"));
@@ -83,7 +87,7 @@ class revisingController extends BaseController {
         }
     }
     //显示审核信息与需要审核字段，如此数据无需审核 则自动进入添加数据流程
-    function RevisingReview() {
+    function RevisingReview($revising_id = null) {
         $revising = new ohc_revising_review();
         $Wherestr = '';
         $revisingClass = '';
@@ -104,14 +108,29 @@ class revisingController extends BaseController {
           //            $revisingClass = "code=" . $_GET['code'];
           }else */
         if (isset($_GET['revisingId'])) {
-            $Wherestr = "ohc_revising_review.id = " .
-                    $_GET['revisingId'];
-            $revisingClass = "revisingId=" . $_GET['revisingId'];
+
+
+              $revising_id = $_GET['revisingId'];
+            
+        }
+
+      
+
+
+
+        if($revising_id > 0 ){
+
+            $Wherestr = "ohc_revising_review.id = " .$revising_id;
+            $revisingClass = "revisingId=" . $revising_id;
+
+
         }
         $join_str = array(array("ohc_user", "ohc_user.user_id", "ohc_revising_review.user_id"));
         $revising->addJoin($join_str);
         $revising->addCondition($Wherestr, 1);
         $revising->initialize();
+
+
         $reviewSign = $revising->vars;
         if ($revising->vars_number < 1) {
             $this->errorReturnMessage();
@@ -184,15 +203,22 @@ class revisingController extends BaseController {
                 }
             }
             if (isset($_POST['firstName']) && isset($_POST['lastName']) &&
-                    isset($_POST['middleName']) && isset($_POST['streetZip'])) {
+                isset($_POST['middleName']) && isset($_POST['streetZip'])) {
                 $doctorId = $this->insertDoctor($_POST);
+
+               
+                
                 $WhereString = "ohc_revising_review.doctors_frist_name ='" . $_POST['firstName'] . "' 
             and ohc_revising_review.doctors_last_name='" . $_POST['lastName'] . "'
             and ohc_revising_review.doctor_middle_name='" . $_POST['middleName'] . "'
             and ohc_revising_review.zip_code='" . $_POST['streetZip'] . "'";
                 
+                
                 $revisingReview->addCondition($WhereString, 1);
                 $revisingReview->initialize();
+
+
+               
                 $update['doctors_id'] = (int) $doctorId;
                 $revisingReview->update($update);
                 unset($update);
@@ -212,13 +238,15 @@ class revisingController extends BaseController {
                     $insertVal["procedure_name"] = $_POST["procedures"];
                     $insertVal["procedure_id"] = $_POST["proceduresId"];
                     $insertVal["procedure_type"] = $_POST["proceduresType"];
-                  $procedure->insert($insertVal);
 
+                    $produce_id = $procedure->insert($insertVal);
 
+                } else{
+                    $produce_id = $procedure->vars['id'];
                 }
                 
                 $update['procedures_name'] = $_POST["procedures"];
-                $update['procedures_id'] = $_POST["proceduresId"];
+                $update['procedures_id'] = $produce_id;
                 $num = 1;
             }
             if (isset($_POST["code_id"])) {
@@ -324,11 +352,16 @@ class revisingController extends BaseController {
     function addToMainTable() {
         $insertIsSucess = true;
         $revising = new ohc_revising_review();
+
+        $user = new ohc_user();
+
         $reviewId = isset($_POST["reviewId"]) ? $_POST["reviewId"] : $_GET['reviewId'];
         $Wherestr = "ohc_revising_review.id= $reviewId";
         $revising->addCondition($Wherestr, 1);
         $revising->initialize();
         $reviewSign = $revising->vars;
+
+        $user_id = $reviewSign['user_id'];
         unset($reviewSign['id']);
         unset($reviewSign['review_state']);
         if ($reviewSign['hospital_id'] == "") {
@@ -345,6 +378,8 @@ class revisingController extends BaseController {
 //        }
         $reviewSign['review_time_insert'] = date('Y-m-d H:i:s');
         $reviewSignId = $review->insert($reviewSign);
+
+        $user->updateUserPathByUserId($user_id);
         $doctor = new ohc_doctor();
 
          $doctor->secIncReviewNumber($reviewSign['doctors_id']);
@@ -364,9 +399,13 @@ class revisingController extends BaseController {
             $revising->addCondition($whereStr, 1);
             $revising->initialize();
             $reviewRevisingContent = $revising->vars_all;
-            if ($revising->vars_all > 0) {
+            if ($revising->vars_number > 0) {
                 foreach ($reviewRevisingContent as $singleReviewContent) {
                     $thisId = $singleReviewContent['id'];
+
+                   $user_id = $singleReviewContent['user_id'];
+                   $user->updateUserPathByUserId($user_id);
+
                     unset($singleReviewContent['id']);
                     unset($singleReviewContent['review_state']);
                     unset($singleReviewContent['review_time_insert']);
@@ -392,7 +431,7 @@ class revisingController extends BaseController {
 
                             $doctor->secIncReviewNumber($revising->vars['doctors_id']);
                         }
-                        //$revising->remove();
+                        $revising->remove();
                     } else {
                         $insertIsSucess = false;
                         break;
@@ -463,22 +502,45 @@ class revisingController extends BaseController {
     }
     //插入医生
     function insertDoctor($doctorParameter) {
+
+        $full_name =  $doctorParameter['firstName'].' '.$doctorParameter['middleName'].' '.$doctorParameter['lastName'];
         $doctor = new ohc_doctor();
-        $doctorValue['doctor_frist_name'] = $doctorParameter['firstName'];
-        $doctorValue['doctor_last_name'] = $doctorParameter['lastName'];
-        $doctorValue['doctor_middle_name'] = $doctorParameter['middleName'];
-        $doctorValue['doctor_gender'] = $doctorParameter['doctorGender'];
-        $doctorValue['npi'] = $doctorParameter['npi'];
-        $doctorValue['graduation_year'] = $doctorParameter['graduationYear'];
-        $doctorValue['medical_school'] = $doctorParameter['medicalSchool'];
-        $doctorValue['specialty'] = $doctorParameter['specialty'];
-        $doctorValue['specialty2'] = $doctorParameter['specialty2'];
-        $doctorValue['street_zip'] = $doctorParameter['streetZip'];
-        $doctorValue['street_city'] = $doctorParameter['streetCity'];
-        $doctorValue['street_state'] = $doctorParameter['streetState'];
-        $doctorValue['doctor_telephone'] = $doctorParameter['doctorTelephone'];
-        $doctorValue['doctor_email'] = $doctorParameter['doctorEmail'];
-        return $doctor->insert($doctorValue);
+
+        $where = 'full_name like "'.$full_name.'"';
+
+
+        $doctor->addCondition($where,1);
+
+
+        $doctor->initialize();
+
+        if($doctor->vars_number <= 0 ){
+
+
+           $doctorValue['doctor_frist_name'] = $doctorParameter['firstName'];
+            $doctorValue['doctor_last_name'] = $doctorParameter['lastName'];
+            $doctorValue['doctor_middle_name'] = $doctorParameter['middleName'];
+            $doctorValue['doctor_gender'] = $doctorParameter['doctorGender'];
+            $doctorValue['npi'] = $doctorParameter['npi'];
+            $doctorValue['graduation_year'] = $doctorParameter['graduationYear'];
+            $doctorValue['medical_school'] = $doctorParameter['medicalSchool'];
+            $doctorValue['specialty'] = $doctorParameter['specialty'];
+            $doctorValue['specialty2'] = $doctorParameter['specialty2'];
+            $doctorValue['street_zip'] = $doctorParameter['streetZip'];
+            $doctorValue['street_city'] = $doctorParameter['streetCity'];
+            $doctorValue['street_state'] = $doctorParameter['streetState'];
+            $doctorValue['doctor_telephone'] = $doctorParameter['doctorTelephone'];
+            $doctorValue['doctor_email'] = $doctorParameter['doctorEmail'];
+
+            
+
+            $doctorParameter['full_name'] = $full_name;
+            return $doctor->insert($doctorValue);
+
+        } else{
+            return 0;
+        }
+       
     }
 
 //拼装医院查询字符串 并且检查数据库是否已存在对应数据

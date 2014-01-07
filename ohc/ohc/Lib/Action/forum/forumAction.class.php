@@ -75,6 +75,7 @@ class forumAction extends Action {
         $insertVal["forum_title"] = $_POST['forum_title'];
         $insertVal['user_id'] = $_SESSION['user_id'];
         $insertVal['forum_time'] = time();
+        $insertVal['forum_format_time'] = date('Y-m-d H:i:s');
         $Tid = $topicTitle->add($insertVal);
         if ($Tid) {
             $topic = M("ohc_forum_topic");
@@ -82,6 +83,7 @@ class forumAction extends Action {
             $rVal['topic_content'] = nl2br($_POST['forum_content']);
             $rVal['topic_time'] = time();
             $rVal['user_id'] = $_SESSION['user_id'];
+            $rVal['topic_format_time'] = date('Y-m-d H:i:s');
             $rVal['topic_able_title'] = 1;
             if ($topic->add($rVal)) {
                 $topicTitle->commit();

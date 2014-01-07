@@ -114,7 +114,7 @@ abstract class Action {
 //        $domain = $domain == 'localhost' ? 'localhost/ohc' : 'localhost/ohc';
 //        $PUBLIC = (is_ssl() ? 'https://' : 'http://') . $domain . '/public';
         //$domain = $domain == 'localhost' ? 'transparentmedicalcare.com/' : 'transparentmedicalcare.com';
-       $domain = $domain == 'localhost' ? 'localhost/ohc' : 'localhost/ohc';
+       $domain = $domain == 'localhost' ? 'localhost/OHC-/ohc/ohc/' : 'http://localhost/OHC-/ohc/ohc/';
         $PUBLIC = (is_ssl() ? 'https://' : 'http://') . $domain . '/public';
         $PUBLICJSURL = (is_ssl() ? 'https://' : 'http://') . $domain;
 

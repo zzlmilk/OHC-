@@ -33,6 +33,18 @@ class BaseController {
             exit('<script>alert("' . $msg . '");window.location.href="' . $url . '";</script>');
     }
 
+
+    public function writeZipCode($code) {
+        $testCount = 5 - strlen($code);
+        $subfiex = '';
+        for ($i = 1; $i <= $testCount; $i++) {
+            $subfiex .= '0';
+        }
+        $newSubfiex_ = (string) $subfiex . $code;
+        return $newSubfiex_;
+    }
+    
+
 }
 
 ?>

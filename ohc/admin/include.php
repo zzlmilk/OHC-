@@ -1,12 +1,17 @@
 <?php
 session_start();
-defined('FOOT_') or define('FOOT_', $_SERVER['DOCUMENT_ROOT']);
-defined('FOOT') or define('FOOT', FOOT_ . '/admin/');
+
+ini_set("display_errors", 1);
+defined('FOOT_') or define('FOOT_', $_SERVER['DOCUMENT_ROOT'].'/OHC-/ohc/');
+
+
+
+defined('FOOT') or define('FOOT', FOOT_ . 'admin/');
 defined('FOOTBASIC') or define('FOOTBASIC', FOOT_ . '/admin/basicClasses/');
 defined('FOOTCLASS') or define('FOOTCLASS', FOOT_ . '/admin/classes/');
 defined('FOOTController') or define('FOOTController', FOOT_ . '/admin/publicController/');
-defined('URLController') or define('URLController', 'http://transparentmedicalcare.com/admin/');
-//defined('URLController') or define('URLController', 'http://localhost/admin/');
+//defined('URLController') or define('URLController', 'http://transparentmedicalcare.com/admin/');
+defined('URLController') or define('URLController', 'http://localhost/OHC-/ohc/admin/');
 defined('URLAjaxController') or define('URLAjaxController', 'http://transparentmedicalcare.com/admin/ajax');
 //defined('URLAjaxController') or define('URLAjaxController', 'http://localhost/admin/ajax');
 defined('URLJsController') or define('URLJsController', 'http://localhost/admin/js');

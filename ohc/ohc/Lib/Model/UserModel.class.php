@@ -23,8 +23,10 @@ class UserModel extends Model {
             $User = $this->where('user_email like "' . $email . '" ')->find();
             if (!empty($User['user_id']) && $User['user_id'] > 0) {
                 $save['user_pass'] = $password;
-                $state = $this->where('user_email like "' . $email . '" ')->save($save);
-                return $state;
+                 $this->where('user_email like "' . $email . '" ')->save($save);
+
+
+                return 1;
             }
         }
     }
@@ -39,6 +41,16 @@ class UserModel extends Model {
         if(!empty($_SESSION['user_id'])  && $_SESSION['user_id'] > 0 ){
              $state = $this->where('user_id = ' . $_SESSION['user_id'])->save($user);
         }
+    }
+
+    public function  updateUserPathByUserId(){
+
+        if(!empty($user_id)){
+            $update['user_path'] = 1;
+
+            $this->where('user_id = ' . $_SESSION['user_id'])->save($update);
+        }
+
     }
 
 }
