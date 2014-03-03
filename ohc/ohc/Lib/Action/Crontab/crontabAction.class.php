@@ -7,17 +7,65 @@ class crontabAction extends Action {
      */
     public function crontabdoctor() {
 
-        $doctor_all = D('Doctor')->selectReviewDoctorInfo();
-        /**
-         *  计算 该医生 以及 这个项目的 综合评分
-         *  先计算 该城市  对 该医疗项目的 话费的平均值 
-         * 
-         *  后计算综合得分
-         */
-        foreach ($doctor_all as $v_doctor) {
-            D('Review')->sumDoctorAndProduceScroce($v_doctor['doctors_id']);
-            unset($v_doctor);
-        }
+        set_time_limit(0);
+
+        
+
+        // $doctor_number = D('Doctor')->count();
+
+        // $size = 100;
+
+
+        // $number = ceil($doctor_number/$size);
+
+
+        // for($i = 1; $i<=$number; $i++){
+
+        //         $a = $size * ($i - 1);
+
+        
+
+
+        $number = $_REQUEST['number'];
+
+
+        if($number <=0  || empty($number)){
+
+            echo ' number is empty';
+            die;
+        } 
+
+        $doctor_all = D('Doctor')->getDoctorLimit($number);
+
+
+       
+
+
+                    /**
+                     *  计算 该医生 以及 这个项目的 综合评分
+                     *  先计算 该城市  对 该医疗项目的 话费的平均值 
+                     * 
+                     *  后计算综合得分
+                     */
+
+             foreach ($doctor_all as $k_doctor=>$v_doctor) {
+
+
+                echo $k_doctor.'<br />';
+                    D('Review')->sumDoctorAndProduceScroce($v_doctor['doctor_id']);
+                    unset($v_doctor);
+
+            }
+
+            unset($doctor_all);
+
+            
+        //}
+
+      
+
+    
+       
     }
 
     /**

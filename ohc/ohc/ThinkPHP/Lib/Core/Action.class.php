@@ -81,9 +81,18 @@ abstract class Action {
         }
         //初始化 一些页面配置 设定css和js 路径全局
         $this->getURL();
+
+
+        $this->userVisitRecord();
+
         //获取当前模块
         $array_s = $_GET['_URL_'];
+
+        
+
         $able = -1;
+
+
         if (count($array_s) > 0) {
             foreach ($array_s as $k => $v) {
                 if ($v == 'l') {
@@ -97,7 +106,23 @@ abstract class Action {
         } else {  //当前首页
             $str = '';
         }
+
+
+
         $this->assign('operatModel', $str);
+    }
+
+
+    public function  userVisitRecord(){
+
+        $ip = $this->getIp();
+
+        $visitPath =  GROUP_NAME.'/'.MODULE_NAME.'/'.ACTION_NAME;
+
+
+        D('pageVisit')->insertRecord($ip,$visitPath);
+
+
     }
 
     /**
@@ -978,5 +1003,28 @@ abstract class Action {
         // 执行后续操作
         tag('action_end');
     }
+
+
+
+    public  function getIp(){
+
+    if ($HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"]) {
+        $ip = $HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"];
+    } elseif ($HTTP_SERVER_VARS["HTTP_CLIENT_IP"]) {
+        $ip = $HTTP_SERVER_VARS["HTTP_CLIENT_IP"];
+    } elseif ($HTTP_SERVER_VARS["REMOTE_ADDR"]) {
+        $ip = $HTTP_SERVER_VARS["REMOTE_ADDR"];
+    } elseif (getenv("HTTP_X_FORWARDED_FOR")) {
+        $ip = getenv("HTTP_X_FORWARDED_FOR");
+    } elseif (getenv("HTTP_CLIENT_IP")) {
+        $ip = getenv("HTTP_CLIENT_IP");
+    } elseif (getenv("REMOTE_ADDR")) {
+        $ip = getenv("REMOTE_ADDR");
+    } else {
+        $ip = "Unknown";
+    }
+    return $ip;
+
+}
 
 }

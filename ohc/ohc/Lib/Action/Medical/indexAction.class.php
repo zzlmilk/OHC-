@@ -91,10 +91,11 @@ class indexAction extends Action {
      *  诊所的查询。。  出现的内容 为 医疗项目 以及 医疗项目的综合评分 以及review的条数
      */
     public function hospitalsearch() {
-        $this->displaypage = "noList";
-        return;
+        
+      
         $hospital_list_info = D('Hospital')->getHospitalValByAllName($this->search_array['search_text']);
         $hospital_count = count($hospital_list_info);
+
         if ($hospital_count > 0) {
             //$hospital_list = M('ohc_review')->where($this->where . $this->advance_where)->group('hospitals_name')->limit($this->limit)->order("review_time desc")->select();
             if ($hospital_count > 1) {
@@ -103,7 +104,7 @@ class indexAction extends Action {
                 $this->hospitalDetail($hospital_list_info);
             }
         } else {
-            $this->page = "noList";
+            $this->displaypage = "noList";
         }
     }
 
@@ -248,8 +249,7 @@ class indexAction extends Action {
      *  医疗项目 查询  出现医生 and 诊所 内容  获取医生 的综合评分 和 诊所的综合评分
      */
     public function producereSearch() {
-        $this->displaypage = "noList";
-        return;
+      
         $produces_info = D('Procedure')->getProceduresValById($this->search_array['search_text']);
         if (!empty($produces_info['procedures_name'])) {
             $producereVal = M('ohc_review')->where($this->where . $this->advance_where)->group('procedures_name')->find();

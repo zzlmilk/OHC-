@@ -37,6 +37,9 @@ class SearchIndexModel extends Model {
         return $doctor_new_list;
     }
 
+
+   
+
     /**
      * 
      * @param type $doctor_list
@@ -60,6 +63,12 @@ class SearchIndexModel extends Model {
         }
         return $doctor_show_list;
     }
+
+
+
+
+
+   
 
     public function showSearch($doctor_sort_list, $maxDataNumber, $minDataNumber = 0) {
         $doctor_new_list = array();

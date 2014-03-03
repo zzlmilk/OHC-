@@ -3717,3 +3717,165 @@ INFO: [ view_end ] --START--
 INFO: Run ShowPageTrace Behavior [ RunTime:0.000258s ]
 INFO: [ view_end ] --END-- [ RunTime:0.000286s ]
 
+[ 2014-01-07T18:06:47+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000734s ]
+INFO: Run CheckLang Behavior [ RunTime:0.001064s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001899s ]
+NOTIC: [8] Undefined index: page /web/www/OHC-/ohc/ohc/Lib/Action/Home/IndexAction.class.php 第 88 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000591s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000656s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 151 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 152 行.
+NOTIC: [8] Undefined variable: user_name /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 270 行.
+NOTIC: [8] Undefined variable: reviewCount /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 271 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 280 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 283 行.
+NOTIC: [8] Undefined variable: review_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 287 行.
+NOTIC: [8] Undefined variable: forum_data /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 295 行.
+NOTIC: [8] Undefined variable: forum_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 309 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.019393s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019486s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000541s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000753s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000475s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000562s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002486s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000735s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000786s ]
+
+[ 2014-01-07T18:06:50+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=forum&m=forum&a=forumList
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000248s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000378s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/Lib/Action/forum/forumAction.class.php 第 12 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+SQL: SHOW COLUMNS FROM `ohc_forum` [ RunTime:0.001228s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ohc_forum` LIMIT 1   [ RunTime:0.000201s ]
+SQL: SHOW COLUMNS FROM `ohc_forum` [ RunTime:0.001058s ]
+SQL: SELECT * FROM `ohc_forum` LEFT JOIN ohc_user on ohc_user.user_id=ohc_forum.user_id ORDER BY forum_time desc LIMIT 0,15   [ RunTime:0.000379s ]
+NOTIC: [2] Invalid argument supplied for foreach() /web/www/OHC-/ohc/ohc/Lib/Model/ForumModel.class.php 第 45 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000202s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000237s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 177 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 188 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 189 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 192 行.
+NOTIC: [8] Undefined variable: doctor_info /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 194 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 199 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 224 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 236 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 244 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 255 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/585f785960b19c7559b1b01f70d0b2b0.php 第 262 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.011790s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011822s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000191s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000206s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000137s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000270s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000914s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000390s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000430s ]
+
+[ 2014-01-07T18:06:53+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=forum&m=forum&a=forumPost
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000603s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001400s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/Lib/Action/forum/forumAction.class.php 第 12 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000139s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000168s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 203 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 214 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 215 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 218 行.
+NOTIC: [8] Undefined variable: doctor_info /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 220 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 225 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 250 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 262 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 270 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 281 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/e0aa7f673beb90e1b401adf7ffb7d69d.php 第 288 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.009208s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009276s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000469s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000417s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000286s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000518s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001910s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000643s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000720s ]
+
+[ 2014-01-07T18:07:08+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=forum&m=forum&a=getUserId
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000492s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000587s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001261s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/Lib/Action/forum/forumAction.class.php 第 12 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+
+[ 2014-01-07T18:07:08+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=forum&m=forum&a=topicPost
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000232s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000286s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000585s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/Lib/Action/forum/forumAction.class.php 第 12 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+SQL: SHOW COLUMNS FROM `ohc_forum` [ RunTime:0.001250s ]
+SQL: INSERT INTO `ohc_forum` (`forum_title`,`user_id`,`forum_time`,`forum_format_time`) VALUES ('dasdasdsafsa1324',6,1389089228,'2014-01-07 18:07:08') [ RunTime:0.002601s ]
+SQL: SHOW COLUMNS FROM `ohc_forum_topic` [ RunTime:0.001112s ]
+SQL: INSERT INTO `ohc_forum_topic` (`forum_id`,`topic_content`,`topic_time`,`user_id`,`topic_format_time`,`topic_able_title`) VALUES (1,'aaaaaaaadadsad',1389089228,6,'2014-01-07 18:07:08',1) [ RunTime:0.000274s ]
+
+[ 2014-01-07T18:07:08+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=forum&m=forum&a=forumTopic&id=1
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000507s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000780s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001466s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/Lib/Action/forum/forumAction.class.php 第 12 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+SQL: SHOW COLUMNS FROM `ohc_forum_topic` [ RunTime:0.001024s ]
+SQL: SELECT * FROM `ohc_forum_topic` LEFT JOIN ohc_forum on ohc_forum_topic.forum_id=ohc_forum.forum_id LEFT JOIN ohc_user on ohc_user.user_id=ohc_forum_topic.user_id WHERE ( ohc_forum.forum_id=1 ) ORDER BY topic_time LIMIT 0,10   [ RunTime:0.000439s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ohc_forum_topic` WHERE ( forum_id = '1' ) LIMIT 1   [ RunTime:0.000197s ]
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000197s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000232s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 189 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 200 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 201 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 204 行.
+NOTIC: [8] Undefined variable: doctor_info /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 206 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 211 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 236 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 248 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 256 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 267 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/forum/814522e3ba555b5c69b2ccf3c8f2a48a.php 第 274 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.010822s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010854s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000188s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000144s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000088s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000172s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000661s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000260s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000291s ]
+

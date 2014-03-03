@@ -45,6 +45,10 @@ class ReviewModel extends Model {
     //医院详情
     public $hospital_array = array();
 
+
+
+    private $soft_array = array('b1','b2','b3','b4');
+
     /**
      * 根据review 数量  排序  获取分数 等操作
      * 获取医生 所有项目的分数 
@@ -94,6 +98,36 @@ class ReviewModel extends Model {
             $dateMaxNumber++;
         }
         return $doctor_show_list;
+    }
+
+
+ public function getDoctorListBySoft($doctor_list, $maxDataNumber, $minDataNumber,$type){
+
+        $doctor_sort_scorce = array();
+        $doctor_show_list = array();
+        $dateMaxNumber = 0;
+
+        foreach ($doctor_list as $k => $i) {
+            if ($i['doctor_id'] > 0) {
+                $review_scorce = D('DoctorReview')->getDoctorScorceValById($i['doctor_id']);
+
+                $soft_val = D('Review')->getDoctorSoftSumVal($i['doctor_id'],$type);
+
+                $doctor_list[$k]['review_scorce'] = $review_scorce;
+
+                $doctor_sort_scorce[$k] = $soft_val;
+            }
+        }
+
+        
+        array_multisort($doctor_sort_scorce, SORT_DESC, $doctor_list);
+
+        for ($num = $minDataNumber; $num < $maxDataNumber; $num++) {
+            $doctor_show_list[$dateMaxNumber] = $doctor_list[$num];
+            $dateMaxNumber++;
+        }
+        return $doctor_show_list;
+
     }
 
     public function showSearch($doctor_sort_list, $maxDataNumber, $minDataNumber = 0) {
@@ -240,7 +274,7 @@ class ReviewModel extends Model {
             //某个城市中所有病人就医疗项目 的花费的平均值
             $this->getReivewListBycodeAndProduces($vv_review['procedures_name'], $vv_review['zip_code']);
             //医生 就医疗项目 的收费的平均值
-            $this->getReviewListByDoctorProduce($vv_review['doctors_id'], $vv_review['procedures_name'], $newSubfiex);
+            $this->getReviewListByDoctorProduce($vv_review['doctors_id'], $vv_review['procedures_name'], $vv_review['zip_code']);
             //医生 在医疗项目 
             $review = $this->UpdateReivewLevelByReivewId($vv_review['review_id']);
             unset($vv_review);
@@ -623,13 +657,35 @@ class ReviewModel extends Model {
                         $doctor_new_produce[$key_produce]['produre_name'] = $v_produce['procedures_name'];
                         $doctor_new_produce[$key_produce]['procedure_other_name'] = $v_produce['procedures_other_name'];
                         $doctor_new_produce[$key_produce]['review_content_number'] = 1;
+
+                        $doctor_new_produce[$key_produce]['b1'] = $v_produce['b1'];
+                        $doctor_new_produce[$key_produce]['b2'] = $v_produce['b2'];
+                        $doctor_new_produce[$key_produce]['b3'] = $v_produce['b3'];
+                        $doctor_new_produce[$key_produce]['b4'] = $v_produce['b4'];
+
+
                         $doctor_new_produce[$key_produce]['commect_review'] = $v_produce['commect_review'];
                         //排序
                         if ($_REQUEST['sort_type'] == "1" || $_REQUEST['sort_type'] == "") {
                             $temp_doctor_produce_number[$key_produce] = $doctor_new_produce[$key_produce]['review_content_number'];
                         } else if ($_REQUEST['sort_type'] == "2") {
                             $temp_doctor_produce_number[$key_produce] = $doctor_produre_info['review_scorce'];
+                        } else{
+
+                            $soft_type = $_REQUEST['sort_type'] - 2;
+                            $temp_doctor_produce_number[$key_produce] = $doctor_new_produce[$key_produce][$this->soft_array[$soft_type -1]];
+
+
+
                         }
+
+                        
+
+
+
+                       
+
+
                         //$doctor_new_produce = $this->getDoctorReview($doctor_produre_info['review_number'], $user, $doctor_new_produce, $pageAction, $currentPage, $key_produce);
                         // 存储 该医疗项目 对应的 是 哪个键名
                         $temp_doctor_review[$produce_name] = $key_produce;
@@ -647,6 +703,15 @@ class ReviewModel extends Model {
                             $temp_doctor_produce_number[$key_produce_new] = $doctor_new_produce[$key_produce_new]['review_content_number'];
                         } else if ($_REQUEST['sort_type'] == "2") {
                             $temp_doctor_produce_number[$key_produce_new] = $doctor_produre_info['review_scorce'];
+                        } else{
+
+                            $soft_type = $_REQUEST['sort_type'] - 2;
+
+                            if($sort_type >= 1){
+
+                               $temp_doctor_produce_number[$key_produce]+=$doctor_new_produce[$key_produce][$this->soft_array[$soft_type -1]];
+                            }
+                            
                         }
 
 
@@ -661,6 +726,8 @@ class ReviewModel extends Model {
                 $s3 +=$v_produce['b3'];
                 $s4 +=$v_produce['b4'];
             }
+
+
             /**
              * 分数计算
              */
@@ -669,6 +736,8 @@ class ReviewModel extends Model {
             $s3 = round($s3 / $review_count, 1);
             $s4 = round($s4 / $review_count, 1);
             array_push($reviewScore, $s1, $s2, $s3, $s4);
+
+
             //根据数量 进行排
             array_multisort($temp_doctor_produce_number, SORT_DESC, $doctor_new_produce);
             /**
@@ -791,6 +860,20 @@ class ReviewModel extends Model {
                 }
             }
         }
+    }
+
+
+    public function getDoctorSoftSumVal($doctorId,$type){
+
+        $doctorReviewQuery = 'select sum('.$this->soft_array[$type - 1].') as soft_val from ohc_review where doctors_id = '.$doctorId;
+
+        $soft_result= $this->query($doctorReviewQuery);
+
+        $soft_val = ($soft_result[0]['soft_val'] > 0 ) ? $soft_result[0]['soft_val'] : 0;
+
+        return $soft_val;
+
+
     }
 
 }

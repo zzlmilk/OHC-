@@ -158,6 +158,7 @@ class sortAction extends Action {
      */
     public function doctorsearch() {
         $review = D('Doctor')->searchDoctorQuery($_REQUEST['search_text'], $_REQUEST['search_text_location']);
+       
         if ($review == null || !$review) {
             $this->page = "noList";
             return;
@@ -247,6 +248,7 @@ class sortAction extends Action {
      * 医生列表
      */
     public function doctorListView($review, $reviewCount) {
+
         $doctor_new_list = D('Doctor')->doctorListSearch($review, $this->max, $this->min);
         /**
          * 医生多个数据 分页

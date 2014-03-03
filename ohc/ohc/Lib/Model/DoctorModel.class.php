@@ -193,14 +193,51 @@ class DoctorModel extends Model {
      */
     public function doctorListSearch($review, $max, $min) {
         $SearchIndex = D('Review');
+
+
+        $softType = $_REQUEST['sort_type'];
         /**
          * 获取医生全部得分 
          */
-        if ($_REQUEST['sort_type'] == "1" || $_REQUEST['sort_type'] == "") {
-            $doctor_new_list = $SearchIndex->getDoctorSorceByReviewAndSortReviewNumber($review, $max, $min);
-        } else if ($_REQUEST['sort_type'] == "2") {
-            $doctor_new_list = $SearchIndex->getDoctorListBySortScorceAndShow($review, $max, $min);
+
+        switch ($softType) {
+
+            case '2':
+                $doctor_new_list = $SearchIndex->getDoctorListBySortScorceAndShow($review, $max, $min);
+
+                break;
+
+            case '3':
+
+                $doctor_new_list = $SearchIndex->getDoctorListBySoft($review, $max, $min,1);
+
+                break;
+
+            case '4':
+
+                $doctor_new_list = $SearchIndex->getDoctorListBySoft($review, $max, $min,2);
+
+                break;
+
+            case '5':
+
+                $doctor_new_list = $SearchIndex->getDoctorListBySoft($review, $max, $min,3);
+
+                break;
+
+            case '6':
+
+                $doctor_new_list = $SearchIndex->getDoctorListBySoft($review, $max, $min,4);
+
+                break;
+            
+            default:
+                
+                $doctor_new_list = $SearchIndex->getDoctorSorceByReviewAndSortReviewNumber($review, $max, $min);
+
+                break;
         }
+      
         return $doctor_new_list;
     }
 
@@ -208,11 +245,24 @@ class DoctorModel extends Model {
      *
      */
 
-    public function selectReviewDoctorInfo(){
+    public function getDoctorList($number,$size){
 
-        $selectDoctorSql = 'select DISTINCT doctors_id from  ohc_review  ';
-        $result = $this->query($selectDoctorSql);
+        $selectDoctorSql = 'select  '.$this->fieldStr.' from  ohc_doctor  WHERE review_number > 0  limit '.$number.' ,'.$size.' ';
+        
+        //echo $selectDoctorSql.'<br />';
+          $result = $this->query($selectDoctorSql);
         return $result;
+    }
+
+    public function getDoctorLimit($number){
+
+        $selectDoctorSql = 'select  '.$this->fieldStr.' from  ohc_doctor   limit '.$number.' ';
+        
+        //echo $selectDoctorSql.'<br />';
+        $result = $this->query($selectDoctorSql);
+
+        return $result;
+
     }
 
 }

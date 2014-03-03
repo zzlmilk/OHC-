@@ -45,6 +45,9 @@ if ($handle = opendir(FOOTCLASS)) {
     }
     closedir($handle);
 }
+
+ ini_set("display_errors", 0);
+ 
 $smarty->assign('URLController', URLController);
 $smarty->assign('URLAjaxController', URLAjaxController);
 $smarty->assign('URLJsController', URLJsController);

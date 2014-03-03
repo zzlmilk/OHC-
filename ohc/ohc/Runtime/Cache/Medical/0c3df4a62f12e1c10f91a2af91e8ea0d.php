@@ -321,6 +321,35 @@
                             <div style="float:left; padding-top: 5px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/cursor_03.png"/></div>
                             <div style="clear:both"></div>
                         </li>
+
+                         <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/button-off_03.png"/><input type="hidden" value="3"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; ">ease of appointment/waiting time </div>
+                            <div style="float:left; padding-top: 5px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+
+                         <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/button-off_03.png"/><input type="hidden" value="4"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; ">bedside manner</div>
+                            <div style="float:left; padding-top: 5px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+
+                         <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/button-off_03.png"/><input type="hidden" value="5"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; "> knowledge & skills of providers</div>
+                            <div style="float:left; padding-top: 5px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+
+                          <li>
+                            <div class="liFloat" style=" height: 20px; line-height: 20px;padding-top: 3px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/button-off_03.png"/><input type="hidden" value="6"/></div>
+                            <div class="liFloat listText" style="line-height: 20px; "> and satisfaction of outcome</div>
+                            <div style="float:left; padding-top: 5px"><img src="<?php echo ($PUBLIC); ?>/image/Medical/review/cursor_03.png"/></div>
+                            <div style="clear:both"></div>
+                        </li>
+
                     </ul>   
                 </div>
 
@@ -415,12 +444,11 @@
 </div><?php endif; ?>
                     </div>
                 </div>
-            </div>
-            <div style="clear: both;"></div>
-            <div id="ajaxfield" style=" margin-left: 85px; margin-top: 10px; overflow: hidden;">
-              <!--            医疗项目开始-->
-<div class="left" style="  color: #acabab; margin-left: 20px; width: 137px; "></div>
-<div style="width: 535px;" class="left">
+
+                  <div id="ajaxfield" class='left' style=" overflow: hidden;">
+                     <!--            医疗项目开始-->
+
+<div style="width: 535px;margin-left: 55px; " class="left">
     <?php if(is_array($doctor_procedure)): foreach($doctor_procedure as $k=>$vo): ?><div id="doctor_produce_<?php echo ($k); ?>">
             
             <div class=" produce_doctor" style=" margin-top: 10px;" id="produce_doctor_<?php echo ($k); ?>">
@@ -463,6 +491,9 @@
         </div><?php endforeach; endif; ?>
 </div>
               </div>
+            </div>
+            <div style="clear: both;"></div>
+          
             <div>
                 <div style="clear: both; height: 20px;"></div>
 <div class="footer">

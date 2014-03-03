@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-01-07 14:54:48
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-03-03 17:20:49
          compiled from "/web/www/OHC-/ohc/admin//templates/left.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:176908203752cba4b8787887-63904263%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:639490311531449714f9c87-13758408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '8d68d565ad4a31996ee3b630015433adf93f171a' => 
     array (
       0 => '/web/www/OHC-/ohc/admin//templates/left.tpl',
-      1 => 1388978694,
+      1 => 1393838448,
     ),
   ),
-  'nocache_hash' => '176908203752cba4b8787887-63904263',
+  'nocache_hash' => '639490311531449714f9c87-13758408',
   'function' => 
   array (
   ),
@@ -61,6 +61,10 @@ $_smarty_tpl->decodeProperties(array (
                 var name1 = "subtree" + idstr;
                 var name2 = "img" + idstr;
                 var objectobj = document.all(name1);
+
+                
+
+
                 var imgobj = document.all(name2);
 
 
@@ -174,6 +178,37 @@ redirst.php?action=excel&filetype=hospital" target="mainFrame" class="left-fontS
 
 
                         </table>
+
+
+                        <!-- 访问页面 -->
+
+
+
+                        <TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="left-table03" id="table2" >
+                            <tr>
+                                <td height="29">
+                                    <table width="85%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <td width="15%"><img name="img10" id="img10" src="./images/ico04.gif" width="8" height="11" /></td>
+                                            <td width="85%">
+                                                <a href="javascript:vold(0)" target="mainFrame" class="left-font03" onClick="list('10')" >visit</a></td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </TABLE>
+                        <table id="subtree10" style="DISPLAY: none" width="95%" border="0" align="center" cellpadding="0" ellspacing="0" class="left-table02">
+                            <tr>
+                                <td width="15%" height="20" ><img id="xiaotu16" src="./images/ico06.gif" width="8" height="12" /></td>
+                                <td width="85%"><a href="<?php echo $_smarty_tpl->getVariable('URLController')->value;?>
+redirst.php?action=visit" target="mainFrame" class="left-fontSmall" onClick="tupian('16')">user visit</a></td>
+                            </tr>      
+
+
+                         
+                        </table>
+
+
                     </TD>
                 </tr>
             </table>

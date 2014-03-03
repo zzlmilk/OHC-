@@ -48,6 +48,7 @@ class forumAction extends Action {
         $insertVal['topic_anonymous'] = $_POST['isAnonymous'];
         $insertVal['topic_time'] = time();
         $insertVal['user_id'] = $_SESSION['user_id'];
+        $insertVal['topic_format_time'] = date('Y-m-d H:i:s');
         if ($Data->add($insertVal)) {
             $this->redirect('forum/forum/forumTopic/', array('id' => $_POST['forum_id']));
         } else {

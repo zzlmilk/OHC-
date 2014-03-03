@@ -1,0 +1,82 @@
+[ 2014-02-26T10:10:08+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000852s ]
+INFO: Run CheckLang Behavior [ RunTime:0.001372s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002449s ]
+NOTIC: [8] Undefined index: page /web/www/OHC-/ohc/ohc/Lib/Action/Home/IndexAction.class.php 第 88 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000574s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000644s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 75 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 86 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 103 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 119 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 151 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 152 行.
+NOTIC: [8] Undefined variable: user_name /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 270 行.
+NOTIC: [8] Undefined variable: reviewCount /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 271 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 280 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 283 行.
+NOTIC: [8] Undefined variable: review_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 287 行.
+NOTIC: [8] Undefined variable: forum_data /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 295 行.
+NOTIC: [8] Undefined variable: forum_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 309 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.019092s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.019135s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000917s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000828s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000541s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000502s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002950s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000984s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001044s ]
+
+[ 2014-02-26T10:10:17+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=Medical&m=index&a=search
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000255s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000331s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000713s ]
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 514 行.
+NOTIC: [8] Undefined index: back /web/www/OHC-/ohc/ohc/Lib/Action/Medical/indexAction.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ohc_doctor` [ RunTime:0.006639s ]
+SQL: (SELECT review_number,doctor_id,doctor_gender,doctor_frist_name,doctor_middle_name,doctor_last_name,street_city,street_state,street_zip,specialty,specialty2,title FROM ohc_doctor where doctor_frist_name = "adasd") UNION ALL (SELECT review_number,doctor_id,doctor_gender,doctor_frist_name,doctor_middle_name,doctor_last_name,street_city,street_state,street_zip,specialty,specialty2,title FROM ohc_doctor where doctor_last_name = "adasd") ORDER BY review_number DESC [ RunTime:0.003389s ]
+SQL: SHOW COLUMNS FROM `ohc_review` [ RunTime:0.003669s ]
+SQL: SELECT `b1`,`b2`,`b3`,`b4`,`procedures_name`,`procedures_other_name`,`review_id`,`commect_review`,`review_id` FROM `ohc_review` WHERE ( doctors_id = 126631 )  [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `ohc_doctor_review` [ RunTime:0.004677s ]
+SQL: SELECT * FROM `ohc_doctor_review` WHERE ( doctor_id =126631 ) LIMIT 1   [ RunTime:0.000263s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+SQL: SHOW COLUMNS FROM `ohc_review_fraction` [ RunTime:0.003174s ]
+SQL: SELECT * FROM `ohc_review_fraction` WHERE ( doctor_id = 126631 )  [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `ohc_doctor_review` [ RunTime:0.000812s ]
+SQL: SELECT * FROM `ohc_doctor_review` WHERE ( doctor_id ='126631' ) LIMIT 1   [ RunTime:0.000233s ]
+NOTIC: [8] Undefined index: back /web/www/OHC-/ohc/ohc/Lib/Action/Medical/indexAction.class.php 第 34 行.
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 85 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000259s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000299s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 115 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 126 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 143 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 159 行.
+NOTIC: [8] Use of undefined constant M - assumed 'M' /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 338 行.
+NOTIC: [8] Undefined index: medical_school /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 349 行.
+NOTIC: [8] Undefined index: graduation_year /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 354 行.
+NOTIC: [8] Undefined index: doctor_telephone /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 366 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 394 行.
+NOTIC: [8] Undefined variable: doctor_procedure /web/www/OHC-/ohc/ohc/Runtime/Cache/Medical/0c3df4a62f12e1c10f91a2af91e8ea0d.php 第 424 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.016492s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016525s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000217s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000156s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000091s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000182s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000717s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000270s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000299s ]
+
