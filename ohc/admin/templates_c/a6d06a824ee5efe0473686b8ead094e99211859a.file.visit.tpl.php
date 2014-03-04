@@ -1,16 +1,16 @@
-<?php /* Smarty version Smarty-3.0-RC2, created on 2014-03-03 17:44:25
+<?php /* Smarty version Smarty-3.0-RC2, created on 2014-03-04 16:02:43
          compiled from "/web/www/OHC-/ohc/admin//templates/visit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:8816550253144ef986b3c0-01756565%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:90827942531588a3a00875-14171660%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a6d06a824ee5efe0473686b8ead094e99211859a' => 
     array (
       0 => '/web/www/OHC-/ohc/admin//templates/visit.tpl',
-      1 => 1393839861,
+      1 => 1393920025,
     ),
   ),
-  'nocache_hash' => '8816550253144ef986b3c0-01756565',
+  'nocache_hash' => '90827942531588a3a00875-14171660',
   'function' => 
   array (
   ),
@@ -82,7 +82,7 @@ redirst.php?action=review&function=deleteReview" method="POST">
 <!--                href="<?php echo $_smarty_tpl->getVariable('URLController')->value;?>
 redirst.php?action=review&function=insertReview" -->
 
-                <table>
+                <table style=' width: 600px;'>
                     <thead>
                         <tr>
                            <th>ip</th>

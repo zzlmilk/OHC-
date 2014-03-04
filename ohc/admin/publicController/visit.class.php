@@ -26,7 +26,7 @@ class visitController extends BaseController {
     	$visit_page->initialize();
 
         //var_dump($r);
-        $reviewAll = $visit_page->vars_all;
+        $visit_page = $visit_page->vars_all;
         if ($review->vars_number < 1) {
             $this->assign("reviewAll", $reviewAll);
         } else {

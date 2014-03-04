@@ -62,7 +62,7 @@ return false;
                
 <!--                href="{$URLController}redirst.php?action=review&function=insertReview" -->
 
-                <table>
+                <table style=' width: 600px;'>
                     <thead>
                         <tr>
                            <th>ip</th>
