@@ -1,0 +1,311 @@
+[ 2014-03-19T11:45:15+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000896s ]
+INFO: Run CheckLang Behavior [ RunTime:0.002542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.005999s ]
+NOTIC: [8] Undefined index: page /web/www/OHC-/ohc/ohc/Lib/Action/Home/IndexAction.class.php 第 88 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.010883s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000989s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "Home/Index/index" ) LIMIT 1   [ RunTime:0.007493s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/index','2014-03-19 11:45:15',1395200715,'首页') [ RunTime:0.003100s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000551s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000599s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 75 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 86 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 103 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 119 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 151 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 152 行.
+NOTIC: [8] Undefined variable: user_name /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 270 行.
+NOTIC: [8] Undefined variable: reviewCount /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 271 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 280 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 283 行.
+NOTIC: [8] Undefined variable: review_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 287 行.
+NOTIC: [8] Undefined variable: forum_data /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 295 行.
+NOTIC: [8] Undefined variable: forum_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 309 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.021785s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021825s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000571s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000539s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000499s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000534s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002295s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.001193s ]
+INFO: [ view_end ] --END-- [ RunTime:0.001246s ]
+
+[ 2014-03-19T11:45:18+08:00 ] ERR: (ThinkException) Column 'page_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/userLogin','2014-03-19 11:45:18',1395200718,null)
+[ 2014-03-19T11:45:20+08:00 ] ERR: (ThinkException) Column 'page_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/userLogin','2014-03-19 11:45:20',1395200720,null)
+[ 2014-03-19T11:45:41+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000293s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000468s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000909s ]
+NOTIC: [8] Undefined index: page /web/www/OHC-/ohc/ohc/Lib/Action/Home/IndexAction.class.php 第 88 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.001100s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000933s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "Home/Index/index" ) LIMIT 1   [ RunTime:0.000255s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/index','2014-03-19 11:45:41',1395200741,'首页') [ RunTime:0.000451s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000246s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000286s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 75 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 86 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 103 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 119 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 151 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 152 行.
+NOTIC: [8] Undefined variable: user_name /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 270 行.
+NOTIC: [8] Undefined variable: reviewCount /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 271 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 280 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 283 行.
+NOTIC: [8] Undefined variable: review_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 287 行.
+NOTIC: [8] Undefined variable: forum_data /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 295 行.
+NOTIC: [8] Undefined variable: forum_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 309 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.011390s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011429s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000233s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000187s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000117s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000233s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000857s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000279s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000314s ]
+
+[ 2014-03-19T11:45:43+08:00 ] ERR: (ThinkException) Column 'page_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/userLogin','2014-03-19 11:45:43',1395200743,null)
+[ 2014-03-19T11:45:44+08:00 ] ERR: (ThinkException) Column 'page_name' cannot be null
+ [ SQL语句 ] : INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','User/register/index','2014-03-19 11:45:44',1395200744,null)
+[ 2014-03-19T11:46:06+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=User&m=register&a=index
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000233s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000424s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000746s ]
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.007953s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000720s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "User/register/index" ) LIMIT 1   [ RunTime:0.000247s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','User/register/index','2014-03-19 11:46:06',1395200766,null) [ RunTime:0.000382s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000221s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000255s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 123 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 134 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 151 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 167 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 189 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 200 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 201 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 204 行.
+NOTIC: [8] Undefined variable: doctor_info /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 206 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 211 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 236 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 248 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 256 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 267 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/User/c171e4f8361e5c7147b1b8a2722af950.php 第 274 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.010536s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010571s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000327s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000265s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000158s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000296s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001160s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000423s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000472s ]
+
+[ 2014-03-19T11:46:09+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=User&m=register&a=checkNickName&username=
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000242s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000290s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000595s ]
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.017718s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000906s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "User/register/checkNickName" ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','User/register/checkNickName','2014-03-19 11:46:09',1395200769,null) [ RunTime:0.000395s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+SQL: SHOW COLUMNS FROM `ohc_user` [ RunTime:0.001113s ]
+
+[ 2014-03-19T11:46:09+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=User&m=register&a=checkEmail&_=1395200769502&email=
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000213s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000596s ]
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.000878s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.001010s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "User/register/checkEmail" ) LIMIT 1   [ RunTime:0.000262s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','User/register/checkEmail','2014-03-19 11:46:09',1395200769,null) [ RunTime:0.000389s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+
+[ 2014-03-19T11:46:09+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=User&m=register&a=checkPassword&_=1395200769519&password=
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000212s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000547s ]
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.000752s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000650s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "User/register/checkPassword" ) LIMIT 1   [ RunTime:0.000206s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','User/register/checkPassword','2014-03-19 11:46:09',1395200769,null) [ RunTime:0.000309s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+
+[ 2014-03-19T11:46:09+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=User&m=register&a=checkRePassWord&_=1395200769535&repassword=&password=
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000550s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000791s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001498s ]
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.001117s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000817s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "User/register/checkRePassWord" ) LIMIT 1   [ RunTime:0.000226s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','User/register/checkRePassWord','2014-03-19 11:46:09',1395200769,null) [ RunTime:0.000458s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+
+[ 2014-03-19T11:47:17+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000251s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000319s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000639s ]
+NOTIC: [8] Undefined index: page /web/www/OHC-/ohc/ohc/Lib/Action/Home/IndexAction.class.php 第 88 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.005411s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.001781s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "Home/Index/index" ) LIMIT 1   [ RunTime:0.000734s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/index','2014-03-19 11:47:17',1395200837,'首页') [ RunTime:0.000329s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000229s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000268s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 75 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 86 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 103 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 119 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 151 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 152 行.
+NOTIC: [8] Undefined variable: user_name /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 270 行.
+NOTIC: [8] Undefined variable: reviewCount /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 271 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 280 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 283 行.
+NOTIC: [8] Undefined variable: review_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 287 行.
+NOTIC: [8] Undefined variable: forum_data /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 295 行.
+NOTIC: [8] Undefined variable: forum_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 309 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.013415s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013452s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000239s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000184s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000107s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000205s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000815s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000437s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000489s ]
+
+[ 2014-03-19T11:47:18+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/?g=Home&m=Index&a=userLogin
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000215s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000549s ]
+NOTIC: [8] Undefined index: page /web/www/OHC-/ohc/ohc/Lib/Action/Home/IndexAction.class.php 第 88 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.000803s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000836s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "Home/Index/userLogin" ) LIMIT 1   [ RunTime:0.000222s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/userLogin','2014-03-19 11:47:18',1395200838,null) [ RunTime:0.000362s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000226s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000256s ]
+INFO: [ view_parse ] --START--
+INFO: Run ParseTemplate Behavior [ RunTime:0.003635s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003664s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000139s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000143s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000089s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000168s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000606s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000247s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000269s ]
+
+[ 2014-03-19T11:47:21+08:00 ] 0.0.0.0 /OHC-/ohc/ohc/
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000268s ]
+INFO: Run CheckLang Behavior [ RunTime:0.000328s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+NOTIC: [8] Undefined index: page /web/www/OHC-/ohc/ohc/Lib/Action/Home/IndexAction.class.php 第 88 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1011 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1013 行.
+NOTIC: [8] Undefined variable: HTTP_SERVER_VARS /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 1015 行.
+SQL: SHOW COLUMNS FROM `ohc_page_visit` [ RunTime:0.007922s ]
+SQL: SHOW COLUMNS FROM `ohc_page_name` [ RunTime:0.000955s ]
+SQL: SELECT * FROM `ohc_page_name` WHERE ( page_name like "Home/Index/index" ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: INSERT INTO `ohc_page_visit` (`ip`,`visit`,`visit_time`,`ctime`,`page_name`) VALUES ('::1','Home/Index/index','2014-03-19 11:47:21',1395200841,'首页') [ RunTime:0.000438s ]
+NOTIC: [8] Undefined index: _URL_ /web/www/OHC-/ohc/ohc/ThinkPHP/Lib/Core/Action.class.php 第 89 行.
+INFO: [ view_template ] --START--
+INFO: Run LocationTemplate Behavior [ RunTime:0.000235s ]
+INFO: [ view_template ] --END-- [ RunTime:0.000291s ]
+INFO: [ view_parse ] --START--
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 75 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 86 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 103 行.
+NOTIC: [8] Undefined index: user_id /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 119 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 151 行.
+NOTIC: [8] Undefined variable: search_contion /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 152 行.
+NOTIC: [8] Undefined variable: user_name /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 270 行.
+NOTIC: [8] Undefined variable: reviewCount /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 271 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 280 行.
+NOTIC: [8] Undefined variable: doctor_review /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 283 行.
+NOTIC: [8] Undefined variable: review_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 287 行.
+NOTIC: [8] Undefined variable: forum_data /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 295 行.
+NOTIC: [8] Undefined variable: forum_page /web/www/OHC-/ohc/ohc/Runtime/Cache/Home/d8279eadcf198a6a7769d21fee513277.php 第 309 行.
+INFO: Run ParseTemplate Behavior [ RunTime:0.014280s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014323s ]
+INFO: [ view_filter ] --START--
+INFO: Run ContentReplace Behavior [ RunTime:0.000201s ]
+INFO: Run TokenBuild Behavior [ RunTime:0.000164s ]
+INFO: Run WriteHtmlCache Behavior [ RunTime:0.000104s ]
+INFO: Run ShowRuntime Behavior [ RunTime:0.000198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000740s ]
+INFO: [ view_end ] --START--
+INFO: Run ShowPageTrace Behavior [ RunTime:0.000378s ]
+INFO: [ view_end ] --END-- [ RunTime:0.000438s ]
+

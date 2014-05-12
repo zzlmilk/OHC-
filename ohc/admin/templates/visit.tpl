@@ -70,8 +70,6 @@ return false;
                            <th>visit_time</th>
 
                            <th>visit page</th>
-
-
                         </tr>
                     </thead>
                     <tbody>            
