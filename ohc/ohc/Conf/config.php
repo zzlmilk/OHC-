@@ -26,8 +26,8 @@ return array(
     'SMTP_MAIL_TYPE' => 'HTML', //发送邮件类型:HTML,TXT(注意都是大写)
     'SMTP_TIME_OUT' => 30, //超时时间
     'SMTP_AUTH' => true,
-    // 'adminUrl'=>'http://transparentmedicalcare.com/admin',
-   'adminUrl'=>'http://localhost/OHC-/ohc/ohc//admin'
+     'adminUrl'=>'http://transparentmedicalcare.com/admin',
+   //'adminUrl'=>'http://localhost/OHC-/ohc/ohc//admin'
     
 );
 ?>
